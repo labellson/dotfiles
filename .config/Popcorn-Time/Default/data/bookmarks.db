@@ -1,0 +1,5 @@
+{"imdb_id":"tt1586680","type":"tvshow","_id":"3OZdmUHde47Xn5ec"}
+{"imdb_id":"tt2085059","type":"tvshow","_id":"d8dQid8hYTTfBGl1"}
+{"imdb_id":"tt3743822","type":"tvshow","_id":"gfnhoZjcQMtgAJYp"}
+{"imdb_id":"tt1520211","type":"tvshow","_id":"lF8gzlsTDrYoaJUP"}
+{"$$indexCreated":{"fieldName":"imdb_id","unique":true,"sparse":false}}
