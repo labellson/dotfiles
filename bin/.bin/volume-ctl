@@ -1,0 +1,30 @@
+#!/bin/bash
+NID=$(cat $HOME/.config/i3/.volume-ctl-id)
+if [ "$NID" == "" ]
+then
+  NID="0"
+fi
+
+if [ "$1" == "increase" ]
+then
+  pactl set-sink-volume 0 +5% #increase sound volume
+  ICON="/home/labellson/.icons/notifications/notification-audio-volume-high.png"
+  TITLE="Volume is:"
+elif [ "$1" == "decrease" ]
+then
+  pactl set-sink-volume 0 -5% #decrease sound volume
+  ICON="/home/labellson/.icons/notifications/notification-audio-volume-low.png"
+  TITLE="Volume is:"
+elif [ "$1" == "mute-toggle" ]
+then
+  pactl set-sink-mute 0 toggle # mute sound
+  ICON="/home/labellson/.icons/notifications/notification-audio-volume-muted.png"
+  TITLE="Volume muted:"
+else
+  echo "Usage: volume-ctl [increase | decrease | mute-toggle]"
+  exit
+fi
+
+VOLUME=$(pactl list sinks | grep -o '[0-9]\{1,3\}%' | head -1)
+
+notify-send -p -r $NID -i $ICON "$TITLE" "$VOLUME" > $HOME/.config/i3/.volume-ctl-id
