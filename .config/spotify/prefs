@@ -1,9 +1,0 @@
-app.autostart-configured=true
-storage.last-location="/home/labellson/.cache/spotify/Storage"
-app.autostart-mode=""
-autologin.username="labellson"
-autologin.saved_credentials="{\"labellson\":[\"labellson\",\"yt5x9Umo5N/v4b7wIyK0j6xMTveIVEB6JQkt1Jsi8p7Gei3opi8RcKJIA9FRJlBQ\"]}"
-core.csrf_tokens="*.spotify.com|2314255073ffb18633494fb984a44bc2|614788415"
-core.clock_delta=-1
-autologin.canonical_username="labellson"
-autologin.blob="yt5x9Umo5N/v4b7wIyK0j6xMTveIVEB6JQkt1Jsi8p7Gei3opi8RcKJIA9FRJlBQ"
