@@ -228,7 +228,10 @@ for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
 # Workspace apps   #
 ####################
 # Para ver las clases, utilizar xprop
-#assign [class="Firefox"] 1
+assign [class="Telegram"] 8
+
+for_window [class="Telegram"] floating enable
+for_window [class="Spotify"] move container to workspace 9
 
 ####################
 # modes Settings   #
