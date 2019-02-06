@@ -53,7 +53,7 @@ fi
 ###########
 
 # Set desktop session for icon themes on QT applications
-export DESKTOP_SESSION=gnome
+export DESKTOP_SESSION=i3
 
 
 # Set wallpaper
