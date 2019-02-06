@@ -222,14 +222,11 @@ bindsym $sup+Return exec emacsclient -c
 
 # open emacs anywhere
 bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
-for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
+for_window [class="Emacs" title="\*Emacs Anyw
 
-####################
-# Workspace apps   #
-####################
-# Para ver las clases, utilizar xprop
+uuissfdtilizar xprop
 assign [class="Telegram"] 8
-assign [class="Transmission-gtk" title="Transmission"] 10
+assign [class="Transmission-gtk"] 10
 
 for_window [class="Telegram"] floating enable
 for_window [class="Spotify"] move container to workspace 9
