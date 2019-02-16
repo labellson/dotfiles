@@ -1,0 +1,25 @@
+[general]
+pythonfile = ~/.offlineimap.py
+accounts = fastmail
+
+[Account fastmail]
+localrepository = fastmail-local
+remoterepository = fastmail-remote
+autorefresh = 5
+postsynchook = mu index --maildir ~/.maildir
+
+[Repository fastmail-local]
+type = Maildir
+localfolders = ~/.maildir/fastmail
+
+[Repository fastmail-remote]
+type = IMAP
+remotehost = imap.fastmail.com
+remoteport = 993
+remoteuser = labellson@fastmail.com
+remotepasseval = passwd('labellson@fastmail.com')
+folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl = yes
+expunge = no
+maxconnections = 3
