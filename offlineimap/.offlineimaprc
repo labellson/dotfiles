@@ -21,5 +21,4 @@ remotepasseval = passwd('labellson@fastmail.com')
 folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 ssl = yes
-expunge = no
 maxconnections = 3
