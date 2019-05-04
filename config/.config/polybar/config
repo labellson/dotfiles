@@ -33,7 +33,7 @@ padding-right = 1
 module-margin-right = 1
 module-margin-left = 0
 
-modules-right = bitcoin filesystem keyboard volume battery date menu0
+modules-right = bitcoin filesystem keyboard email volume battery date menu0
 modules-center = spotify 
 modules-left = i3 wlan cpu memory temperature 
 
@@ -60,6 +60,7 @@ font-0 = GohuFont Powerline:size=8;0
 font-1 = FontAwesome:size=10;0
 font-2 = TakaoGothic:weight=bold:size=10;0
 font-3 = FontAwesome:size=8;0
+font-4 = Font Awesome 5 Free:size=9
 
 [bar/hdmi]
 inherit = bar/Bar
@@ -265,7 +266,7 @@ format-padding = 1
 
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <bar-volume>
 
@@ -340,8 +341,8 @@ format-warn-underline = ${colors.red}
 format-padding = 1
 format-warn-padidng = 1
 
-label =  %temperature%
-label-warn =  %temperature%
+label =  %temperature-c%
+label-warn =  %temperature-c%
 
 ramp-0 = 
 ramp-1 = 
@@ -414,9 +415,20 @@ exec = ~/.config/polybar/bitcoin
 type = custom/script
 interval = 5
 format = <label>
-label =  %output%
+format-prefix = " "
+label = "%output:0:150%"
 exec-if = pgrep -x spotify
 exec = ~/.config/polybar/spotify.sh
+
+[module/email]
+type = custom/script
+exec = mu find "" flag:unread AND NOT flag:trashed AND NOT maildir:/fastmail/Spam 2 > /dev/null | wc -l
+format-prefix = "  "
+format-prefix-foreground = ${colors.white}
+format-prefix-font = 4
+format-suffix = " "
+format-underline = ${colors.white}
+interval = 30
 
 [module/keyboard]
 type = internal/xkeyboard
