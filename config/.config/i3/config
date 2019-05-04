@@ -224,6 +224,9 @@ bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
 bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
 for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
 
+# opencv floating windows. maybe makes floats another windows
+for_window [class="Python"] floating enable
+
 ####################
 # Workspace apps   #
 ####################
