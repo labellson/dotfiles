@@ -43,19 +43,6 @@ foreground = ${colors.white}
 underline-size = 2
 underline-color = ${colors.white}
 
-tray-detached = false
-;tray-position = left 
-tray-position = center
-#tray-background = ${colors.forest-bg}
-#tray-transparent = true
-;tray-offset-x = 75%
-;tray-offset-x = 25%
-tray-offset-x = 15%
-;tray-offset-y = 
-;tray-maxsize = 
-;tray-padding = 
-
-;font-0 = terminus:size=8;0
 font-0 = GohuFont Powerline:size=8;0
 font-1 = FontAwesome:size=10;0
 font-2 = TakaoGothic:weight=bold:size=10;0
