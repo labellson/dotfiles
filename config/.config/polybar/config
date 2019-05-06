@@ -404,7 +404,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 interval = 300
 format = <label>
-format-prefix = " "
+format-prefix = "  "
 tail = true
 format-prefix-foreground = ${colors.white}
 format-underline = ${colors.white}
@@ -422,8 +422,8 @@ exec = ~/.config/polybar/spotify.sh
 
 [module/email]
 type = custom/script
-exec = mu find "" flag:unread AND NOT flag:trashed AND NOT maildir:/fastmail/Spam 2 > /dev/null | wc -l
-format-prefix = "  "
+exec = mu find "" flag:unread AND NOT flag:trashed AND NOT maildir:/fastmail/Spam 2>/dev/null | wc -l
+format-prefix = "    "
 format-prefix-foreground = ${colors.white}
 format-prefix-font = 4
 format-suffix = " "
