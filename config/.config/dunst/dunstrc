@@ -1,5 +1,5 @@
 [global]
-    font = GohuFont Powerline, Noto Color Emoji 9
+    font = GohuFont Powerline 9
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
