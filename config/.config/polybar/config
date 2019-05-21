@@ -253,7 +253,7 @@ format-padding = 1
 
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
 format-volume = <bar-volume>
 
