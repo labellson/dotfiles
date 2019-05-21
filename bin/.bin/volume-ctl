@@ -7,17 +7,17 @@ fi
 
 if [ "$1" == "increase" ]
 then
-  pactl set-sink-volume 0 +5% #increase sound volume
+  pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
   ICON="/home/labellson/.icons/notifications/notification-audio-volume-high.png"
   TITLE="Volume is:"
 elif [ "$1" == "decrease" ]
 then
-  pactl set-sink-volume 0 -5% #decrease sound volume
+  pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
   ICON="/home/labellson/.icons/notifications/notification-audio-volume-low.png"
   TITLE="Volume is:"
 elif [ "$1" == "mute-toggle" ]
 then
-  pactl set-sink-mute 0 toggle # mute sound
+  pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
   ICON="/home/labellson/.icons/notifications/notification-audio-volume-muted.png"
   TITLE="Volume muted:"
 else
