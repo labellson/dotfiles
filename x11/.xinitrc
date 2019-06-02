@@ -9,12 +9,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 if [ -f $sysresources ]; then
 
-
-
-
-
-
-
     xrdb -merge $sysresources
 
 fi
@@ -24,12 +18,6 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
 
     xrdb -merge "$userresources"
 
@@ -48,24 +36,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-###########
-# Mi conf #
-###########
 
 # Set desktop session for icon themes on QT applications
 export DESKTOP_SESSION=i3
 
-
 # Set wallpaper
 sh ~/.fehbg &
-albert &
+
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
-# Arrancar polkit agent
-/usr/lib/xfce-polkit/xfce-polkit &
-
-# No funciona bien, freeze X11
-#thunar --daemon 
 
 exec i3
 

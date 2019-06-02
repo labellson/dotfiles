@@ -311,7 +311,9 @@ client.placeholder 	    $bg 	$bg 	$fg  $bg       $bg
 # Exec programs    #
 ####################
 
-exec --no-startup-id dunst -config /home/labellson/.config/dunst/dunstrc
-exec --no-startup-id /home/labellson/.bin/launch-polybar.sh
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id ~/.bin/launch-polybar.sh
 exec --no-startup-id compton -cb -e 1
 exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id albert
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit  # polkit agent
