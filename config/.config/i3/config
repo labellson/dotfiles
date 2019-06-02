@@ -313,5 +313,5 @@ client.placeholder 	    $bg 	$bg 	$fg  $bg       $bg
 
 exec --no-startup-id dunst -config /home/labellson/.config/dunst/dunstrc
 exec --no-startup-id /home/labellson/.bin/launch-polybar.sh
-exec --no-startup-id compton -cb
+exec --no-startup-id compton -cb -e 1
 exec --no-startup-id libinput-gestures-setup start
