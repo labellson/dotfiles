@@ -20,6 +20,10 @@ font pango:DejaVu Sans Mono 8
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# start a floating terminal (with termite)
+bindsym $mod+Shift+Return exec i3-sensible-terminal --title "floating-termite"
+for_window [class="Termite" title="floating-termite"] floating enable
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -219,6 +223,10 @@ for_window [class="(?i)mpv"] floating enable
 
 # Launch emacs
 bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
+
+# Launch floating emacs
+bindsym $sup+Shift+Return exec ~/.bin/emacs-floating.sh
+for_window [class="Emacs" instance="floating-emacs"] floating enable
 
 # open emacs anywhere
 bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
