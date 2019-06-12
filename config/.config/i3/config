@@ -86,6 +86,18 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+bindsym $sup+1 workspace 11
+bindsym $sup+2 workspace 12
+bindsym $sup+3 workspace 13
+bindsym $sup+4 workspace 14
+bindsym $sup+5 workspace 15
+bindsym $sup+6 workspace 16
+bindsym $sup+7 workspace 17
+bindsym $sup+8 workspace 18
+bindsym $sup+9 workspace 19
+bindsym $sup+0 workspace 20
+
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -97,6 +109,40 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $sup+Shift+1 move container to workspace 11
+bindsym $sup+Shift+2 move container to workspace 12
+bindsym $sup+Shift+3 move container to workspace 13
+bindsym $sup+Shift+4 move container to workspace 14
+bindsym $sup+Shift+5 move container to workspace 15
+bindsym $sup+Shift+6 move container to workspace 16
+bindsym $sup+Shift+7 move container to workspace 17
+bindsym $sup+Shift+8 move container to workspace 18
+bindsym $sup+Shift+9 move container to workspace 19
+bindsym $sup+Shift+0 move container to workspace 20
+
+# assign 11-20 workspaces to secondary output
+workspace 1 output eDP1
+workspace 2 output eDP1
+workspace 3 output eDP1
+workspace 4 output eDP1
+workspace 5 output eDP1
+workspace 6 output eDP1
+workspace 7 output eDP1
+workspace 8 output eDP1
+workspace 9 output eDP1
+workspace 10 output eDP1
+
+workspace 11 output HDMI1
+workspace 12 output HDMI1
+workspace 13 output HDMI1
+workspace 14 output HDMI1
+workspace 15 output HDMI1
+workspace 16 output HDMI1
+workspace 17 output HDMI1
+workspace 18 output HDMI1
+workspace 19 output HDMI1
+workspace 20 output HDMI1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
