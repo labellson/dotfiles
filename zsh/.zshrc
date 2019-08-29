@@ -129,6 +129,13 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.bin
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 alias ACE=$ACE_ILP_ROOT/bin/ace
 
+#-----------------------------
+# Functions stuff 
+#-----------------------------
+mkcd () {
+    mkdir -p ${1} && cd ${1}
+}
+
 #------------------------------
 # ShellFuncs
 #------------------------------
