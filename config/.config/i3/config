@@ -278,6 +278,9 @@ for_window [class="Emacs" instance="floating-emacs"] floating enable
 bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
 for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
 
+# Activate/Deactivate the touchpad when typing
+bindsym $mod+Shift+t exec ~/.bin/toogle-touchpad-typing.sh
+
 # opencv floating windows. maybe makes floats another windows
 for_window [class="Python"] floating enable
 
