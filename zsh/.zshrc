@@ -100,7 +100,7 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 #-----------------------------
 # Variables
 #-----------------------------
-export BROWSER="brave"
+export BROWSER="firefox"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export CC="clang"
