@@ -385,7 +385,7 @@ exec = ~/.config/polybar/spotify.sh
 
 [module/email]
 type = custom/script
-exec = mu find "" flag:unread AND NOT flag:trashed AND NOT maildir:/fastmail/Spam 2>/dev/null | wc -l
+exec = mu find "" flag:unread AND NOT flag:trashed AND NOT maildir:/fastmail/Spam AND NOT maildir:/fastmail/Trash 2>/dev/null | wc -l
 format-prefix = "    "
 format-prefix-foreground = ${colors.white}
 format-prefix-font = 4
