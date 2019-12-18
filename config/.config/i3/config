@@ -250,7 +250,7 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show
 
 # Lock screen
-bindsym $mod+Control+l exec --no-startup-id ~/.bin/lock.sh
+bindsym $mod+Control+l exec --no-startup-id ~/.local/bin/lock.sh
 
 # Media Keys
 # Pulse Audio controls
@@ -271,7 +271,7 @@ for_window [class="(?i)mpv"] floating enable
 bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
 
 # Launch floating emacs
-bindsym $sup+Shift+Return exec ~/.bin/emacs-floating.sh
+bindsym $sup+Shift+Return exec ~/.local/bin/emacs-floating.sh
 for_window [class="Emacs" instance="floating-emacs"] floating enable
 
 # open emacs anywhere
@@ -279,7 +279,7 @@ bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
 for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
 
 # Activate/Deactivate the touchpad when typing
-bindsym $mod+Shift+t exec ~/.bin/toogle-touchpad-typing.sh
+bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 
 ####################
 # Workspace apps   #
@@ -358,7 +358,7 @@ client.placeholder 	    $bg 	$bg 	$fg  $bg       $bg
 ####################
 
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id ~/.bin/launch-polybar.sh
+exec --no-startup-id ~/.local/bin/launch-polybar.sh
 exec --no-startup-id compton -cb -e 1
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id albert
