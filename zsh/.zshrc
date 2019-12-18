@@ -121,7 +121,7 @@ export ACE_ILP_ROOT=$HOME/Documents/Master/Programacion-automatica/ACE/linux
 export PYTHONPATH=${PYTHONPATH}:~/.my-python-modules/
 
 # Path
-export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.bin
+export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
 
 # Custom emacsanywhere command. Set custom window title
 # Can be invoked with ${EA_EDITOR[@]}
