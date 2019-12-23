@@ -1,0 +1,13 @@
+rofi.modi: window,ssh,run,drun
+rofi.font: Dejavu Sans Mono 11
+rofi.show-icons: true
+rofi.terminal: termite 
+rofi.separator-style: "dash"
+rofi.hide-scrollbar: true
+rofi.kb-remove-to-eol: 
+rofi.kb-remove-char-back: BackSpace,Shift+BackSpace
+rofi.kb-accept-entry: Control+m,Return,KP_Enter
+rofi.kb-row-up: Up,Control+p,ISO_Left_Tab,Control+k
+rofi.kb-row-down: Down,Control+n,Control+j
+rofi.kb-mode-next: Shift+Right,Control+Tab,Control+l
+rofi.kb-mode-previous: Shift+Left,Control+ISO_Left_Tab,Control+h

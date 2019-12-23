@@ -281,6 +281,9 @@ for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
 # Activate/Deactivate the touchpad when typing
 bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 
+# Launch rofi
+bindsym $sup+space exec rofi -show drun
+
 ####################
 # Workspace apps   #
 ####################
@@ -361,5 +364,4 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id ~/.local/bin/launch-polybar.sh
 exec --no-startup-id compton -cb -e 1
 exec --no-startup-id libinput-gestures-setup start
-exec --no-startup-id albert
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit  # polkit agent
