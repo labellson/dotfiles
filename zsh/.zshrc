@@ -168,3 +168,6 @@ if [ -f '/home/labellson/GCloud/google-cloud-sdk/completion.zsh.inc' ]; then sou
 
 # Load the wpg colorscheme
 (cat $HOME/.config/wpg/sequences &)
+
+# Enable ZSH Tab completion for cht.sh
+fpath=(~/.zsh.d/ $fpath)
