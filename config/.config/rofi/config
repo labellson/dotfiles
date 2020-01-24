@@ -1,5 +1,5 @@
 rofi.modi: window,ssh,run,drun
-rofi.font: Dejavu Sans Mono 11
+rofi.font: Monaco for Powerline 11
 rofi.show-icons: true
 rofi.terminal: termite 
 rofi.separator-style: "dash"
