@@ -133,6 +133,11 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 alias ACE=$ACE_ILP_ROOT/bin/ace
 
+# clear for emacs-libvterm
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
+fi
+
 #-----------------------------
 # Functions stuff 
 #-----------------------------
