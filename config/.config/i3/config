@@ -218,9 +218,6 @@ floating_modifier $mod
 # Start clipster daemon
 exec --no-startup-id clipster -d
 
-# shortcut to selection widget (primary)
-bindsym $mod+c exec clipster -sp
-
 # Size of floating windows
 floating_maximum_size 1920 x 1080
 
