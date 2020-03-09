@@ -11,83 +11,51 @@ mouse_autohide = true
 scrollback_lines = 10000
 
 [colors]
-# gruvbox dark
-# hard contrast: background = #1d2021 rgba(29, 32, 33, 0.85)
-#background = #282828
-# soft contrast: background = #32302f
-#background = rgba(29, 32, 33, 0.85) background gray
-#background = rgba(42, 9, 23, 0.65)
-background = rgba(14, 23, 84, 0.65)
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
+# Base16 Solarized Light
+# Author: Ethan Schoonover (modified by aramisgithub)
 
-# dark0 + gray
-color0 = #282828
-color8 = #928374
+foreground          = #586e75
+foreground_bold     = #073642
+cursor              = #073642
+cursor_foreground   = #fdf6e3
+background          = rgba(253, 246, 227)
 
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
+# 16 color space
 
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
+# Black, Gray, Silver, White
+color0  = #fdf6e3
+color8  = #839496
+color7  = #586e75
+color15 = #002b36
 
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
+# Red
+color1  = #dc322f
+color9  = #dc322f
 
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
+# Green
+color2  = #859900
+color10 = #859900
 
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
+# Yellow
+color3  = #b58900
+color11 = #b58900
 
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
+# Blue
+color4  = #268bd2
+color12 = #268bd2
 
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
+# Purple
+color5  = #6c71c4
+color13 = #6c71c4
 
-[colors]
-# hard contrast: background = #f9f5d7
-#background = #fbf1c7
-# soft contrast: background = #f2e5bc
-#foreground = #3c3836
-#foreground_bold = #3c3836
+# Teal
+color6  = #2aa198
+color14 = #2aa198
 
-# light0 + gray
-#color0 = #fbf1c7
-#color8 = #928374
-
-# neutral_red + faded_red
-#color1 = #cc241d
-#color9 = #9d0006
-
-# neutral_green + faded_green
-#color2 = #98971a
-#color10 = #79740e
-
-# neutral_yellow + faded_yellow
-#color3 = #d79921
-#color11 = #b57614
-
-# neutral_blue + faded_blue
-#color4 = #458588
-#color12 = #076678
-
-# neutral_purple + faded_purple
-#color5 = #b16286
-#color13 = #8f3f71
-
-# neutral_aqua + faded_aqua
-#color6 = #689d6a
-#color14 = #427b58
-
-# dark4 + dark1
-#color7 = #7c6f64
-#color15 = #3c3836
+# Extra colors
+color16 = #cb4b16
+color17 = #d33682
+color18 = #eee8d5
+color19 = #93a1a1
+color20 = #657b83
+color21 = #073642

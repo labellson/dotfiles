@@ -115,13 +115,18 @@ export ANDROID_SDK=~/Android/Sdk
 export ANDROID_TOOLS=$ANDROID_SDK/tools/bin
 export ANDROID_PLATFORM_TOOLS=$ANDROID_SDK/platform-tools
 
-export ACE_ILP_ROOT=$HOME/Documents/Master/Programacion-automatica/ACE/linux
-
 # Python
 export PYTHONPATH=${PYTHONPATH}:~/.my-python-modules/
 
+# Apache Airflow
+export AIRFLOW_HOME=/opt/airflow
+
+#GNU Global
+export GTAGSLIBPATH=$HOME/.gtags/
+
 # Path
 export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
+
 
 # Custom emacsanywhere command. Set custom window title
 # Can be invoked with ${EA_EDITOR[@]}
@@ -131,7 +136,6 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
 # Alias stuff 
 #-----------------------------
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
-alias ACE=$ACE_ILP_ROOT/bin/ace
 
 # clear for emacs-libvterm
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
@@ -171,8 +175,10 @@ if [ -f '/home/labellson/GCloud/google-cloud-sdk/path.zsh.inc' ]; then source '/
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/labellson/GCloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/labellson/GCloud/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Load the wpg colorscheme
-(cat $HOME/.config/wpg/sequences &)
-
 # Enable ZSH Tab completion for cht.sh
 fpath=(~/.zsh.d/ $fpath)
+
+# Completion for apache airflow. Requires python-argcomplete
+autoload bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete airflow)"
