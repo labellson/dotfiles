@@ -34,6 +34,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-speeddating'
 Plugin 'mattn/calendar-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'Tarrasch/pddl.vim'
 
@@ -355,8 +356,9 @@ set mat=2
 " Enable syntax highlighting
 syntax on
 
-colorscheme gruvbox
-set background=dark " Colores en negrita
+set background=light " Colores en negrita
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " dont set background
 hi Normal ctermbg=NONE
