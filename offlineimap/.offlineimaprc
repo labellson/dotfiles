@@ -6,7 +6,7 @@ accounts = fastmail
 localrepository = fastmail-local
 remoterepository = fastmail-remote
 autorefresh = 5
-postsynchook = mu index --maildir ~/.maildir
+postsynchook = mu index
 
 [Repository fastmail-local]
 type = Maildir
