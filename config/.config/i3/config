@@ -214,10 +214,6 @@ mode "$mode_gaps_toggle" {
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Clipster
-# Start clipster daemon
-exec --no-startup-id clipster -d
-
 # Size of floating windows
 floating_maximum_size 1920 x 1080
 
@@ -360,6 +356,7 @@ client.placeholder 	    $bg 	$bg 	$fg  $bg       $bg
 # Exec programs    #
 ####################
 
+exec --no-startup-id clipster -d
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id ~/.local/bin/launch-polybar.sh
 exec --no-startup-id compton -cb -e 1
