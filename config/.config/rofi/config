@@ -11,3 +11,4 @@ rofi.kb-row-up: Up,Control+p,ISO_Left_Tab,Control+k
 rofi.kb-row-down: Down,Control+n,Control+j
 rofi.kb-mode-next: Shift+Right,Control+Tab,Control+l
 rofi.kb-mode-previous: Shift+Left,Control+ISO_Left_Tab,Control+h
+rofi.dpi: 192
