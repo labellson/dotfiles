@@ -250,10 +250,16 @@ bindsym $mod+Control+l exec --no-startup-id ~/.local/bin/lock.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctl increase
 bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctl decrease
 bindsym XF86AudioMute exec --no-startup-id volume-ctl mute-toggle
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Backlight control
+# Requires `light` package and user in `video` group
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Screenshots with maim
 bindsym $mod+Shift+p exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
