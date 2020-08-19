@@ -129,6 +129,7 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin:~/.emacs.d
 #-----------------------------
 # Alias stuff 
 #-----------------------------
+alias pstartx='sudo -n /usr/bin/prime-switch && startx'
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 
 # set i3-tabbed alias if available
