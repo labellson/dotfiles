@@ -18,7 +18,7 @@ forest-bg = #A62A0917
 psycho-bg = #A60E1754
 
 [bar/Bar]
-monitor = eDP1
+monitor = ${env:MONITOR:}
 bottom = false
 override-redirect = false
 wm-restack = i3
