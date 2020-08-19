@@ -1,0 +1,11 @@
+#+TITLE: My dotfiles
+#+AUTHOR: Daniel Laguna Soto
+#+EMAIL: dani@dani.codes
+
+
+This are my dotfiles. I am using =stow= and some bash scripting to manage
+them. 
+
+Some of the bash scripts requires =root= privileges as it creates some system
+files. A *warning* will appear if the script ask for root privileges. With your
+confirmation to proceed, =sudo= will prompt for your password.

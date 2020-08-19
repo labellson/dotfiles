@@ -138,6 +138,7 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
 #-----------------------------
 # Alias stuff 
 #-----------------------------
+alias pstartx='sudo -n /usr/bin/prime-switch && startx'
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 
 # clear for emacs-libvterm

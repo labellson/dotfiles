@@ -44,8 +44,8 @@ export DESKTOP_SESSION=i3
 sh ~/.fehbg &
 
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
-exec i3
-
-xrandr --setprovideroutputsource modesetting NVIDIA-0
+# Configure the screen automatically
 xrandr --auto
+
+# Execute i3
+exec i3
