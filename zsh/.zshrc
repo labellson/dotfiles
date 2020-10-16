@@ -106,6 +106,9 @@ export SUDO_EDITOR="nvim"
 export CC="clang"
 export CXX="clang++"
 
+# source .env files in .zsh.d
+for i in ${HOME}/.zsh.d/*.env; do source $i; done
+
 # Variables para xfluxd
 export LAT=40.3
 export LON=-3.7
