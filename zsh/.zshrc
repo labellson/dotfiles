@@ -125,7 +125,7 @@ export PYTHONPATH=${PYTHONPATH}:~/.my-python-modules/
 export GTAGSLIBPATH=$HOME/.gtags/
 
 # Path
-export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
+export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin:~/.emacs.d/bin
 
 #-----------------------------
 # Alias stuff 
