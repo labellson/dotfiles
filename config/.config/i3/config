@@ -279,10 +279,6 @@ bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
 bindsym $sup+Shift+Return exec ~/.local/bin/emacs-floating.sh
 for_window [class="Emacs" instance="floating-emacs"] floating enable
 
-# open emacs anywhere
-bindsym $mod+Shift+w exec ~/.emacs_anywhere/bin/run
-for_window [class="Emacs" title="\*Emacs Anywhere\*"] floating enable
-
 # Activate/Deactivate the touchpad when typing
 bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 

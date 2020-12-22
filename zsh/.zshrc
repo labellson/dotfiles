@@ -127,11 +127,6 @@ export GTAGSLIBPATH=$HOME/.gtags/
 # Path
 export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin
 
-
-# Custom emacsanywhere command. Set custom window title
-# Can be invoked with ${EA_EDITOR[@]}
-#export EA_EDITOR=(emacsclient -a "" -c --frame-parameters='(quote (name . "scratchemacs-frame"))')
-
 #-----------------------------
 # Alias stuff 
 #-----------------------------
