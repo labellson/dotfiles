@@ -121,9 +121,6 @@ export ANDROID_PLATFORM_TOOLS=$ANDROID_SDK/platform-tools
 # Python
 export PYTHONPATH=${PYTHONPATH}:~/.my-python-modules/
 
-# Apache Airflow
-export AIRFLOW_HOME=/opt/airflow
-
 #GNU Global
 export GTAGSLIBPATH=$HOME/.gtags/
 
@@ -180,8 +177,3 @@ if [ -f '/home/labellson/GCloud/google-cloud-sdk/completion.zsh.inc' ]; then sou
 
 # Enable ZSH Tab completion for cht.sh
 fpath=(~/.zsh.d/ $fpath)
-
-# Completion for apache airflow. Requires python-argcomplete
-autoload bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete airflow)"
