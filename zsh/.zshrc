@@ -107,7 +107,7 @@ export CC="clang"
 export CXX="clang++"
 
 # source .env files in .zsh.d
-for i in ${HOME}/.zsh.d/*.env; do source $i; done
+for i in ${HOME}/.zsh.d/*.env; do source $i; done 2> /dev/null
 
 # Variables para xfluxd
 export LAT=40.3
