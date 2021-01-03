@@ -70,7 +70,7 @@ plugins=(git django docker pip python sudo tmux virtualenvwrapper)
 # fi
 
 # ssh
- export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -95,7 +95,6 @@ zstyle ':completion:*' special-dirs true
 # Source Things
 #-----------------------------
 source /usr/share/doc/pkgfile/command-not-found.zsh
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #-----------------------------
 # Variables
@@ -107,7 +106,7 @@ export CC="clang"
 export CXX="clang++"
 
 # source .env files in .zsh.d
-for i in ${HOME}/.zsh.d/*.env; do source $i; done 2> /dev/null
+for i in $(ls .zsh.d | grep '*\.env$'); do source $i; done
 
 # Variables para xfluxd
 export LAT=40.3
