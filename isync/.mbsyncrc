@@ -1,0 +1,34 @@
+# Reference https://isync.sourceforge.io/mbsync.html
+
+# Section describing IMAP account
+IMAPAccount fastmail
+Host imap.fastmail.com
+Port 993
+User labellson@fastmail.com
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/mbsync/labellson@fastmail.com.gpg"
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+# Section describing local store
+MaildirStore fastmail-local
+Path ~/.maildir/fastmail/
+Inbox ~/.maildir/fastmail/INBOX
+# Interpret subfolders as it is
+SubFolders Verbatim
+
+# Section describing remote store
+IMAPStore fastmail-remote
+Account fastmail
+
+# Section describing the channel
+# A connection between the remote and local store
+# and how to handle it
+Channel fastmail
+Master :fastmail-remote:
+Slave :fastmail-local:
+Patterns *
+Sync All
+Create Both
+Expunge None
+CopyArrivalDate yes
+SyncState *
