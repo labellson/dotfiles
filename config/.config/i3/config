@@ -203,15 +203,16 @@ bindsym $mod+Shift+g mode "$mode_gaps_toggle"
 
 mode "$mode_gaps_toggle" {
     bindsym p gaps inner current set 20; gaps outer current set 25
-    bindsym c gaps inner current set 15i; gaps outer current set 4
+    bindsym c gaps inner current set 15; gaps outer current set 4
     bindsym o gaps inner current set 0; gaps outer current set 0
 
     bindsym P gaps inner all set 20; gaps outer all set 25
-    bindsym C gaps inner all set 15i; gaps outer all set 4
+    bindsym C gaps inner all set 15; gaps outer all set 4
     bindsym O gaps inner all set 0; gaps outer all set 0
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
+    bindsym $mod+Shift+g "default"
 }
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -339,13 +340,12 @@ set $white     #FFFFFF
 set $urgentred #B33A3A
 
 
-set $bg-color 	         #2f343f
+set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-#set $fg #F2E89B
 set $fg #CAB887
 set $bg #444444
 
@@ -355,7 +355,7 @@ client.focused          $fg     $bg     $fg  $fg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder 	    $bg 	$bg 	$fg  $bg       $bg
+client.placeholder      $bg 	$bg 	$fg  $bg       $bg
 
 ####################
 # Exec programs    #
