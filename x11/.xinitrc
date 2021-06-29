@@ -40,12 +40,18 @@ fi
 # Set desktop session for icon themes on QT applications
 export DESKTOP_SESSION=i3
 
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+# configure the monitor
+if [ "$(xrandr --listactivemonitors | grep DP1)" ]; then
+    # setup for home (with my monitor)
+    config-monitor.sh -m home -r
+else
+    # just use the laptop screen
+    config-monitor.sh -m laptop
+fi
+
 # Set wallpaper
 sh ~/.fehbg &
 
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
 exec i3
-
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
