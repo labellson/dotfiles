@@ -256,8 +256,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-# Screenshots with maim
-bindsym $mod+Shift+p exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+# Screenshots with flameshot
+bindsym $mod+Shift+p exec flameshot gui
 
 # Make youtube videos apear like a floating window
 bindsym $mod+Shift+y exec clipster -o | xargs mpv --really-quiet --volume=100 --autofit=30% --geometry=-10-15 --ytdl --ytdl-format='mp4[height<=?720]' -ytdl-raw-options=playlist-start=1 
