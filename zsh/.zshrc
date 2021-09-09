@@ -131,6 +131,11 @@ export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:~/.local/bin:~/.emacs.d
 #-----------------------------
 alias nvtemp='nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader'
 
+# set i3-tabbed alias if available
+if [[ `command -v i3-tabbed` ]]; then
+    alias sxiv='i3-tabbed sxiv'
+fi
+
 # clear for emacs-libvterm
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
