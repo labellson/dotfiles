@@ -36,7 +36,7 @@ module-margin-left = 0
 
 modules-right = bitcoin filesystem keyboard email volume battery date powermenu
 modules-center = spotify 
-modules-left = i3 wlan cpu memory temperature 
+modules-left = i3 wlan bluetooth cpu memory temperature
 
 background = ${colors.psycho-bg}
 foreground = ${colors.white}
@@ -399,5 +399,11 @@ format-underline = ${colors.white}
 format-padding = 1
 label-layout =  %layout% %number%
 
+[module/bluetooth]
+type = custom/script
+exec = rofi-bluetooth --status
+interval = 1
+click-left = rofi-bluetooth &
+format-underline = ${colors.white}
 
 ; vim:ft=dosini

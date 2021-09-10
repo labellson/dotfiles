@@ -277,6 +277,9 @@ bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 # Launch rofi
 bindsym $sup+space exec rofi -show drun
 
+# rofi-bluetooth
+bindsym $sup+b exec --no-startup-id rofi-bluetooth
+
 ####################
 # Workspace apps   #
 ####################
