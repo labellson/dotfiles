@@ -280,6 +280,9 @@ bindsym $sup+space exec rofi -show drun
 # rofi-bluetooth
 bindsym $sup+b exec --no-startup-id rofi-bluetooth
 
+# rofimoji
+bindsym $sup+e exec --no-startup-id rofimoji
+
 ####################
 # Workspace apps   #
 ####################
