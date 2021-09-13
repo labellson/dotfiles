@@ -275,7 +275,7 @@ for_window [class="Emacs" instance="floating-emacs"] floating enable
 bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 
 # Launch rofi
-bindsym $sup+space exec rofi -show drun
+bindsym $sup+space exec "rofi -modi \\"drun,window,ssh,run\\" -show-icons -terminal termite -show drun"
 
 # rofi-bluetooth
 bindsym $sup+b exec --no-startup-id rofi-bluetooth
