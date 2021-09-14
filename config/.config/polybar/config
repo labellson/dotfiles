@@ -24,7 +24,10 @@ override-redirect = false
 wm-restack = i3
 wm-name = i3
 width = 100%
-height = 22
+height = 44
+
+;; Increase density for 4K displays
+dpi = 192
 
 enable-ipc = true
 
@@ -53,6 +56,14 @@ font-4 = Font Awesome 5 Free:size=9
 [bar/hdmi]
 inherit = bar/Bar
 monitor = HDMI1
+
+[bar/dp1]
+inherit = bar/Bar
+monitor = DP1
+
+[bar/dp2]
+inherit = bar/Bar
+monitor = DP2
 
 [module/xwindow]
 type = internal/xwindow

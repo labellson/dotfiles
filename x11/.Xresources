@@ -1,2 +1,15 @@
 #include ".Xresources.d/urxvt"
 #include ".Xresources.d/macos-fontrendering"
+
+! Work with high DPI screens such as 4K
+! Setting integers multiples of 96 works better
+! 192 means 200% scaling
+Xft.dpi: 192
+
+! Useful conf as the ArchLinux wiki says
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
