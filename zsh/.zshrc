@@ -1,7 +1,3 @@
-# Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -176,3 +172,7 @@ if [ -f '/home/labellson/GCloud/google-cloud-sdk/completion.zsh.inc' ]; then sou
 
 # Enable ZSH Tab completion for cht.sh
 fpath=(~/.zsh.d/ $fpath)
+
+# Configure prompt
+# Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
