@@ -176,6 +176,9 @@ export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.google-cloud/key.json"
 # pyenv config
 eval "$(pyenv init -)"
 
+# kubectl tab completion
+source ~/.zsh.d/_kubectl
+
 # Configure prompt
 # Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
