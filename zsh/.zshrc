@@ -183,7 +183,7 @@ source ~/.zsh.d/_kubectl
 source /usr/local/opt/kube-ps1/share/kube-ps1.sh
 
 # Configure prompt
-PS1='$(kube_ps1)'$PS1
+[[ `command -v kube_ps1` ]] && PS1='$(kube_ps1)'\ $PS1
 
 # Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
