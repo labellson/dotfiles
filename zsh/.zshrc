@@ -170,6 +170,9 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 # Enable ZSH Tab completion for cht.sh
 fpath=(~/.zsh.d/ $fpath)
 
+# GCloud keyjson file
+export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.google-cloud/key.json"
+
 # Configure prompt
 # Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
