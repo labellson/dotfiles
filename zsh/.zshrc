@@ -173,6 +173,9 @@ fpath=(~/.zsh.d/ $fpath)
 # GCloud keyjson file
 export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.google-cloud/key.json"
 
+# pyenv config
+eval "$(pyenv init -)"
+
 # Configure prompt
 # Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
