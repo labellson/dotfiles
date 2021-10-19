@@ -90,7 +90,6 @@ zstyle ':completion:*' special-dirs true
 #-----------------------------
 # Source Things
 #-----------------------------
-source /usr/share/doc/find-the-command/ftc.zsh
 
 #-----------------------------
 # Variables
