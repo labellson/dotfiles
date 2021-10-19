@@ -182,6 +182,11 @@ source ~/.zsh.d/_kubectl
 # kube-ps1
 source /usr/local/opt/kube-ps1/share/kube-ps1.sh
 
+# configure nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Configure prompt
 [[ `command -v kube_ps1` ]] && PS1='$(kube_ps1)'\ $PS1
 
