@@ -53,7 +53,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git django docker pip python sudo tmux virtualenvwrapper)
+plugins=(git docker pip python sudo tmux virtualenvwrapper)
 
 
 # User configuration
