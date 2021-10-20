@@ -187,6 +187,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# set where go binaries are installed
+export GOPATH="$HOME/.local/"
+
 # Configure prompt
 [[ `command -v kube_ps1` ]] && PS1='$(kube_ps1)'\ $PS1
 
