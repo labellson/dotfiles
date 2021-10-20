@@ -131,4 +131,7 @@ alt + shift - b : yabai -m window --toggle border
 #alt - \+ : yabai -m window --deminimize
 
 # open iterm
-alt - return: osascript ~/.apple-script/open-iterm.scpt
+alt - return : osascript ~/.apple-script/open-iterm.scpt
+
+# open iterm floating
+alt + shift - return : osascript ~/.apple-script/open-iterm.scpt && yabai -m window --toggle float && yabai -m window --move abs:256:256 && yabai -m window --resize abs:1024:720
