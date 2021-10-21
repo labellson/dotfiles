@@ -50,10 +50,12 @@ yabai -m config left_padding                 18
 yabai -m config right_padding                18
 yabai -m config window_gap                   10
 
-# float system preferences
+# rules
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Telegram$" manage=off
 yabai -m rule --add app="^Emacs$" border=off
 yabai -m rule --add app="^Firefox$" border=off
+# floating download windows from firefox
+yabai -m rule --add app="^Firefox$" title="^Opening .+$" manage=off
 
 echo "yabai configuration loaded.."
