@@ -195,3 +195,6 @@ export GOPATH="$HOME/.local/"
 
 # Fix emacs-tramp. My prompt freeze emacs when trying ssh connection
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+# gvm to manage go versions
+[[ -s "/Users/labellson/.gvm/scripts/gvm" ]] && source "/Users/labellson/.gvm/scripts/gvm"
