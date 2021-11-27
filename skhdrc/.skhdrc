@@ -66,7 +66,7 @@ alt - 0x1B : index=`yabai -m query --windows --window | jq '.id'` && \
     yabai -m window ${index} --space first
 
 # deminimize window (alt - =)
-alt - 0x18 : index=`yabai -m query --windows | jq '.[] | select(.minimized == 1).id' | head -n 1` && \
+alt - 0x18 : index=`yabai -m query --windows | jq '.[] | select(."is-minimized" == true).id' | head -n 1` && \
     space=`yabai -m query --spaces --space | jq '.index'` && \
     yabai -m window ${index} --space ${space} && \
     yabai -m window --focus ${index} && \
