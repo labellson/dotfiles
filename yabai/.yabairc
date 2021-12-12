@@ -58,5 +58,7 @@ yabai -m rule --add app="^Emacs$" border=off
 yabai -m rule --add app="^Firefox$" border=off
 # floating download windows from firefox
 yabai -m rule --add app="^Firefox$" title="^Opening .+$" manage=off
+yabai -m rule --add app="^darktable$"  border=off manage=off
+yabai -m rule --add app="^darktable$" title="^darktable$" manage=on
 
 echo "yabai configuration loaded.."
