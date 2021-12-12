@@ -44,7 +44,7 @@ cmd + shift - b : yabai -m space --balance
 alt - e : yabai -m window --toggle split
 
 # toogle window fullscreen
-alt - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle native-fullscreen
 
 # toogle parent fullscreen (as it stacks or tab the window with another one)
 alt - s : yabai -m window --toggle zoom-parent
