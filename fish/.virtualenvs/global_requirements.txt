@@ -1,0 +1,3 @@
+# applied to every existing and new virtual environment created by virtualfish
+pip
+pip-tools
