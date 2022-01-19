@@ -77,3 +77,6 @@ alt - return : osascript ~/.apple-script/open-iterm.scpt
 
 # open iterm floating
 alt + shift - return : osascript ~/.apple-script/open-iterm.scpt && yabai -m window --toggle float && yabai -m window --move abs:256:256 && yabai -m window --resize abs:1024:720
+
+# open emacsclient
+cmd - return : emacsclient -c -n
