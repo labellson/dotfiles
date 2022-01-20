@@ -80,5 +80,5 @@ alt + shift - return : osascript ~/.apple-script/open-iterm.scpt && yabai -m win
 
 # open emacsclient
 cmd - return : emacsclient -c -n && sleep .2 && \
-    set index (yabai -m query --windows --space | jq '.[] | select(."app" == "Emacs").id') && \
-    yabai -m window --focus {$index}
+    index=`yabai -m query --windows --space | jq '.[] | select(."app" == "Emacs").id'` && \
+    yabai -m window --focus ${index}
