@@ -36,7 +36,7 @@ module-margin-left = 0
 
 modules-right = bitcoin filesystem keyboard email volume battery date powermenu
 modules-center = spotify 
-modules-left = i3 wlan bluetooth cpu memory temperature
+modules-left = i3 wlan eth bluetooth cpu memory temperature
 
 background = ${colors.psycho-bg}
 foreground = ${colors.white}
@@ -229,7 +229,7 @@ label-disconnected-foreground = ${colors.gray}
 
 [module/eth]
 type = internal/network
-interface = enp9s0
+interface = eth0
 interval = 3.0
 
 format-connected-padding = 1
