@@ -51,7 +51,7 @@ yabai -m config right_padding                18
 yabai -m config window_gap                   10
 
 # rules
-MANAGE_OFF="(System Preferences|System Information|Help Viewer|Preview|Telegram)"
+MANAGE_OFF="(System Preferences|System Information|Help Viewer|Preview|Telegram|Archive Utility)"
 yabai -m rule --add app="^${MANAGE_OFF}$" manage=off
 
 BORDER_OFF="(Emacs|Firefox|Slack \| Sensity|Telegram)"
