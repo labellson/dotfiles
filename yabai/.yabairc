@@ -54,7 +54,7 @@ yabai -m config window_gap                   10
 MANAGE_OFF="(System Preferences|System Information|Help Viewer|Preview|Telegram|Archive Utility)"
 yabai -m rule --add app="^${MANAGE_OFF}$" manage=off
 
-BORDER_OFF="(Emacs|Firefox|Slack \| Sensity|Telegram)"
+BORDER_OFF="(Telegram)"
 yabai -m rule --add app="^${BORDER_OFF}$" border=off
 
 # floating download windows from firefox
