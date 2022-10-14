@@ -6,5 +6,5 @@ if test -e $dotenvdir
     end
 end
 
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx VISUAL emacs
