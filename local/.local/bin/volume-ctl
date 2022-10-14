@@ -1,9 +1,4 @@
 #!/bin/bash
-NID=$(cat $HOME/.config/i3/.volume-ctl-id)
-if [ "$NID" == "" ]
-then
-  NID="0"
-fi
 
 if [ "$1" == "increase" ]
 then
@@ -27,4 +22,4 @@ fi
 
 VOLUME=$(pactl list sinks | grep -o '[0-9]\{1,3\}%' | head -1)
 
-notify-send -p -r $NID -i $ICON "$TITLE" "$VOLUME" > $HOME/.config/i3/.volume-ctl-id
+dunstify -h string:x-dunst-stack-tag:volume-ctl -i $ICON "$TITLE" "$VOLUME"
