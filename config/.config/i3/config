@@ -367,3 +367,4 @@ exec --no-startup-id picom -cb -e 1
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id redshift -l geoclue2 -t 5700:3500 -g 0.8 -m randr
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit  # polkit agent
+exec --no-startup-id darkman run
