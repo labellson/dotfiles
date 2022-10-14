@@ -265,7 +265,8 @@ bindsym $mod+Shift+y exec clipster -o | xargs mpv --really-quiet --volume=100 --
 for_window [class="(?i)mpv"] floating enable
 
 # Launch emacs
-bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
+#bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
+bindsym $sup+Return exec emacsclient -c
 
 # Launch floating emacs
 bindsym $sup+Shift+Return exec ~/.local/bin/emacs-floating.sh
