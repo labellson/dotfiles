@@ -107,16 +107,16 @@ format-label = internal/cpu
 
 type = internal/cpu
 interval = 2
-label = %{F${colors.white}  %percentage%% %{F-}
+label =  %percentage%%
+label-foreground = ${colors.white}
 label-underline = ${colors.white}
 padding= 2
-
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-label = %{F${colors.white}  %percentage_used%% %{F-}
+label =  %percentage_used%%
 label-underline = ${colors.white}
 label-foreground = ${colors.white}
 
