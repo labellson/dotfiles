@@ -40,6 +40,9 @@ fi
 # Set desktop session for icon themes on QT applications
 export DESKTOP_SESSION=i3
 
+# Set terminal so i3 is able to launch the correct one
+export TERMINAL=alacritty
+
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # configure the monitor
