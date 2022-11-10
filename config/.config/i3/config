@@ -301,17 +301,17 @@ bindsym $mod+Shift+x mode "$mode_display"
 
 mode "$mode_display" {
     # default settings (laptop screen)
-    bindsym l exec --no-startup-id config-monitor.sh -m laptop && ~/.fehbg && launch-polybar.sh; mode "default"
+    bindsym l exec --no-startup-id config-monitor.sh -m laptop && launch-polybar.sh && ~/.fehbg; mode "default"
 
     # settings for my home setup
-    bindsym h exec --no-startup-id config-monitor.sh -m home -r && ~/.fehbg && launch-polybar.sh; mode "default"
-    bindsym Shift+h exec --no-startup-id config-monitor.sh -m home -l && ~/.fehbg && launch-polybar.sh; mode "default"
-    bindsym $mod+h exec --no-startup-id config-monitor.sh -m home -s && ~/.fehbg && launch-polybar.sh; mode "default"
+    bindsym h exec --no-startup-id config-monitor.sh -m home -r && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym Shift+h exec --no-startup-id config-monitor.sh -m home -l && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym $mod+h exec --no-startup-id config-monitor.sh -m home -s && launch-polybar.sh && ~/.fehbg; mode "default"
 
     # settings for hdmi1
-    bindsym d exec --no-startup-id config-monitor.sh -m HDMI1 -r && ~/.fehbg && launch-polybar.sh; mode "default"
-    bindsym Shift+d exec --no-startup-id config-monitor.sh -m HDMI1 -l && ~/.fehbg && launch-polybar.sh; mode "default"
-    bindsym $mod+d exec --no-startup-id config-monitor.sh -m HDMI1 -s && ~/.fehbg && launch-polybar.sh; mode "default"
+    bindsym d exec --no-startup-id config-monitor.sh -m HDMI1 -r && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym Shift+d exec --no-startup-id config-monitor.sh -m HDMI1 -l && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym $mod+d exec --no-startup-id config-monitor.sh -m HDMI1 -s && launch-polybar.sh && ~/.fehbg; mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
