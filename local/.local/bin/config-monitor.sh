@@ -18,6 +18,7 @@ help() {
 }
 
 MODE=""
+POSITION=""
 while getopts ":m:rlabs" opt; do
     case ${opt} in
         m) MODE=${OPTARG};;
@@ -46,6 +47,11 @@ elif [ ${MODE} = "home" ]; then
 
 # rest of the configurations (with laptop as principal)
 else
-    xrandr --output eDP1 --auto --primary \
-        --output ${MODE} --auto ${POSITION} eDP1
+    if [ -z ${POSITION} ]; then
+        xrandr --output eDP1 --off \
+            --output ${MODE} --auto --primary
+    else
+        xrandr --output eDP1 --auto --primary \
+            --output ${MODE} --auto ${POSITION} eDP1
+    fi
 fi
