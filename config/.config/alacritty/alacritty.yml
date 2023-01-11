@@ -111,7 +111,7 @@ window:
   #multiplier: 3
 
 # Font configuration
-v-font-family: &v-font-family monospace
+v-font-family: &v-font-family Menlo
 font:
   # Normal (roman) font face
   normal:
