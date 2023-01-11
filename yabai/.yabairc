@@ -71,4 +71,6 @@ yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
 ARC_TITLES="(Account|General|Shortcuts|Little Arc|Previews|Updates|Archive|Site Settings|Advanced)"
 yabai -m rule --add app="^Arc$" title="^${ARC_TITLES}$" manage=off
 
+yabai -m rule --add app="^Arc$" title="^$" subrole="^AXSystemDialog$" mouse_follows_focus=off
+
 echo "yabai configuration loaded.."
