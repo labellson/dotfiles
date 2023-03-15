@@ -67,11 +67,8 @@ yabai -m rule --add app="^darktable$" title="^darktable$" manage=on
 # copy progress windows from Finder
 yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
 
-# unmanage all the Arc windows, I will manage the main one manually
-yabai -m rule --add app="^Arc$" manage=off
-yabai -m rule --add app="Arc.LittleBrowserWindow" manage=off
-
-yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off
+# Arc
+yabai -m rule --add app="^Arc$" title="^Space [0-9]+" manage=off
 yabai -m rule --add app="^Arc$" title="^$" subrole="^AXSystemDialog$" mouse_follows_focus=off
 
 echo "yabai configuration loaded.."
