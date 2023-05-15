@@ -1,5 +1,5 @@
-# reload yabai conf
-alt + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# restart yabai
+ctrl + alt + cmd - r : yabai --restart-service
 
 # change window focus
 alt - h : yabai -m window --focus west
