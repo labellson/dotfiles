@@ -51,9 +51,17 @@ font-3 = FontAwesome:size=8;0
 font-4 = Font Awesome 5 Free:size=9
 font-5 = Material Icons:size=8
 
-[bar/hdmi]
+[bar/termux]
 inherit = bar/Bar
-monitor = HDMI1
+dpi = 144
+height = 33
+
+padding-left = 2
+padding-right = 2
+
+modules-right = date
+modules-center =
+modules-left = i3
 
 [module/filesystem]
 type = internal/fs
@@ -158,7 +166,6 @@ date-alt =   %A %H:%M
 date =   %d/%b/%y %H:%M 
 interval = 5
 format-underline = ${colors.white}
-;format-background = ${colors.black}
 format-foreground = ${colors.white}
 format-padding = 1
 
