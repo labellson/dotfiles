@@ -20,33 +20,17 @@ font pango:DejaVu Sans Mono 8
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# start a floating terminal (with termite)
-bindsym $mod+Shift+Return exec i3-sensible-terminal --title "floating-termite"
-for_window [class="Termite" title="floating-termite"] floating enable
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -89,18 +73,6 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $sup+1 workspace 11
-bindsym $sup+2 workspace 12
-bindsym $sup+3 workspace 13
-bindsym $sup+4 workspace 14
-bindsym $sup+5 workspace 15
-bindsym $sup+6 workspace 16
-bindsym $sup+7 workspace 17
-bindsym $sup+8 workspace 18
-bindsym $sup+9 workspace 19
-bindsym $sup+0 workspace 20
-
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -113,17 +85,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $sup+Shift+1 move container to workspace 11
-bindsym $sup+Shift+2 move container to workspace 12
-bindsym $sup+Shift+3 move container to workspace 13
-bindsym $sup+Shift+4 move container to workspace 14
-bindsym $sup+Shift+5 move container to workspace 15
-bindsym $sup+Shift+6 move container to workspace 16
-bindsym $sup+Shift+7 move container to workspace 17
-bindsym $sup+Shift+8 move container to workspace 18
-bindsym $sup+Shift+9 move container to workspace 19
-bindsym $sup+Shift+0 move container to workspace 20
-
 workspace 1 output primary
 workspace 2 output primary
 workspace 3 output primary
@@ -134,19 +95,6 @@ workspace 7 output primary
 workspace 8 output primary
 workspace 9 output primary
 workspace 10 output primary
-
-# assign 11-20 workspaces to laptop screen
-# usefull to use it as secondary screen when I use a monitor
-workspace 11 output eDP1
-workspace 12 output eDP1
-workspace 13 output eDP1
-workspace 14 output eDP1
-workspace 15 output eDP1
-workspace 16 output eDP1
-workspace 17 output eDP1
-workspace 18 output eDP1
-workspace 19 output eDP1
-workspace 20 output eDP1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -237,92 +185,11 @@ bindsym $mod+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+equal scratchpad show
 
-# Lock screen
-bindsym $mod+Control+l exec --no-startup-id ~/.local/bin/lock.sh
-
-# Media Keys
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctl increase
-bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctl decrease
-bindsym XF86AudioMute exec --no-startup-id volume-ctl mute-toggle
-
-# Media player controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-
-# Backlight control
-# Requires `light` package and user in `video` group
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
-
-# Screenshots with flameshot
-bindsym $mod+Shift+p exec flameshot gui
-
-# Make youtube videos apear like a floating window
-bindsym $mod+Shift+y exec clipster -o | xargs mpv --really-quiet --volume=100 --autofit=30% --geometry=-10-15 --ytdl --ytdl-format='mp4[height<=?720]' -ytdl-raw-options=playlist-start=1 
-
-for_window [class="(?i)mpv"] floating enable
-
-# Launch emacs
-#bindsym $sup+Return exec emacsclient -e "(set-up-i3)" -c
-bindsym $sup+Return exec emacsclient -c
-
-# Launch floating emacs
-bindsym $sup+Shift+Return exec ~/.local/bin/emacs-floating.sh
-for_window [class="Emacs" instance="floating-emacs"] floating enable
-
-# Activate/Deactivate the touchpad when typing
-bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
-
 # Launch rofi
 bindsym $sup+space exec "rofi -modi \\"drun,window,ssh,run\\" -show-icons -terminal termite -show drun"
 
-# rofi-bluetooth
-bindsym $sup+b exec --no-startup-id rofi-bluetooth
-
 # rofimoji
 bindsym $sup+e exec --no-startup-id rofimoji
-
-####################
-# Workspace apps   #
-####################
-# Para ver las clases, utilizar xprop
-assign [class="Telegram"] 8
-assign [class="Transmission-gtk" title="Transmission"] 10
-
-for_window [class="Telegram"] floating enable
-for_window [class="Spotify"] move container to workspace 9
-
-# mode to configure monitors
-set $mode_display Screen configuration: [l]aptop, [h]ome, [d]p1, hd[m]i (use $sup for a single output)
-
-bindsym $mod+Shift+x mode "$mode_display"
-
-mode "$mode_display" {
-    # default settings (laptop screen)
-    bindsym l exec --no-startup-id config-monitor.sh -m laptop && launch-polybar.sh && ~/.fehbg; mode "default"
-
-    # settings for my home setup
-    bindsym h exec --no-startup-id config-monitor.sh -m home -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+h exec --no-startup-id config-monitor.sh -m home -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+h exec --no-startup-id config-monitor.sh -m home -s && launch-polybar.sh && ~/.fehbg; mode "default"
-
-    # settings for dp1
-    bindsym d exec --no-startup-id config-monitor.sh -m DP1 -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+d exec --no-startup-id config-monitor.sh -m DP1 -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+d exec --no-startup-id config-monitor.sh -m DP1 -s && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $sup+d exec --no-startup-id config-monitor.sh -m DP1 && launch-polybar.sh && ~/.fehbg; mode "default"
-
-    # settings for hdmi1
-    bindsym m exec --no-startup-id config-monitor.sh -m HDMI1 -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+m exec --no-startup-id config-monitor.sh -m HDMI1 -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+m exec --no-startup-id config-monitor.sh -m HDMI1 -s && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $sup+m exec --no-startup-id config-monitor.sh -m HDMI1 && launch-polybar.sh && ~/.fehbg; mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 
 ####################
 # Display Settings #
@@ -368,11 +235,4 @@ client.placeholder      $bg 	$bg 	$fg  $bg       $bg
 # Exec programs    #
 ####################
 
-exec --no-startup-id clipster -d
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id ~/.local/bin/launch-polybar.sh
-exec --no-startup-id picom -cb -e 1
-exec --no-startup-id libinput-gestures-setup start
-exec --no-startup-id redshift -l 51.9:4.5 -t 5700:3500 -g 0.8 -m randr || dunstify -u critical "redshift" "unable to start"
-exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit  # polkit agent
-exec --no-startup-id darkman run
