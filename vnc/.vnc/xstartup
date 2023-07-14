@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/sh
+## This file is executed during VNC server
+## startup.
+
+# probably this can be moved to fish env file
+export TERMINAL=alacritty
+
+# launch i3 and emacs to start hacking around
+i3 &
+emacs &
