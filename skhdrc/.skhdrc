@@ -73,7 +73,7 @@ alt - 0x18 : index=`yabai -m query --windows | jq '.[] | select(."is-minimized" 
     yabai -m window --toggle border
 
 # open term
-alt - return : kitty -1
+alt - return : cd && kitty -1
 
 # open iterm floating
 alt + shift - return : osascript ~/.apple-script/open-iterm.scpt && yabai -m window --toggle float && yabai -m window --move abs:256:256 && yabai -m window --resize abs:1024:720
