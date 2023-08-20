@@ -41,7 +41,7 @@ fi
 export DESKTOP_SESSION=i3
 
 # Set terminal so i3 is able to launch the correct one
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
