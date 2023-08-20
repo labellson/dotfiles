@@ -295,7 +295,7 @@ for_window [class="Telegram"] floating enable
 for_window [class="Spotify"] move container to workspace 9
 
 # mode to configure monitors
-set $mode_display Screen configuration: [l]aptop, [h]ome, [d]p1, hd[m]i
+set $mode_display Screen configuration: [l]aptop, [h]ome, [d]p1, hd[m]i (use $sup for a single output)
 
 bindsym $mod+Shift+x mode "$mode_display"
 
