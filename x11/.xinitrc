@@ -1,31 +1,12 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+userresources=$HOME/.Xresources
 
-# merge in defaults and keymaps
+# merge in system defaults and user resources
 
-if [ -f $sysresources ]; then
-
-    xrdb -merge $sysresources
-
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then
-
-    xrdb -merge "$userresources"
-
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
+[[ -f "$sysresources" ]] && xrdb -merge -I$HOME "$sysresources"
+[[ -f "$userresources" ]] && xrdb -merge -I$HOME "$userresources"
 
 # start some nice programs
 
@@ -38,13 +19,17 @@ fi
 
 
 # Set desktop session for icon themes on QT applications
+# this env var became already legacy
 export DESKTOP_SESSION=i3
+
+# if I ever use a desktop environment this may make it choose
+# the window manager I want
+export WINDOW_MANAER=i3
 
 # Set terminal so i3 is able to launch the correct one
 export TERMINAL=kitty
 
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
+#TODO: is there a better way to do this??
 # configure the monitor
 if [ "$(xrandr --listactivemonitors | grep DP1)" ]; then
     # setup for home (with my monitor)
@@ -55,6 +40,6 @@ else
 fi
 
 # Set wallpaper
-sh ~/.fehbg &
+# sh ~/.fehbg &
 
 exec i3
