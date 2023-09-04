@@ -17,6 +17,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+###
+# setting up the user dbus daemon. According to NixOS wiki it does not start
+# properly when using startx
+if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+    eval $(dbus-launch --exit-with-session --sh-syntax)
+fi
+
+systemctl --user import-environment DISPLAY XAUTHORITY
+
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+        dbus-update-activation-environment DISPLAY XAUTHORITY
+fi
+###
 
 # Set desktop session for icon themes on QT applications
 # this env var became already legacy
