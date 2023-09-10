@@ -15,6 +15,13 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  programs.bash = {
+      enable = true;
+      bashrcExtra = ''
+        . ~/.dotfiles/bash/.bashrc
+      '';
+    };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
