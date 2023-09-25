@@ -32,9 +32,25 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    fish
+    kitty
+    ripgrep
+
+    polybar
+    rofi
+    rofi-bluetooth
+    bc # needed by rofi-bluetooth
+
+    pavucontrol
+
+    firefox
+    darkman
+
+    emacs29
+    neovim
+
+    arandr
+    stremio
 
     # fonts
     fantasque-sans-mono
