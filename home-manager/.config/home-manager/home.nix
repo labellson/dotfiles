@@ -15,6 +15,10 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  # let home manager start the X session
+  xsession.enable = true;
+  xsession.windowManager.command = "startx";
+
   programs.bash = {
       enable = true;
       bashrcExtra = ''
