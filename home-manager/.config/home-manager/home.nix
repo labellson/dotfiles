@@ -45,12 +45,14 @@
 
     firefox
     darkman
+    arandr
+    ncdu
 
     emacs29
     neovim
 
-    arandr
     stremio
+    steam
 
     # fonts
     fantasque-sans-mono
