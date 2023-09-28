@@ -36,7 +36,7 @@
     kitty
     ripgrep
 
-    polybar
+    (polybar.override {i3Support = true;})
     rofi
     rofi-bluetooth
     bc # needed by rofi-bluetooth
