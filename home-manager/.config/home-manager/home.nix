@@ -55,6 +55,7 @@
     steam
 
     # fonts
+    nerdfonts
     fantasque-sans-mono
 
     # # You can also create simple shell scripts directly inside your
