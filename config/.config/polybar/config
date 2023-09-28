@@ -74,24 +74,24 @@ pin-workspaces = true
 label-focused-font = 4
 label-unfocused-font = 4
 label-urgent-font = 4
-label-visible-font = 4 
+label-visible-font = 4
 
-label-focused = 
-;label-focused = %index%
+label-focused = %index%: 
 ;label-focused-background = ${colors.gray}
 label-focused-padding = 1
+label-focused-underline = ${colors.white}
 
-label-unfocused = 
-;label-unfocused = %index%
+label-unfocused = %index%: 
 label-unfocused-padding = 1
 ;label-unfocused-background = ${colors.black}
-label-unfocused-underlinde = ${colors.white}
+label-unfocused-foreground = ${colors.gray}
+label-unfocused-underline = ${colors.gray}
 
-label-urgent = 
-;label-urgent = %index%!
+label-urgent = %index%: 
 ;label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.red}
+label-urgent-underline = ${colors.red}
 
 label-visible = 
 ;label-visible = %index%
