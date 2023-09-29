@@ -35,8 +35,11 @@
     fish
     kitty
     ripgrep
+    killall
 
     (polybar.override {i3Support = true;})
+    # so happy to make my 1st derivation
+    (pkgs.callPackage ./polybar-pulseaudio-control.nix {})
     rofi
     rofi-bluetooth
     bc # needed by rofi-bluetooth
