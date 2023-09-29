@@ -75,9 +75,6 @@ alt - 0x18 : index=`yabai -m query --windows | jq '.[] | select(."is-minimized" 
 # open term
 alt - return : cd && kitty -1
 
-# open iterm floating
-alt + shift - return : osascript ~/.apple-script/open-iterm.scpt && yabai -m window --toggle float && yabai -m window --move abs:256:256 && yabai -m window --resize abs:1024:720
-
 # open emacsclient
 cmd - return : emacsclient -c -n && sleep .2 && \
     index=`yabai -m query --windows --space | jq '.[] | select(."app" == "Emacs").id'` && \
