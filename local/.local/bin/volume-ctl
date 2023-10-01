@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 ICON_VOLUME_UP="/home/labellson/.icons/notifications/notification-audio-volume-high.png"
 ICON_VOLUME_DOWN="/home/labellson/.icons/notifications/notification-audio-volume-low.png"
@@ -6,19 +6,19 @@ ICON_VOLUME_MUTE="/home/labellson/.icons/notifications/notification-audio-volume
 
 if [ "$1" == "increase" ]
 then
-  pactl set-sink-volume @DEFAULT_SINK@ +2% #increase sound volume
+  wpctl set-volume @DEFAULT_SINK@ 2%+ #increase sound volume
   ICON=$ICON_VOLUME_UP
   TITLE="Volume is:"
   VOLUME=$(pulseaudio-control --node-nicknames-from "device.description" --node-nickname "alsa_output.pci-0000_00_1f.3.analog-stereo: Speakers" --node-nickname "bluez_sink.AC_BD_70_51_3D_EB.a2dp_sink: FreeBuds 3" output)
 elif [ "$1" == "decrease" ]
 then
-  pactl set-sink-volume @DEFAULT_SINK@ -2% #decrease sound volume
+  wpctl set-volume @DEFAULT_SINK@ 2%- #decrease sound volume
   ICON=$ICON_VOLUME_DOWN
   TITLE="Volume is:"
   VOLUME=$(pulseaudio-control --node-nicknames-from "device.description" --node-nickname "alsa_output.pci-0000_00_1f.3.analog-stereo: Speakers" --node-nickname "bluez_sink.AC_BD_70_51_3D_EB.a2dp_sink: FreeBuds 3" output)
 elif [ "$1" == "mute-toggle" ]
 then
-  pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+  pactl set-mute @DEFAULT_SINK@ toggle # mute sound
   MUTE=$(pactl get-sink-mute $(pactl get-default-sink) | grep -o "\(no\|yes\)")
   if [ "$MUTE" == "yes" ]
   then
