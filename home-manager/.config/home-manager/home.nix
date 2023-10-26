@@ -51,6 +51,9 @@
     arandr
     ncdu
 
+    xfce.thunar
+    xfce.thunar-volman
+
     emacs29
     neovim
 
