@@ -88,6 +88,33 @@ in
     theme.name = "adw-gtk3";
     cursorTheme.package = pkgs.vanilla-dmz;
     cursorTheme.name = "Vanilla-DMZ-AA";
+    gtk2.extraConfig = ''
+      gtk-button-images=1
+      gtk-menu-images=1
+      gtk-enable-event-sounds=1
+      gtk-enable-input-feedback-sounds=1
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-hintstyle="hitslight"
+    '';
+    gtk3.extraConfig = {
+      gtk-button-images=1;
+      gtk-menu-images=1;
+      gtk-enable-event-sounds=1;
+      gtk-enable-input-feedback-sounds=1;
+      gtk-xft-antialias=1;
+      gtk-xft-hinting=1;
+      gtk-xft-hintstyle="hintslight";
+    };
+    gtk4.extraConfig = {
+      gtk-button-images=1;
+      gtk-menu-images=1;
+      gtk-enable-event-sounds=1;
+      gtk-enable-input-feedback-sounds=1;
+      gtk-xft-antialias=1;
+      gtk-xft-hinting=1;
+      gtk-xft-hintstyle="hintslight";
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
