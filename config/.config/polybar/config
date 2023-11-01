@@ -7,33 +7,37 @@ margin-bottom = 5
 [colors]
 white = #d1d1d1
 gray = #585858
-black = #090909
-red = #c795ae
-blue = #95aec7
-yellow = #c7ae95
-green = #aec795
 
-mountains-bg = #66090909
-forest-bg = #A62A0917
-psycho-bg = #A60E1754
+; dark background
+base03 = #002b36
+base02 = #073642
+
+; content
+base01 = #586e75
+base00 = #657b83
+base0 = #839496
+base1 = #93a1a1
+
+; light background
+base2 = #eee8d5
+base3 = #fdf6e3
+
+yellow = #b58900
+orange = #cb4b16
+red = #dc322f
+magenta = #d33682
+violet = #6c71c4
+blue = #268bd2
+cyan = #2aa198
+green = #859900
 
 ;; solarized-light
-light-background = #fdf6e3
-light-foreground = #657b83
-
-light-primary = #586e75
-light-secondary = #657b83
-light-highlight = #93a1a1
-light-urgent = #dc322f
+light-background = ${colors.base2}
+light-foreground = ${colors.base01}
 
 ;; solarized-dark
-dark-background = #002b36
-dark-foreground = #839496
-
-dark-primary = #268bd2
-dark-secondary = #839496
-dark-highlight = #93a1a1
-dark-urgent = #dc322f
+dark-background = ${colors.base02}
+dark-foreground = ${colors.base0}
 
 
 [bar/bar]
