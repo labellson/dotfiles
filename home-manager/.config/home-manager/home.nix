@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  # so happy to make my 1st derivation
+  polybar-pulseaudio-control = pkgs.callPackage ./polybar-pulseaudio-control.nix {};
+  adw-colors = pkgs.callPackage ./adw-colors.nix {};
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -38,8 +43,7 @@
     killall
 
     (polybar.override {i3Support = true;})
-    # so happy to make my 1st derivation
-    (pkgs.callPackage ./polybar-pulseaudio-control.nix {})
+    polybar-pulseaudio-control
     rofi
     rofi-bluetooth
     bc # needed by rofi-bluetooth
@@ -64,6 +68,12 @@
     nerdfonts
     fantasque-sans-mono
 
+    # polish
+    lxappearance
+    adw-gtk3
+    vanilla-dmz
+    adw-colors
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -71,6 +81,14 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  gtk = {
+    enable = true;
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "adw-gtk3";
+    cursorTheme.package = pkgs.vanilla-dmz;
+    cursorTheme.name = "Vanilla-DMZ-AA";
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -85,6 +103,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/gtk-4.0/gtk-dark.css".source = "${adw-colors}/themes/solarized-dark/gtk.css";
+    ".config/gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/solarized/gtk.css";
   };
 
   # You can also manage environment variables but you will have to manually
