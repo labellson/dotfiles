@@ -88,6 +88,8 @@ in
     theme.name = "adw-gtk3";
     cursorTheme.package = pkgs.vanilla-dmz;
     cursorTheme.name = "Vanilla-DMZ-AA";
+    iconTheme.package = (pkgs.papirus-icon-theme.override {color = "deeporange";});
+    iconTheme.name = "Papirus";
     gtk2.extraConfig = ''
       gtk-button-images=1
       gtk-menu-images=1
