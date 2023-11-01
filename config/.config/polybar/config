@@ -17,6 +17,24 @@ mountains-bg = #66090909
 forest-bg = #A62A0917
 psycho-bg = #A60E1754
 
+;; solarized-light
+light-background = #fdf6e3
+light-foreground = #657b83
+
+light-primary = #586e75
+light-secondary = #657b83
+light-highlight = #93a1a1
+light-urgent = #dc322f
+
+;; solarized-dark
+dark-background = #002b36
+dark-foreground = #839496
+dark-primary = #268bd2
+dark-secondary = #839496
+dark-highlight = #93a1a1
+dark-urgent = #dc322f
+
+
 [bar/Bar]
 monitor = ${env:MONITOR:}
 bottom = false
@@ -38,11 +56,11 @@ modules-right = bitcoin filesystem keyboard email pulseaudio-control-input pulse
 modules-center = spotify 
 modules-left = i3 wlan eth bluetooth cpu memory temperature
 
-background = ${colors.psycho-bg}
-foreground = ${colors.white}
+background = ${colors.dark-background}
+foreground = ${colors.dark-foreground}
 
 underline-size = 2
-underline-color = ${colors.white}
+underline-color = ${colors.dark-foreground}
 
 font-0 = GohuFont 11 Nerd Font Propo:size=8
 
