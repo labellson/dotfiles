@@ -9,10 +9,10 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 # Launch bars on multiple monitors if available
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload Bar &
+    MONITOR=$m polybar --reload dark &
   done
 else
-  polybar --reload Bar &
+  polybar --reload dark &
 fi
 
 echo "Bars launched..."
