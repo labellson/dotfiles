@@ -70,8 +70,6 @@ in
 
     # polish
     lxappearance
-    adw-gtk3
-    vanilla-dmz
     adw-colors
 
     # # You can also create simple shell scripts directly inside your
