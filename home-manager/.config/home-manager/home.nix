@@ -22,7 +22,6 @@ in
 
   # let home manager start the X session
   xsession.enable = true;
-  xsession.windowManager.command = "startx";
 
   programs.bash = {
       enable = true;
