@@ -13,6 +13,9 @@
 set $mod Mod1
 set $sup Mod4
 
+# location of util scripts used in the configuration
+set $launch_polybar ~/.local/bin/launch-polybar.sh
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
@@ -290,30 +293,20 @@ for_window [class="Telegram"] floating enable
 for_window [class="Spotify"] move container to workspace 9
 
 # mode to configure monitors
-set $mode_display Screen configuration: [l]aptop, [h]ome, [d]p1, hd[m]i (use $sup for a single output)
+set $mode_display Screen configuration: [c]lone [h]orizontal [v]ertical ho[m]e (use $shift to reverse order)
 
 bindsym $mod+Shift+x mode "$mode_display"
 
 mode "$mode_display" {
-    # default settings (laptop screen)
-    bindsym l exec --no-startup-id config-monitor.sh -m laptop && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym c exec --no-startup-id autorandr clone-largest && $launch_polybar -o
 
-    # settings for my home setup
-    bindsym h exec --no-startup-id config-monitor.sh -m home -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+h exec --no-startup-id config-monitor.sh -m home -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+h exec --no-startup-id config-monitor.sh -m home -s && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym h exec --no-startup-id autorandr horizontal && $launch_polybar
+    bindsym Shift+h exec --no-startup-id autorandr horizontal-reverse && $launch_polybar
 
-    # settings for dp1
-    bindsym d exec --no-startup-id config-monitor.sh -m DP1 -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+d exec --no-startup-id config-monitor.sh -m DP1 -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+d exec --no-startup-id config-monitor.sh -m DP1 -s && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $sup+d exec --no-startup-id config-monitor.sh -m DP1 && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym v exec --no-startup-id autorandr vertical && $launch_polybar
+    bindsym Shift+v exec --no-startup-id autorandr vertical-reverse && $launch_polybar
 
-    # settings for hdmi1
-    bindsym m exec --no-startup-id config-monitor.sh -m HDMI1 -r && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym Shift+m exec --no-startup-id config-monitor.sh -m HDMI1 -l && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $mod+m exec --no-startup-id config-monitor.sh -m HDMI1 -s && launch-polybar.sh && ~/.fehbg; mode "default"
-    bindsym $sup+m exec --no-startup-id config-monitor.sh -m HDMI1 && launch-polybar.sh && ~/.fehbg; mode "default"
+    bindsym m exec --no-startup-id autorandr home && $launch_polybar
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
