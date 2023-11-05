@@ -52,6 +52,7 @@ in
     pavucontrol
 
     firefox
+    vlc
     darkman
     arandr
     ncdu
