@@ -25,6 +25,12 @@ in
 
   programs.autorandr = {
     enable = true;
+    hooks.postswitch = {
+      "reset-background.sh" = ''
+      #!/usr/bin/env sh
+      feh --no-fehbg --bg-fill ~/.background-image
+      '';
+    };
     profiles = {
       "home"= {
         fingerprint = {
