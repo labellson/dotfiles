@@ -23,6 +23,8 @@ in
   # let home manager start the X session
   xsession.enable = true;
 
+  programs.autorandr.enable = true;
+
   programs.bash = {
       enable = true;
       bashrcExtra = ''
