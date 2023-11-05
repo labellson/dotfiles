@@ -53,7 +53,7 @@ else
 fi
 
 # Set wallpaper
-# sh ~/.fehbg &
+sh ~/.fehbg &
 
 # HACK: i can't make darkman unit to work on nixos so I will just stop it and
 # start it from i3. Maybe home-manager will make it work??
