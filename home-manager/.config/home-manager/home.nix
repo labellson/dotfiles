@@ -95,6 +95,16 @@ in
     emacs29
     neovim
 
+    # needed by doom emacs
+    fd
+    libtool
+    gcc
+    gnumake
+    cmakeMinimal
+    (aspellWithDicts (dicts: with dicts; [en es]))
+    shellcheck
+    nixfmt
+
     # i like to have it installed
     (python311.withPackages(ps: with ps; [requests ipython]))
 
