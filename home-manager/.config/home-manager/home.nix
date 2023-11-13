@@ -95,6 +95,9 @@ in
     emacs29
     neovim
 
+    # i like to have it installed
+    (python311.withPackages(ps: with ps; [requests ipython]))
+
     stremio
     steam
 
