@@ -85,6 +85,7 @@ in
     pavucontrol
 
     firefox
+    obsidian  # says that electron 24 is an insecure package
     telegram-desktop
     vlc
     darkman
