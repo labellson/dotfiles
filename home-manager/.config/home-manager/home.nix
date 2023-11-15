@@ -85,6 +85,7 @@ in
     pavucontrol
 
     firefox
+    telegram-desktop
     vlc
     darkman
     arandr
