@@ -74,6 +74,7 @@ in
     kitty
     ripgrep
     killall
+    gnupg
 
     (polybar.override {i3Support = true;})
     polybar-pulseaudio-control
