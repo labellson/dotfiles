@@ -87,6 +87,7 @@ in
     firefox
     obsidian  # says that electron 24 is an insecure package
     telegram-desktop
+    nextcloud-client
     vlc
     darkman
     arandr
