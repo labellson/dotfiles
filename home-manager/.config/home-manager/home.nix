@@ -75,6 +75,7 @@ in
     ripgrep
     killall
     gnupg
+    mosh
 
     (polybar.override {i3Support = true;})
     polybar-pulseaudio-control
