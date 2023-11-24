@@ -13,6 +13,9 @@
 set $mod Mod1
 set $sup Mod4
 
+# some util to know what status darkman is
+set $is_darkman_light [[ $(command -v darkman) && $(darkman get) = 'light' ]]
+
 # location of util scripts used in the configuration
 set $launch_polybar ~/.local/bin/launch-polybar.sh
 
@@ -274,10 +277,13 @@ for_window [class="Emacs" instance="floating-emacs"] floating enable
 bindsym $mod+Shift+t exec ~/.local/bin/toogle-touchpad-typing.sh
 
 # Launch rofi
-bindsym $sup+space exec "rofi -modi \\"drun,window,ssh,run\\" -show-icons -terminal termite -show drun"
+#bindsym $sup+space exec "rofi -modi \\"drun,window,ssh,run\\" -show-icons -terminal termite -show drun"
+set $rofi rofi -modi drun,window,ssh,run -show-icons -terminal termite -show drun
+set $rofi_dark rofi -modi drun,window,ssh,run -show-icons -terminal termite -show drun -theme solarized_alternate
+bindsym $sup+space exec "$is_darkman_light && $rofi || $rofi_dark"
 
 # rofi-bluetooth
-bindsym $sup+b exec --no-startup-id rofi-bluetooth
+bindsym $sup+b exec --no-startup-id $is_darkman_light && rofi-bluetooth || rofi-bluetooth -theme solarized_alternate
 
 # rofimoji
 bindsym $sup+e exec --no-startup-id rofimoji
