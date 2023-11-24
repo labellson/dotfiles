@@ -298,15 +298,15 @@ set $mode_display Screen configuration: [c]lone [h]orizontal [v]ertical ho[m]e (
 bindsym $mod+Shift+x mode "$mode_display"
 
 mode "$mode_display" {
-    bindsym c exec --no-startup-id autorandr clone-largest && $launch_polybar -o
+    bindsym c exec --no-startup-id autorandr clone-largest && $launch_polybar -o && i3-msg mode "default"
 
-    bindsym h exec --no-startup-id autorandr horizontal && $launch_polybar
-    bindsym Shift+h exec --no-startup-id autorandr horizontal-reverse && $launch_polybar
+    bindsym h exec --no-startup-id autorandr horizontal && $launch_polybar && i3-msg mode "default"
+    bindsym Shift+h exec --no-startup-id autorandr horizontal-reverse && $launch_polybar && i3-msg mode "default"
 
-    bindsym v exec --no-startup-id autorandr vertical && $launch_polybar
-    bindsym Shift+v exec --no-startup-id autorandr vertical-reverse && $launch_polybar
+    bindsym v exec --no-startup-id autorandr vertical && $launch_polybar && i3-msg mode "default"
+    bindsym Shift+v exec --no-startup-id autorandr vertical-reverse && $launch_polybar && i3-msg mode "default"
 
-    bindsym m exec --no-startup-id autorandr home && $launch_polybar
+    bindsym m exec --no-startup-id autorandr home && $launch_polybar && i3-msg mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
