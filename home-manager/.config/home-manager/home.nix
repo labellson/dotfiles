@@ -11,6 +11,13 @@ in
   home.username = "labellson";
   home.homeDirectory = "/home/labellson";
 
+  # Config keyboard keymap
+  home.keyboard = {
+    layout = "us,es";
+    options = ["eurosign:e" "grp:shifts_toggle" "ctrl:nocaps"];
+    variant = "intl,";
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
