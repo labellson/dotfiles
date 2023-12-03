@@ -99,6 +99,7 @@ in
 
     emacs29
     neovim
+    nil  # nix language server
 
     # needed by doom emacs
     fd
