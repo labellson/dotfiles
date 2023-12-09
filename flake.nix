@@ -16,7 +16,7 @@
       homeConfigurations = {
         "labellson@vostok" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          modules = [./home-manager/home.nix];
+          modules = [./home-manager/.config/home-manager/vostok/home.nix];
         };
       };
     };
