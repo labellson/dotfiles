@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/shell.nix
+    ./fish.nix
   ];
 
   # allow unfree packages
