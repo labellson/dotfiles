@@ -15,30 +15,30 @@
       };
       in
       [
-        (plugin {
-          owner = "jethrokuan";
-          repo = "z";
-          rev = "85f863f20f24faf675827fb00f3a4e15c7838d76";
-          sha256 = "sha256-+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
-        })
-        (plugin {
-          owner = "jorgebucaran";
-          repo = "hydro";
-          rev = "41b46a05c84a15fe391b9d43ecb71c7a243b5703";
-          sha256 = "sha256-zmEa/GJ9jtjzeyJUWVNSz/wYrU2FtqhcHdgxzi6ANHg=";
-        })
-        (plugin {
-          owner = "franciscolourenco";
-          repo = "done";
-          rev = "fbea3f682f9f32d957946490436e9dde8a67c367";
-          sha256 = "sha256-BGHfwKoMfOZUsa05kEt8W2luc1aC3Su/OyaGmcb4UiI=";
-        })
-        (plugin {
-          owner = "jorgebucaran";
-          repo = "autopair.fish";
-          rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
-          sha256 = "sha256-qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
-        })
+        {
+          name = "z";
+          src = pkgs.fishPlugins.z.src;
+        }
+        {
+          name = "hydro";
+          src = pkgs.fishPlugins.hydro.src;
+        }
+        {
+          name = "done";
+          src = pkgs.fishPlugins.done.src;
+        }
+        {
+          name = "autopair.fish";
+          src = pkgs.fishPlugins.autopair.src;
+        }
+        {
+          name = "puffer-fish";
+          src = pkgs.fishPlugins.puffer.src;
+        }
+        {
+          name = "humantime.fish";
+          src = pkgs.fishPlugins.humantime-fish.src;
+        }
         (plugin {
           owner = "gazorby";
           repo = "fish-abbreviation-tips";
@@ -56,12 +56,6 @@
           repo = "fish-asdf";
           rev = "5869c1b1ecfba63f461abd8f98cb21faf337d004";
           sha256 = "sha256-39L6UDslgIEymFsQY8klV/aluU971twRUymzRL17+6c=";
-        })
-        (plugin {
-          owner = "nickeb96";
-          repo = "puffer-fish";
-          rev = "5d3cb25e0d63356c3342fb3101810799bb651b64";
-          sha256 = "sha256-aPxEHSXfiJJXosIm7b3Pd+yFnyz43W3GXyUB5BFAF54=";
         })
       ];
   };
