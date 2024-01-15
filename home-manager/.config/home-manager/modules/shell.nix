@@ -70,5 +70,24 @@
       source = ../../../../fish/.config/fish/functions;
       recursive = true;
     };
+
+    # I'm sure an overlay is a better option to modify the prompt for
+    # fish-hydro, but I don't understand well how to use it yet.
+    ".config/fish/functions/fish_prompt.fish" = let
+      hydroPromptSignature = "function fish_prompt -d Hydro";
+      hydroPromptBody = (
+        pkgs.lib.strings.removePrefix hydroPromptSignature (
+          builtins.readFile "${pkgs.fishPlugins.hydro.src}/functions/fish_prompt.fish"
+        )
+      );
+      in {
+      text = ''
+        ${hydroPromptSignature}
+            if set -q VIRTUAL_ENV
+                echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+            end
+            ${hydroPromptBody}
+      '';
+    };
   };
 }
