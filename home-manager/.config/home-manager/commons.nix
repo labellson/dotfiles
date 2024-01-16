@@ -26,7 +26,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes"
+    ".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes";
   };
 
   # You can also manage environment variables but you will have to manually
