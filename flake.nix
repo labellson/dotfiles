@@ -18,6 +18,11 @@
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
           modules = [./home-manager/.config/home-manager/vostok/home.nix];
         };
+        # work server
+        "dani@shiva" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [./home-manager/.config/home-manager/shiva/shiva.nix];
+        };
       };
     };
 }
