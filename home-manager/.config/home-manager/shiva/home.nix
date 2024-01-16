@@ -9,4 +9,8 @@
   # configure the username and all that things
   home.username = "dani";
   home.homeDirectory = "/home/dani";
+
+  home.sessionVariables = {
+    TERM = "kitty";
+  };
 }
