@@ -7,6 +7,6 @@
   ];
 
   # configure the username and all that things
-  home.username = "labellson";
-  home.homeDirectory = "/Users/labellson";
+  home.username = "dani";
+  home.homeDirectory = "/home/dani";
 }
