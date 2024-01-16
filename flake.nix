@@ -21,7 +21,7 @@
         # work server
         "dani@shiva" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [./home-manager/.config/home-manager/shiva/shiva.nix];
+          modules = [./home-manager/.config/home-manager/shiva/home.nix];
         };
       };
     };
