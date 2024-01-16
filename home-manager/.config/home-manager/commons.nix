@@ -26,6 +26,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes";
+    ".tmux.conf".source = ../../../tmux/.tmux.conf;
   };
 
   # You can also manage environment variables but you will have to manually
