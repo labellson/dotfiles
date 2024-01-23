@@ -12,7 +12,7 @@
     tmux
     mosh
     neovim
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents (with google-cloud-sdk.components; [pubsub-emulator]))
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
