@@ -9,7 +9,10 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    tmux
     mosh
+    neovim
+    google-cloud-sdk
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
