@@ -58,6 +58,22 @@
           sha256 = "sha256-39L6UDslgIEymFsQY8klV/aluU971twRUymzRL17+6c=";
         })
       ];
+
+    shellAbbrs = {
+      # git abbreviations
+      gcm = "git commit -m";
+      gc = "git checkout";
+      gp = "git push";
+      gpo = "git push origin";
+      gpl = "git pull";
+      gplo = "git pull origin";
+      gploc = "git pull origin (git branch --show-current)";
+      gf = "git fetch";
+      gfo = "git fetch origin";
+      gs = "git status";
+      glol = "git log --oneline --decorate --graph";
+      glola = "git log --oneline --decorate --graph --all";
+    };
   };
 
   home.file = {
