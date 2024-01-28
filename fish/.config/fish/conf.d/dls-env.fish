@@ -5,6 +5,3 @@ if test -e $dotenvdir
         type -q dotenv && dotenv $dotenvdir/$envfile
     end
 end
-
-set -gx EDITOR nvim
-set -gx VISUAL emacs

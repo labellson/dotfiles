@@ -14,6 +14,11 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
+        "labellson@nostromo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [./home-manager/.config/home-manager/nostromo/home.nix];
+        };
+        # work laptop
         "labellson@vostok" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
           modules = [./home-manager/.config/home-manager/vostok/home.nix];

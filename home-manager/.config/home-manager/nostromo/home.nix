@@ -2,10 +2,18 @@
 
 let
   # so happy to make my 1st derivation
-  polybar-pulseaudio-control = pkgs.callPackage ./polybar-pulseaudio-control.nix {};
-  adw-colors = pkgs.callPackage ./adw-colors.nix {};
+  polybar-pulseaudio-control = pkgs.callPackage ../derivations/polybar-pulseaudio-control.nix {};
+  adw-colors = pkgs.callPackage ../derivations/adw-colors.nix {};
 in
 {
+  imports = [
+    ../modules/shell.nix
+    ./fish.nix
+  ];
+
+  # allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "labellson";
@@ -64,20 +72,12 @@ in
     };
   };
 
-  programs.bash = {
-      enable = true;
-      bashrcExtra = ''
-        . ~/.dotfiles/bash/.bashrc
-      '';
-    };
-
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    fish
     kitty
     ripgrep
     killall
@@ -220,7 +220,7 @@ in
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacsclient -a '' -r";
     TERMINAL = "kitty";
   };
 
