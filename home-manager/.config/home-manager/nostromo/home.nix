@@ -209,16 +209,6 @@ in
     ".config/gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/solarized/gtk.css";
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/labellson/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "emacsclient -a '' -r";
     TERMINAL = "kitty";
