@@ -44,7 +44,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacsclient -a '' -r";
   };
 
   # Let Home Manager install and manage itself and enable git
