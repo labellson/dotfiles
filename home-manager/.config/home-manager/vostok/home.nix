@@ -16,6 +16,7 @@
   home.packages = with pkgs; [
     mosh
     nil
+    (google-cloud-sdk.withExtraComponents (with google-cloud-sdk.components; [pubsub-emulator gke-gcloud-auth-plugin]))
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
