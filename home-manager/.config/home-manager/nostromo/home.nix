@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   # so happy to make my 1st derivation
@@ -93,6 +93,7 @@ in
     pavucontrol
 
     firefox
+    google-chrome
     obsidian  # says that electron 24 is an insecure package
     telegram-desktop
     nextcloud-client
@@ -132,6 +133,9 @@ in
     lxappearance
     adw-colors
     feh
+
+    # system comes from pkgs.system
+    inputs.paisa.packages.${system}.default
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
