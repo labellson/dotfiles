@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     paisa = {
-      url = "github:ananthakumaran/paisa";
+      url = "github:ananthakumaran/paisa/v0.6.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

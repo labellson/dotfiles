@@ -79,15 +79,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1707143864,
-        "narHash": "sha256-j3x74bhibctfZT74m7LHVSSDQLDnhtJ5wNKNi9CP928=",
+        "lastModified": 1707533481,
+        "narHash": "sha256-momRT68HcBLelHwgHuMUScNDLx7VhHPhMDIDKdqpCAc=",
         "owner": "ananthakumaran",
         "repo": "paisa",
-        "rev": "704f25914bac51fa595e857eaec8f6f6399d155c",
+        "rev": "e33868be36875adc1fbc69496cf2323329714869",
         "type": "github"
       },
       "original": {
         "owner": "ananthakumaran",
+        "ref": "v0.6.6",
         "repo": "paisa",
         "type": "github"
       }
