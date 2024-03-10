@@ -89,6 +89,7 @@
 
     # I'm sure an overlay is a better option to modify the prompt for
     # fish-hydro, but I don't understand well how to use it yet.
+    # TODO: what about using a dag on home.activation?
     ".config/fish/functions/fish_prompt.fish" = let
       hydroPromptSignature = "function fish_prompt -d Hydro";
       hydroPromptBody = (
