@@ -101,8 +101,9 @@ in
     darkman
     arandr
     ncdu
-    transmission
+    transmission_4-gtk
     calibre
+    libreoffice
 
     xfce.thunar
     xfce.thunar-volman
