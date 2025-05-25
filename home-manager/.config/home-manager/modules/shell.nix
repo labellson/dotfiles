@@ -91,7 +91,7 @@
     # fish-hydro, but I don't understand well how to use it yet.
     # TODO: what about using a dag on home.activation?
     ".config/fish/functions/fish_prompt.fish" = let
-      hydroPromptSignature = "function fish_prompt -d Hydro";
+      hydroPromptSignature = "function fish_prompt --description Hydro";
       hydroPromptBody = (
         pkgs.lib.strings.removePrefix hydroPromptSignature (
           builtins.readFile "${pkgs.fishPlugins.hydro.src}/functions/fish_prompt.fish"
