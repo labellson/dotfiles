@@ -108,7 +108,7 @@ in
     xfce.thunar
     xfce.thunar-volman
 
-    emacs29
+    emacs
     neovim
     nil  # nix language server
 
@@ -127,17 +127,13 @@ in
 
     stremio
 
-    # fonts
-    nerdfonts
-    fantasque-sans-mono
-
     # polish
     lxappearance
     adw-colors
     feh
 
     # system comes from pkgs.system
-    inputs.paisa.packages.${system}.default
+    # inputs.paisa.packages.${system}.default
     ledger
     hledger
     tradingview
@@ -148,7 +144,11 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ];
+    #
+
+    # fonts
+    fantasque-sans-mono
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   services.gammastep = {
     enable = true;
