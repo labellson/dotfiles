@@ -120,13 +120,12 @@ in
     cmakeMinimal
     (aspellWithDicts (dicts: with dicts; [en es]))
     shellcheck
-    nixfmt
+    nixfmt-rfc-style
 
     # i like to have it installed
     (python311.withPackages(ps: with ps; [requests ipython]))
 
     stremio
-    steam
 
     # fonts
     nerdfonts
