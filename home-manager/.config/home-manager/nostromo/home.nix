@@ -148,7 +148,7 @@ in
 
     # fonts
     fantasque-sans-mono
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  ];
 
   services.gammastep = {
     enable = true;
