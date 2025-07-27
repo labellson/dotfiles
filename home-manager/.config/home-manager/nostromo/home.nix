@@ -72,6 +72,17 @@ in
     };
   };
 
+  # gnupg
+  programs.gpg = {
+    enable = true;
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableFishIntegration = true;
+    pinentry.package = pkgs.pinentry-rofi;
+  };
+
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
@@ -81,7 +92,6 @@ in
     kitty
     ripgrep
     killall
-    gnupg
     mosh
 
     (polybar.override {i3Support = true;})
