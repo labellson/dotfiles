@@ -86,6 +86,9 @@ in
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
+  # gaming
+  programs.mangohud.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
