@@ -118,9 +118,6 @@ in
     calibre
     libreoffice
 
-    xfce.thunar
-    xfce.thunar-volman
-
     emacs
     neovim
     nil  # nix language server
