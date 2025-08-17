@@ -1,6 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.bash = {
       enable = true;
       bashrcExtra = builtins.readFile ../../../../bash/.bashrc;
@@ -90,6 +96,7 @@
     # I'm sure an overlay is a better option to modify the prompt for
     # fish-hydro, but I don't understand well how to use it yet.
     # TODO: what about using a dag on home.activation?
+    # TODO: or what about trying? https://starship.rs/guide/
     ".config/fish/functions/fish_prompt.fish" = let
       hydroPromptSignature = "function fish_prompt --description Hydro";
       hydroPromptBody = (
