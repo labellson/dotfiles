@@ -26,10 +26,6 @@
           src = pkgs.fishPlugins.z.src;
         }
         {
-          name = "hydro";
-          src = pkgs.fishPlugins.hydro.src;
-        }
-        {
           name = "done";
           src = pkgs.fishPlugins.done.src;
         }
@@ -92,26 +88,222 @@
       source = ../../../../fish/.config/fish/functions;
       recursive = true;
     };
+  };
 
-    # I'm sure an overlay is a better option to modify the prompt for
-    # fish-hydro, but I don't understand well how to use it yet.
-    # TODO: what about using a dag on home.activation?
-    # TODO: or what about trying? https://starship.rs/guide/
-    ".config/fish/functions/fish_prompt.fish" = let
-      hydroPromptSignature = "function fish_prompt --description Hydro";
-      hydroPromptBody = (
-        pkgs.lib.strings.removePrefix hydroPromptSignature (
-          builtins.readFile "${pkgs.fishPlugins.hydro.src}/functions/fish_prompt.fish"
-        )
-      );
-      in {
-      text = ''
-        ${hydroPromptSignature}
-            if set -q VIRTUAL_ENV
-                echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
-            end
-            ${hydroPromptBody}
-      '';
+  # using symbols from starship nerd-font-symbols preset
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      add_newline = false;
+      follow_symlinks = false;
+      directory = {
+        truncation_length = 1;
+        truncate_to_repo = false;
+        fish_style_pwd_dir_length = 1;
+        style = "cyan";
+      };
+      direnv = {
+        disabled = false;
+      };
+      gcloud = {
+        detect_env_vars = [ "STARSHIP_GCP" ];
+      };
+
+      # generated from preset
+      aws = {
+        symbol = "  ";
+      };
+      buf = {
+        symbol = " ";
+      };
+      bun = {
+        symbol = " ";
+      };
+      c = {
+        symbol = " ";
+      };
+      cpp = {
+        symbol = " ";
+      };
+      cmake = {
+        symbol = " ";
+      };
+      conda = {
+        symbol = " ";
+      };
+      crystal = {
+        symbol = " ";
+      };
+      dart = {
+        symbol = " ";
+      };
+      deno = {
+        symbol = " ";
+      };
+      directory = {
+        read_only = " 󰌾";
+      };
+      docker_context = {
+        symbol = " ";
+      };
+      elixir = {
+        symbol = " ";
+      };
+      elm = {
+        symbol = " ";
+      };
+      fennel = {
+        symbol = " ";
+      };
+      fossil_branch = {
+        symbol = " ";
+      };
+      gcloud = {
+        symbol = "  ";
+      };
+      git_branch = {
+        symbol = " ";
+      };
+      git_commit = {
+        tag_symbol = "  ";
+      };
+      golang = {
+        symbol = " ";
+      };
+      guix_shell = {
+        symbol = " ";
+      };
+      haskell = {
+        symbol = " ";
+      };
+      haxe = {
+        symbol = " ";
+      };
+      hg_branch = {
+        symbol = " ";
+      };
+      hostname = {
+        ssh_symbol = " ";
+      };
+      java = {
+        symbol = " ";
+      };
+      julia = {
+        symbol = " ";
+      };
+      kotlin = {
+        symbol = " ";
+      };
+      lua = {
+        symbol = " ";
+      };
+      memory_usage = {
+        symbol = "󰍛 ";
+      };
+      meson = {
+        symbol = "󰔷 ";
+      };
+      nim = {
+        symbol = "󰆥 ";
+      };
+      nix_shell = {
+        symbol = " ";
+      };
+      nodejs = {
+        symbol = " ";
+      };
+      ocaml = {
+        symbol = " ";
+      };
+      os = {
+        symbols = {
+          Alpaquita = " ";
+          Alpine = " ";
+          AlmaLinux = " ";
+          Amazon = " ";
+          Android = " ";
+          Arch = " ";
+          Artix = " ";
+          CachyOS = " ";
+          CentOS = " ";
+          Debian = " ";
+          DragonFly = " ";
+          Emscripten = " ";
+          EndeavourOS = " ";
+          Fedora = " ";
+          FreeBSD = " ";
+          Garuda = "󰛓 ";
+          Gentoo = " ";
+          HardenedBSD = "󰞌 ";
+          Illumos = "󰈸 ";
+          Kali = " ";
+          Linux = " ";
+          Mabox = " ";
+          Macos = " ";
+          Manjaro = " ";
+          Mariner = " ";
+          MidnightBSD = " ";
+          Mint = " ";
+          NetBSD = " ";
+          NixOS = " ";
+          Nobara = " ";
+          OpenBSD = "󰈺 ";
+          openSUSE = " ";
+          OracleLinux = "󰌷 ";
+          Pop = " ";
+          Raspbian = " ";
+          Redhat = " ";
+          RedHatEnterprise = " ";
+          RockyLinux = " ";
+          Redox = "󰀘 ";
+          Solus = "󰠳 ";
+          SUSE = " ";
+          Ubuntu = " ";
+          Unknown = " ";
+          Void = " ";
+          Windows = "󰍲 ";
+        };
+      };
+      package = {
+        symbol = "󰏗 ";
+      };
+      perl = {
+        symbol = " ";
+      };
+      php = {
+        symbol = " ";
+      };
+      pijul_channel = {
+        symbol = " ";
+      };
+      pixi = {
+        symbol = "󰏗 ";
+      };
+      python = {
+        symbol = " ";
+      };
+      rlang = {
+        symbol = "󰟔 ";
+      };
+      ruby = {
+        symbol = " ";
+      };
+      rust = {
+        symbol = "󱘗 ";
+      };
+      scala = {
+        symbol = " ";
+      };
+      swift = {
+        symbol = " ";
+      };
+      zig = {
+        symbol = " ";
+      };
+      gradle = {
+        symbol = " ";
+      };
     };
   };
 }
