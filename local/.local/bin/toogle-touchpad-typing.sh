@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 TOUCHPAD=$(cat $HOME/.config/i3/.touchpad-active-id)
 
 if [ "$TOUCHPAD" == "0" ]
