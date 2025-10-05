@@ -118,6 +118,7 @@ in
     transmission_4-gtk
     calibre
     libreoffice
+    evince
 
     emacs
     neovim
