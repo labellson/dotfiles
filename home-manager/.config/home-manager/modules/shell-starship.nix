@@ -6,6 +6,12 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
+      format = lib.concatStrings [
+        "$all"
+        "$line_break"
+        "$directory"
+        "$character"
+      ];
       add_newline = false;
       follow_symlinks = false;
       directory = {

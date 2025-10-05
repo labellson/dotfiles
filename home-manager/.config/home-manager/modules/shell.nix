@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./shell-starship.nix
+  ];
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
