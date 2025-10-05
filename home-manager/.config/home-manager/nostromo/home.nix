@@ -109,6 +109,7 @@ in
     firefox
     google-chrome
     obsidian  # says that electron 24 is an insecure package
+    element-desktop
     telegram-desktop
     nextcloud-client
     vlc
