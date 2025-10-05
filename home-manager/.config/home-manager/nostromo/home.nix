@@ -122,6 +122,8 @@ in
 
     emacs
     neovim
+    git-lfs
+    git-filter-repo
     nil  # nix language server
     nodejs # just to install lsp-servers
     docker-compose
