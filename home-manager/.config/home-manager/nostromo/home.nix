@@ -124,6 +124,7 @@ in
     neovim
     nil  # nix language server
     nodejs # just to install lsp-servers
+    docker-compose
 
     # needed by doom emacs
     fd
