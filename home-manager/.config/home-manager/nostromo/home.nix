@@ -233,6 +233,9 @@ in
     # '';
     ".config/gtk-4.0/gtk-dark.css".source = "${adw-colors}/themes/solarized-dark/gtk.css";
     ".config/gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/solarized/gtk.css";
+
+    # sway
+    ".config/sway/config".source = ../../../../sway/.config/sway/config;
   };
 
   home.sessionVariables = {
