@@ -1,12 +1,17 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.waybar = {
-    enable = true;
+  services.mako.enable = true;
+  services.swayidle.enable = true;
+
+  programs = {
+    waybar.enable = true;
+    swaylock.enable = true;
+    fuzzel.enable = true;
   };
 
-  home.file = {
-    # sway
-    ".config/sway/config".source = ../../../../../sway/.config/sway/config;
+  xdg.configFile = {
+    "sway/config".source = ../../../../../sway/.config/sway/config;
+    "niri/config.kdl".source = ../../../../../niri/.config/niri/config.kdl;
   };
 }

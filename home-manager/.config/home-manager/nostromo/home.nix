@@ -36,6 +36,9 @@ in
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  # polkit
+  services.polkit-gnome.enable = true;
+
   # gnupg
   programs.gpg = {
     enable = true;
