@@ -13,5 +13,6 @@
   xdg.configFile = {
     "sway/config".source = ../../../../../sway/.config/sway/config;
     "niri/config.kdl".source = ../../../../../niri/.config/niri/config.kdl;
+    "fuzzel/fuzzel.ini".source = ../../../../../fuzzel/.config/fuzzel/fuzzel.ini;
   };
 }
