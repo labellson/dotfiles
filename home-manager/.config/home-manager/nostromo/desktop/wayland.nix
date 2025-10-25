@@ -5,7 +5,11 @@
   services.swayidle.enable = true;
 
   programs = {
-    waybar.enable = true;
+    waybar = {
+      enable = true;
+      systemd.enable = true;
+      systemd.target = "niri.service";
+    };
     swaylock.enable = true;
     fuzzel.enable = true;
   };
