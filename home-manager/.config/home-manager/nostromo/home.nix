@@ -81,7 +81,7 @@ in
     libreoffice
     evince
 
-    emacs
+    emacs-pgtk  # with native wayland support
     neovim
     git-lfs
     git-filter-repo
