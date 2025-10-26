@@ -46,6 +46,7 @@ in
 
   home.packages = with pkgs; [
     swaybg
+    wdisplays
   ];
 
   systemd.user.services.swaybg = {
