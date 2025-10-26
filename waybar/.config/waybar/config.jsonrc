@@ -1,0 +1,343 @@
+// -*- mode: jsonc -*-
+{
+    "name": "niri",
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "niri/workspaces",
+        "custom/media",
+        "tray",
+        "group/power"
+    ],
+    "modules-center": [
+        "niri/window"
+    ],
+    "modules-right": [
+        // "custom/bitcoin",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "pulseaudio#mic",
+        "backlight",
+        "battery",
+        "cpu",
+        "group/system-monitor",
+        // "disk",
+        // "temperature",
+        "niri/language",
+        "clock",
+        "privacy",
+        "gamemode"
+    ],
+    // Modules configuration
+    "niri/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "niri/language": {
+        "format": "{shortDescription}",
+        "on-click": "niri msg action switch-layout next"
+    },
+    // TODO: fuzzel bluethoot onclick
+    "bluetooth": {
+        "format": " {status}",
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-connected": ":{num_connections}",
+        // "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 4,
+        "icon-size": 12,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
+    },
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/power-drawer",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot",
+            "custom/suspend"
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼 Log out ",
+        "tooltip": false,
+        "on-click": "niri msg action quit --skip-confirmation"
+    },
+    "custom/lock": {
+        "format": "󰍁 Lock ",
+        "tooltip": false,
+        "on-click": "swaylock"
+    },
+    "custom/reboot": {
+        "format": "󰜉 Reboot ",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/suspend": {
+        "format": " Suspend ",
+        "tooltip": false,
+        "on-click": "systemctl suspend"
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
+    },
+    "custom/power-drawer": {
+        "format": "Power off ",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        "icons": {
+            // "blueman": "bluetooth"
+            "nm-applet": "bluetooth"
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        }
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "locale":  "en_GB.utf8", // english with weekday starting on Monday
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d/%m/%y %H:%M}",
+        // "format": " {:%H:%M}",
+        // "format-alt": " {:%d/%m/%y %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{:%U}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+            "on-click-middle": "shift_reset"
+        }
+    },
+    "group/system-monitor": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "not-memory",
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": ["memory", "disk", "temperature"]
+    },
+    "cpu": {
+        // "format": " {usage}%",
+        "interval": 3,
+        "format": "{icon}",
+        "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
+    },
+    "memory": {
+        // "format": " {}%"
+        "interval": 10,
+        "format": "{icon}",
+        "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+        "tooltip-format": " {used:0.1f}G/{total:0.1f}G"
+    },
+    "disk": {
+        // "format": " {free}"
+        "format": " {specific_free:0.2f}G",
+        "unit": "GiB"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C {icon}",
+        "format": " {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+        "tooltip-format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "group/battery": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "not-battery",
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": ["battery", "upower#headphones"]
+    },
+    "battery": {
+        "states": {
+            "ramp-99": 99,
+            "ramp-90": 90,
+            "ramp-80": 80,
+            "ramp-70": 70,
+            "ramp-60": 60,
+            "ramp-50": 50,
+            "ramp-40": 40,
+            "warning": 30,
+            "ramp-20": 20,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-alt": "{icon} {capacity}%",
+        "tooltip-format": "{timeTo} [{capacity}%]",
+        // "format-full": "", // An empty format will hide the module
+        // "format-icons": ["", "", "", "", ""],
+        // "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰂄"],
+        "format-plugged": "󰂄",
+        "format-charging-critical": "󰢜 {capacity}%",
+        "format-charging-ramp-20": "󰂆 {capacity}%",
+        "format-charging-warning": "󰂇 {capacity}%",
+        "format-charging-ramp-40": "󰂈 {capacity}%",
+        "format-charging-ramp-50": "󰢝 {capacity}%",
+        "format-charging-ramp-60": "󰂉 {capacity}%",
+        "format-charging-ramp-70": "󰢞 {capacity}%",
+        "format-charging-ramp-80": "󰂊 {capacity}%",
+        "format-charging-ramp-90": "󰂋 {capacity}%",
+        "format-charging-ramp-99": "󰂅 {capacity}%"
+    },
+    "upower#headphones": {
+        // "native-path": "/org/bluez/hci0/dev_CC_98_8B_D2_01_71",
+        "model": "WH-1000XM3",
+        "format": "󰋋 {percentage}",
+        "tooltip": false,
+        "show-icon": false,
+        // TODO: this does not hide if device disconnects
+        "hide-if-empty": true
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤟", "󰤢", "󰤥"],
+        "format-ethernet": "󰈀",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "",
+        "tooltip-format": "Network:\t <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency:\t <b>{frequency}MHz</b>\nInterface:\t <b>{ifname}</b>\nIP:\t\t <b>{ipaddr}/{cidr}</b>\nGateway:\t <b>{gwaddr}</b>\nNetmask:\t <b>{netmask}</b>",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headphone-muted": "󰟎",
+            "hands-free": "",
+            "headset": "󰋋",
+            "headset-muted": "󰟎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""],
+            "default-muted": "󰖁"
+        },
+        "on-click": "pulseaudio-control togmute",
+        "on-click-right": "pavucontrol",
+        "on-click-middle": "pulseaudio-control next-node"
+    },
+    // TODO: tooltip should list input sink
+    "pulseaudio#mic": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " {volume}%",
+        "format-icons": {
+            "bluez_input.CC:98:8B:D2:01:71": "󰋋"
+        },
+        "ignored-sinks": [
+            "alsa_output.pci-0000_00_1f.3.analog-stereo.monitor",
+            "bluez_input.CC:98:8B:D2:01:71"
+        ],
+        "on-click": "pulseaudio-control --node-type input togmute",
+        "on-click-right": "pavucontrol",
+        "on-click-middle": "pulseaudio-control --node-type input --node-blacklist \"*output*monitor\" next-node"
+    },
+    "custom/bitcoin": {
+        "format": " {text}",
+        "exec": "~/.config/polybar/bitcoin.py",
+        "interval": 300
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+    // "custom/power": {
+    //     "format" : "⏻ ",
+	// 	"tooltip": false,
+	// 	"menu": "on-click",
+	// 	"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+	// 	"menu-actions": {
+	// 		"shutdown": "shutdown",
+	// 		"reboot": "reboot",
+	// 		"suspend": "systemctl suspend",
+	// 		"hibernate": "systemctl hibernate"
+	// 	}
+    // }
+}
