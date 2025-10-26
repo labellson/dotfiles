@@ -47,8 +47,7 @@ in
   services.gpg-agent = {
     enable = true;
     enableFishIntegration = true;
-    # TODO: rofi is not wayland
-    pinentry.package = pkgs.pinentry-rofi;
+    pinentry.package = pkgs.pinentry-gnome3;
   };
 
   # allow fontconfig to discover fonts installed through home.packages
