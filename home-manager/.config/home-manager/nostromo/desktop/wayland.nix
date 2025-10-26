@@ -20,6 +20,11 @@ let
     );
 in
 {
+  home.sessionVariables = {
+    # fix issues with electron apps in wayland
+    NIXOS_OZONE_WL = "1";
+  };
+
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.swaync.enable = true;
