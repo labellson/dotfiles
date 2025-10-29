@@ -10,14 +10,15 @@
     "modules-left": [
         "niri/workspaces",
         "custom/media",
-        "tray",
-        "group/power"
+        "niri/window"
     ],
     "modules-center": [
-        "niri/window"
+        "clock",
+        "custom/notification"
     ],
     "modules-right": [
         // "custom/bitcoin",
+        "tray",
         "network",
         "bluetooth",
         "pulseaudio",
@@ -29,9 +30,9 @@
         // "disk",
         // "temperature",
         "niri/language",
-        "clock",
         "privacy",
-        "gamemode"
+        "gamemode",
+        "group/power"
     ],
     // Modules configuration
     "niri/workspaces": {
@@ -83,15 +84,15 @@
         "drawer": {
             "transition-duration": 500,
             "children-class": "not-power",
-            "transition-left-to-right": true
+            "transition-left-to-right": false
         },
         "modules": [
             "custom/power", // First element is the "group leader" and won't ever be hidden
-            "custom/power-drawer",
             "custom/quit",
             "custom/lock",
+            "custom/suspend",
             "custom/reboot",
-            "custom/suspend"
+            "custom/power-drawer"
         ]
     },
     "custom/quit": {
@@ -133,12 +134,11 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10,
-        "icons": {
-            // "blueman": "bluetooth"
-            "nm-applet": "bluetooth"
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        }
+        "spacing": 10
+        // "icons": {
+        //     "blueman": "bluetooth"
+        //     "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -233,9 +233,9 @@
             "ramp-20": 20,
             "critical": 15
         },
-        "format": "{icon}",
+        "format": "{icon} {capacity}%",
         "format-full": "{icon}",
-        "format-alt": "{icon} {capacity}%",
+        "format-alt": "{icon}",
         "tooltip-format": "{timeTo} [{capacity}%]",
         // "format-full": "", // An empty format will hide the module
         // "format-icons": ["", "", "", "", ""],
@@ -327,6 +327,21 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/notification": {
+        "tooltip": false,
+        // "format": "{icon}"
+        "format": "󰂜",
+        "format-icons": {
+            "notification": "󰅸",
+            "none": "󰂜",
+            "dnd-notification": "󰅸",
+            "dnd-none": "󱏨",
+            "inhibited-notification": "󰅸",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰅸",
+            "dnd-inhibited-none": "󱏨"
+        }
     }
     // "custom/power": {
     //     "format" : "⏻ ",
