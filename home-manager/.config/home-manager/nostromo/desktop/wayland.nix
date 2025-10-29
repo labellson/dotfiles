@@ -27,7 +27,6 @@ in
 
   services.mako.enable = true;
   services.swayidle.enable = true;
-  services.swaync.enable = true;
 
   programs = {
     waybar = {
