@@ -282,6 +282,12 @@ layout {
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+// HACK: not very beautiful but works to stop nm-applet. It is a useful applet
+// but once I set up my networks I don't use it anymore. I'm not sure how it got
+// activated as the nix options are disabled. I will just start it on runtime if
+// I ever need it.
+spawn-sh-at-startup "systemctl --user stop app-nm\\\\x2dapplet@autostart.service"
+
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup
