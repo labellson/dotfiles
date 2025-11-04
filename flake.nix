@@ -14,6 +14,11 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
+    let
+      # path to this repository. I use this to symlink config files to the
+      # existing ones in this folder.
+      symlinkRoot = "/home/labellson/.dotfiles";
+    in
     {
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
@@ -21,7 +26,7 @@
         "labellson@nostromo" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [./home-manager/.config/home-manager/nostromo/home.nix];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs symlinkRoot; };
         };
         # work laptop
         "labellson@vostok" = home-manager.lib.homeManagerConfiguration {

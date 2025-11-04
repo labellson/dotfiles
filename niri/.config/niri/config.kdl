@@ -409,7 +409,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return repeat=false hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return repeat=false hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "$TERMINAL"; }
 
     // Open apps launcher
     Mod+Space repeat=false hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }

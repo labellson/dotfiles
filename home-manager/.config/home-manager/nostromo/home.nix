@@ -9,6 +9,7 @@ in
     ./fish.nix
     ./desktop/x11.nix
     ./desktop/wayland.nix
+    ../modules/xdg.nix
   ];
 
   # allow unfree packages
@@ -64,6 +65,9 @@ in
     killall
     mosh
     btop
+
+    # a tinted theming cli tool
+    tinty
 
     pavucontrol
 

@@ -1,0 +1,17 @@
+# Global settings
+default-scheme = "base24-builtin-solarized-light"
+preferred-schemes = [
+    "base24-builtin-solarized-light",
+    "base24-solarized-light",
+    "base16-selenized-light",
+    "base24-builtin-solarized-dark",
+    "base24-solarized-dark",
+    "base16-selenized-dark"
+]
+
+[[items]]
+name = "tinted-terminal"
+path = "https://github.com/tinted-theming/tinted-terminal"
+themes-dir = "themes/kitty"
+hook = "kitten @ load-config"
+supported-systems = ["base16", "base24"]
