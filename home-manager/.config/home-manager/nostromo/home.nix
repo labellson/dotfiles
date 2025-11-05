@@ -10,6 +10,7 @@ in
     ./desktop/x11.nix
     ./desktop/wayland.nix
     ../modules/xdg.nix
+    ../modules/tinty
   ];
 
   # TODO: test if it works and submit PR to nixpkgs
@@ -92,9 +93,6 @@ in
     killall
     mosh
     btop
-
-    # a tinted theming cli tool
-    tinty
 
     pavucontrol
 

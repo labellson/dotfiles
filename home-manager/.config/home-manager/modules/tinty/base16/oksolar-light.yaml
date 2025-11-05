@@ -1,0 +1,21 @@
+system: "base16"
+name: "oksolar-light"
+author: "Zack Voase (https://meat.io/oksolar) / adapted to base16 by labellson"
+variant: "light"
+palette:
+  base00: "#fbf7ef"  # base3
+  base01: "#f1e9d2"  # base2
+  base02: "#8faaab"  # base1
+  base03: "#98a8a8"  # base0
+  base04: "#657377"  # base00
+  base05: "#5b7279"  # base01
+  base06: "#093946"  # base02
+  base07: "#002d38"  # base03
+  base08: "#f23749"  # red
+  base09: "#d56500"  # orange
+  base0A: "#ac8300"  # yellow
+  base0B: "#819500"  # green
+  base0C: "#259d94"  # cyan
+  base0D: "#2b90d8"  # blue
+  base0E: "#7d80d1"  # violet
+  base0F: "#dd459d"  # magenta
