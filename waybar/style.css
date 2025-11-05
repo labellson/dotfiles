@@ -1,13 +1,15 @@
+@import "base16-waybar-colors-file.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "GohuFont 14 Nerd Font Propo", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    color: #657377;
+    color: @base04;
 }
 
 window#waybar {
-    background-color: #fbf7ef;
-    border-bottom: 3px solid #8faaab;
+    background-color: @base00;
+    border-bottom: 3px solid @base02;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -28,8 +30,8 @@ tooltip label {
 #pulseaudio,
 #language,
 #center {
-    background-color: #f1e9d2;
-    color: #5b7279;
+    background-color: @base01;
+    color: @base05;
     margin: 7px 0px;
     border-radius: 7px;
     padding-left: 12px;
@@ -47,7 +49,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #f1e9d2;
+    box-shadow: inset 0 -3px @base01;
 }
 
 #workspaces button {
@@ -56,15 +58,15 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: #f1e9d2;
+    background: @base01;
 }
 
 #workspaces button.focused, #workspaces button.active {
-    box-shadow: inset 0 -3px #fbf7ef;
+    box-shadow: inset 0 -3px @base00;
 }
 
 #workspaces button.urgent {
-    background-color: #f23749;
+    background-color: @base08;
 }
 
 #clock,
@@ -96,7 +98,7 @@ If workspaces is the leftmost module, omit left margin
 
 
 #network, #bluetooth {
-    color: #f1e9d2;
+    color: @base01;
     padding-left: 4px;
 }
 
@@ -119,7 +121,7 @@ If workspaces is the leftmost module, omit left margin
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f23749;
+    background-color: @base08;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -133,7 +135,7 @@ label:focus {
 }
 
 #cpu {
-    color: #dd459d;
+    color: @base0F;
 }
 
 #memory {
@@ -147,13 +149,13 @@ label:focus {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background: #f1e9d2;
+    background: @base01;
 }
 
 #pulseaudio.output.muted,
 #pulseaudio.input.source-muted {
-    background-color: #8faaab;
-    color: #5b7279;
+    background-color: @base02;
+    color: @base05;
 }
 
 #custom-media {
@@ -171,11 +173,11 @@ label:focus {
 }
 
 #temperature.critical {
-    background-color: #f23749;
+    background-color: @base08;
 }
 
 #tray-network {
-    background-color: #2b90d8;
+    background-color: @base0D;
     margin: 7px 0px;
     border-radius: 7px;
     padding-left: 12px;
@@ -188,7 +190,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #dd459d;
+    background-color: @base0F;
 }
 
 #language {

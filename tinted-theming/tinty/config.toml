@@ -15,3 +15,10 @@ path = "https://github.com/tinted-theming/tinted-terminal"
 themes-dir = "themes/kitty"
 hook = "kitten @ load-config"
 supported-systems = ["base16", "base24"]
+
+[[items]]
+name = "base16-waybar"
+path = "https://github.com/tinted-theming/base16-waybar"
+themes-dir = "colors"
+hook = "cp -f %f ~/.config/waybar/"
+supported-systems = ["base16"]
