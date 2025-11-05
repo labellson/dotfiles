@@ -1,5 +1,6 @@
 { config, lib, pkgs, symlinkRoot, ... }:
 
+# TODO: how could I pass this helper functions to other modules??
 let
   # import some useful functions
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -23,6 +24,8 @@ let
   # declare the config files to link
   confFiles = map linkFile [
     "tinted-theming/tinty/config.toml"
+    "waybar/config.jsonc"
+    "waybar/style.css"
   ] ++ [
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];

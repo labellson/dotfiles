@@ -1,24 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  # TODO: a bit dirty to have this here, but I only use it here
-  fromJSONC = jsonc:
-    builtins.fromJSON (
-      builtins.readFile (
-        pkgs.runCommand "from-jsonc"
-          {
-            FILE = pkgs.writeText "file.jsonc" jsonc;
-            allowSubstitutes = false;
-            preferLocalBuild = true;
-          }
-          ''
-            # it's awkward, but it's works 😏
-            ${pkgs.gcc}/bin/cpp -P -E "$FILE" > $out
-            # or clang
-          ''
-      )
-    );
-in
 {
   home.sessionVariables = {
     # fix issues with electron apps in wayland
@@ -33,10 +14,6 @@ in
       enable = true;
       systemd.enable = true;
       systemd.target = "niri.service";
-      settings = {
-        mainBar = fromJSONC (builtins.readFile ../../../../../waybar/.config/waybar/config.jsonrc);
-      };
-      style = ../../../../../waybar/.config/waybar/style.css;
     };
     swaylock.enable = true;
     fuzzel.enable = true;
