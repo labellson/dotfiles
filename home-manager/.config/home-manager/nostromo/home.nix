@@ -79,6 +79,8 @@ in
     pinentry.package = pkgs.pinentry-gnome3;
   };
 
+  services.darkman.enable = true;
+
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
@@ -103,8 +105,6 @@ in
     element-desktop
     telegram-desktop
     vlc
-
-    darkman
 
     ncdu
     transmission_4-gtk
