@@ -5,20 +5,19 @@
 
 stdenv.mkDerivation rec {
   pname = "adw-colors";
-  version = "b290fedc46e3dc0719b9e2455ad765afe0c6a4d7";
+  version = "4f32945ffe95e871b46191d96dc5f61b153d699f";
 
   src = fetchFromGitHub {
     owner = "lassekongo83";
     repo = pname;
     rev = version;
-    sha256 = "sha256-yksWZCu/xXp4o8B9uod5e+OZ6Kyl1IMDrcrDWVLHv74=";
+    sha256 = "sha256-ocrVOebwU2AN4MAQywTOHEA8Lwbx7iOMbuI85V5jk4I=";
   };
 
   installPhase = ''
     runHook preInstall
 
     rm -r themes/*/{*.png,*.scss,*.md}
-    rm -r themes/*/{install.sh,uninstall.sh,sass}
 
     mkdir -p $out
     cp -r themes $out/themes

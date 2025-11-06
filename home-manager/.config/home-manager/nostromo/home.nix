@@ -174,8 +174,10 @@ in
 
   gtk = {
     enable = true;
-    theme.package = pkgs.adw-gtk3;
-    theme.name = "adw-gtk3";
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
+    };
     cursorTheme.package = pkgs.vanilla-dmz;
     cursorTheme.name = "Vanilla-DMZ-AA";
     iconTheme.package = (pkgs.papirus-icon-theme.override {color = "deeporange";});
@@ -189,23 +191,27 @@ in
       gtk-xft-hinting=1
       gtk-hintstyle="hitslight"
     '';
-    gtk3.extraConfig = {
-      gtk-button-images=1;
-      gtk-menu-images=1;
-      gtk-enable-event-sounds=1;
-      gtk-enable-input-feedback-sounds=1;
-      gtk-xft-antialias=1;
-      gtk-xft-hinting=1;
-      gtk-xft-hintstyle="hintslight";
+    gtk3 = {
+      extraConfig = {
+        gtk-button-images=1;
+        gtk-menu-images=1;
+        gtk-enable-event-sounds=1;
+        gtk-enable-input-feedback-sounds=1;
+        gtk-xft-antialias=1;
+        gtk-xft-hinting=1;
+        gtk-xft-hintstyle="hintslight";
+      };
     };
-    gtk4.extraConfig = {
-      gtk-button-images=1;
-      gtk-menu-images=1;
-      gtk-enable-event-sounds=1;
-      gtk-enable-input-feedback-sounds=1;
-      gtk-xft-antialias=1;
-      gtk-xft-hinting=1;
-      gtk-xft-hintstyle="hintslight";
+    gtk4 = {
+      extraConfig = {
+        gtk-button-images=1;
+        gtk-menu-images=1;
+        gtk-enable-event-sounds=1;
+        gtk-enable-input-feedback-sounds=1;
+        gtk-xft-antialias=1;
+        gtk-xft-hinting=1;
+        gtk-xft-hintstyle="hintslight";
+      };
     };
   };
 
@@ -222,8 +228,10 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/gtk-4.0/gtk-dark.css".source = "${adw-colors}/themes/solarized-dark/gtk.css";
-    ".config/gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/solarized/gtk.css";
+    ".config/gtk-4.0/gtk-dark.css".source = "${adw-colors}/themes/adw-solarized/gtk4-dark.css";
+    ".config/gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/adw-solarized/gtk4-light.css";
+    ".config/gtk-3.0/gtk-dark.css".source = "${adw-colors}/themes/adw-solarized/gtk3-dark.css";
+    ".config/gtk-3.0/gtk-light.css".source = "${adw-colors}/themes/adw-solarized/gtk3-light.css";
   };
 
   home.sessionVariables = {
