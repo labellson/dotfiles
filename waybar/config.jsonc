@@ -319,8 +319,8 @@
     "custom/notification": {
         "tooltip": false,
         "format": "<big>{icon}</big>",
-        "format": "<big>󰂜</big>",
         "format-icons": {
+            // 󰪓
             "notification": "󰅸",
             "none": "󰂜",
             "dnd-notification": "󰅸",
@@ -329,7 +329,11 @@
             "inhibited-none": "󰂜",
             "dnd-inhibited-notification": "󰅸",
             "dnd-inhibited-none": "󱏨"
-        }
+        },
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/mako-dnd.sh",
+        "on-click": "~/.config/waybar/scripts/mako-dnd.sh toggle",
     },
     // padding modules //
     "custom/pad": {

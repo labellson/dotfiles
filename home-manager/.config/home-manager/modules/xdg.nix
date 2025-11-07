@@ -31,7 +31,12 @@ let
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];
 
-  confLinks = mergeAttrsList confFiles;
+  # declare dirs to link
+  confDirs = map linkDir [
+    "waybar/scripts"
+  ];
+
+  confLinks = mergeAttrsList (confFiles ++ confDirs);
 in
 {
   # to $XDG_CONFIG_DIR

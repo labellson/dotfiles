@@ -119,6 +119,7 @@ in
     nil  # nix language server
     nodejs # just to install lsp-servers
     docker-compose
+    jq
 
     # needed by doom emacs
     fd
