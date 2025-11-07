@@ -26,6 +26,7 @@ let
     "tinted-theming/tinty/config.toml"
     "waybar/config.jsonc"
     "waybar/style.css"
+    "mako/config"
   ] ++ [
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];

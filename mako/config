@@ -1,0 +1,13 @@
+include=~/.local/share/tinted-theming/tinty/base16-mako-colors-file.config
+
+# binding options
+on-button-middle=exec makoctl menu -n "$id" fuzzel --dmenu -p 'Select action: '
+
+# style options
+border-size=3
+border-radius=8
+group-by=app-name
+
+# modes
+[mode=dnd]
+invisible=1

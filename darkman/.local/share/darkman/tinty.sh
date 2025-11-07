@@ -7,3 +7,6 @@ tinty apply "base16-oksolar-${1}"
 
 # needed to tell active kitty windows to reload the theme
 pkill --signal SIGUSR1 kitty
+
+# tell mako to reload the config to apply the colors
+makoctl reload

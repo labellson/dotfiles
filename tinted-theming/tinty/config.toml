@@ -22,3 +22,10 @@ path = "https://github.com/tinted-theming/base16-waybar"
 themes-dir = "colors"
 hook = "cp -f %f ~/.config/waybar/"
 supported-systems = ["base16"]
+
+[[items]]
+name = "base16-mako"
+path = "https://github.com/stacyharper/base16-mako"
+revision = "master"
+themes-dir = "colors"
+supported-systems = ["base16"]
