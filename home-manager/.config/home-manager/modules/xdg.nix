@@ -27,6 +27,7 @@ let
     "waybar/config.jsonc"
     "waybar/style.css"
     "mako/config"
+    "kanshi/config"
   ] ++ [
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];

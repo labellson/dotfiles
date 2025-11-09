@@ -8,6 +8,7 @@
 
   services.mako.enable = true;
   services.swayidle.enable = true;
+  services.kanshi.enable = true;
 
   programs = {
     waybar = {
