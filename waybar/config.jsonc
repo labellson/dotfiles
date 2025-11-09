@@ -269,6 +269,7 @@
     "pulseaudio#output": {
         "format": "<big>{icon}</big> {volume}%",
         "format-icons": {
+            "bluez_output.18_48_BE_0A_C2_47.1": "󰓃<sub> 󰂯</sub>",
             "headphone": ["<sub> 󰋋</sub>", "<sub> 󰋋</sub>", "<sub> 󰋋</sub>"],
             "headphone-muted": "󰟎",
             "hands-free": "",
