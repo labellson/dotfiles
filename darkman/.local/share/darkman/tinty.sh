@@ -5,8 +5,6 @@
 niri msg action do-screen-transition --delay-ms 250
 tinty apply "base16-oksolar-${1}"
 
-# needed to tell active kitty windows to reload the theme
+# needed to tell active kitty windows to reload the theme. Does not seem to work
+# as a hook in tinty config
 pkill --signal SIGUSR1 kitty
-
-# tell mako to reload the config to apply the colors
-makoctl reload

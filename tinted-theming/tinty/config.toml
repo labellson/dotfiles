@@ -28,4 +28,11 @@ name = "base16-mako"
 path = "https://github.com/stacyharper/base16-mako"
 revision = "master"
 themes-dir = "colors"
+hook = "makoctl reload"
+supported-systems = ["base16"]
+
+[[items]]
+name = "base16-fuzzel"
+path = "https://codeberg.org/labellson/base16-fuzzel"
+themes-dir = "themes"
 supported-systems = ["base16"]
