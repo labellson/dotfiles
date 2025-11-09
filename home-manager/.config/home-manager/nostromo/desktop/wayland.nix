@@ -1,4 +1,4 @@
-{ config, lib, pkgs, symlinkRoot, ... }:
+{ config, lib, pkgs, symlinkRoot, inputs, ... }:
 
 # TODO: how could I pass this helper functions to other modules??
 let
@@ -57,6 +57,7 @@ in
     };
     swaylock.enable = true;
     fuzzel.enable = true;
+    imv.enable = true;
   };
 
   xdg.configFile = confLinks;
@@ -64,6 +65,8 @@ in
   home.packages = with pkgs; [
     swaybg
     wdisplays
+    inputs.nfsm-flake.packages.${system}.nfsm
+    inputs.nfsm-flake.packages.${system}.nfsm-cli
   ];
 
   systemd.user.services.swaybg = {

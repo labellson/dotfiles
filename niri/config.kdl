@@ -288,6 +288,9 @@ layout {
 // I ever need it.
 spawn-sh-at-startup "systemctl --user stop app-nm\\\\x2dapplet@autostart.service"
 
+// Refer to https://github.com/gvolpe/nfsm
+spawn-sh-at-startup "nfsm";
+
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup
@@ -588,7 +591,10 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    // NOTE: original action. We use another one to track correctly the position
+    // before the fullscreen. Read: https://github.com/gvolpe/nfsm
+    // Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F hotkey-overlay-title="Make window full screen" { spawn "nfsm-cli"; }
     // Makes the column "fill the rest of the space not taken by other
     // visible columns"
     Mod+Ctrl+F { expand-column-to-available-width; }
