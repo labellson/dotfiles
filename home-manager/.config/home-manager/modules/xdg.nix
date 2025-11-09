@@ -1,6 +1,5 @@
 { config, lib, pkgs, symlinkRoot, ... }:
 
-# TODO: how could I pass this helper functions to other modules??
 let
   # import some useful functions
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -24,20 +23,11 @@ let
   # declare the config files to link
   confFiles = map linkFile [
     "tinted-theming/tinty/config.toml"
-    "waybar/config.jsonc"
-    "waybar/style.css"
-    "mako/config"
-    "kanshi/config"
   ] ++ [
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];
 
-  # declare dirs to link
-  confDirs = map linkDir [
-    "waybar/scripts"
-  ];
-
-  confLinks = mergeAttrsList (confFiles ++ confDirs);
+  confLinks = mergeAttrsList confFiles;
 in
 {
   # to $XDG_CONFIG_DIR
