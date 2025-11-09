@@ -173,7 +173,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#2b90d8"
 
         // Color of the ring on inactive monitors.
         //
@@ -246,10 +246,10 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 30
+        softness 20
 
         // Spread expands the shadow.
-        spread 5
+        spread 0
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=5
