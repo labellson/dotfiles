@@ -159,6 +159,8 @@ in
     fantasque-sans-mono
   ];
 
+  services.playerctld.enable = true;
+
   services.gammastep = {
     enable = true;
     latitude = 51.9;
