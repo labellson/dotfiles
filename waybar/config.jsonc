@@ -25,7 +25,6 @@
         "cpu",
         "group/system-monitor",
         "niri/language",
-        "privacy",
         "gamemode",
         "group/power",
         "custom/pad"
@@ -144,7 +143,7 @@
     },
     "group/center": {
         "orientation": "horizontal",
-        "modules": ["clock", "custom/pad", "custom/notification"]
+        "modules": ["clock", "custom/pad", "privacy", "custom/notification"]
     },
     "clock": {
         "locale":  "en_GB.utf8", // english with weekday starting on Monday
@@ -391,5 +390,29 @@
     "group/media-player": {
         "orientation": "horizontal",
         "modules": ["cava", "mpris"]
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 12,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            },
+        ]
     },
 }

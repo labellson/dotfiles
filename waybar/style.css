@@ -4,7 +4,6 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "GohuFont 14 Nerd Font Propo", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    color: @base04;
 }
 
 window#waybar {
@@ -82,8 +81,11 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#workspaces button,
+window#waybar,
 #mpd {
     padding: 0 4px;
+    color: @base04;
 }
 
 If workspaces is the leftmost module, omit left margin
@@ -200,24 +202,27 @@ label:focus {
 }
 
 #privacy {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 12px;
+    margin: 3px 0;
 }
 
 #privacy-item {
-    padding: 0 5px;
-    color: white;
+    padding: 0 4px;
+    color: @base01;
+    border-radius: 5px;
 }
 
 #privacy-item.screenshare {
-    background-color: #cf5700;
+    background-color: @base08;
 }
 
 #privacy-item.audio-in {
-    background-color: #1ca000;
+    background-color: @base09;
 }
 
 #privacy-item.audio-out {
-    background-color: #0069d4;
+    background-color: @base0B;
 }
 
 #mpris {
