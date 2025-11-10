@@ -116,17 +116,20 @@ If workspaces is the leftmost module, omit left margin
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: @base08;
         color: #000000;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: @base08;
-    color: #ffffff;
+#battery.critical:not(.charging),
+#temperature.critical
+{
+    padding: 0 6px;
+    margin: 7px 0px;
+    border-radius: 7px;
     animation-name: blink;
-    animation-duration: 0.5s;
+    animation-duration: 0.6s;
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -141,12 +144,12 @@ label:focus {
 }
 
 #memory {
-    color: #7d80d1;
+    color: @base0E;
     padding-left: 0px;
 }
 
 #backlight {
-    color: #ac8300;
+    color: @base0A;
 }
 
 /* you can set a style on hover for any module like this */
@@ -172,10 +175,6 @@ label:focus {
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
-}
-
-#temperature.critical {
-    background-color: @base08;
 }
 
 #tray-network {

@@ -193,14 +193,17 @@
         "tooltip-format": " {used:0.1f}G/{total:0.1f}G"
     },
     "disk": {
-        "format": "<big></big> {specific_free:0.2f}G",
+        "interval": 10,
+        "format": "<big><span color='#259d94'></span></big> {specific_free:0.2f}G",
         "unit": "GiB"
     },
     "temperature": {
         "critical-threshold": 80,
-        "format-critical": " {temperatureC}°C {icon}",
-        "format": "<big></big> {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "<big><span color='#ac8300'></span></big>",
+            "<big><span color='#d56500'></span></big>",
+        ]
     },
     "backlight": {
         "format": "<span size='x-large'>{icon}</span>",
