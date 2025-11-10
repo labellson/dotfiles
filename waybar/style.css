@@ -226,25 +226,35 @@ label:focus {
 }
 
 #mpris {
+    background-color: @base0B;
     color: @base01;
     padding-right: 12px;
-    padding-left: 4px;
-    border-radius: 7px;
-    padding-left: 12px;
+    padding-left: 2px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
 }
 
 #mpris.paused {
     background-color: @base02;
 }
 
-#cava {
-    color: @base01;
-    padding-right: 2px;
-    padding-left: 12px;
+#mpris.pad {
+    padding: 0;
+    border-radius: 0;
 }
 
-#cava.silent {
-    background-color: @base02;
+#mpris.pad.paused {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+#cava {
+    background-color: @base0B;
+    color: @base01;
+    padding-right: 0px;
+    padding-left: 12px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
 }
 
 #media-player {
