@@ -107,6 +107,9 @@ in
     vlc
     cava
 
+    # bluetooth gui manager
+    overskride
+
     ncdu
     transmission_4-gtk
     calibre
