@@ -55,7 +55,10 @@ in
       systemd.enable = true;
       systemd.target = "niri.service";
     };
-    swaylock.enable = true;
+    swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+    };
     fuzzel.enable = true;
     imv.enable = true;
   };
