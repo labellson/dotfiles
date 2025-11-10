@@ -11,3 +11,7 @@ group-by=app-name
 # modes
 [mode=dnd]
 invisible=1
+
+# per criteria config
+[app-name="Firefox"]
+group-by=app-name,summary
