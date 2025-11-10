@@ -288,6 +288,10 @@ layout {
 // I ever need it.
 spawn-sh-at-startup "systemctl --user stop app-nm\\\\x2dapplet@autostart.service"
 
+// HACK: darkman service unit should start after niri, but for some reason, it
+// is not able to connect to the NIRI_SOCKET. Restarting the service fixes this
+spawn-sh-at-startup "systemctl --user restart darkman.service"
+
 // Refer to https://github.com/gvolpe/nfsm
 spawn-sh-at-startup "nfsm";
 
