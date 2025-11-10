@@ -248,7 +248,6 @@ label:focus {
 }
 
 #media-player {
-    background-color: @base0B;
     color: @base01;
     margin: 7px 0px;
     border-radius: 7px;
