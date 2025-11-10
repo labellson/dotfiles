@@ -221,14 +221,30 @@ label:focus {
 }
 
 #mpris {
-    background-color: @base0B;
     color: @base01;
-    margin: 7px 0px;
+    padding-right: 12px;
+    padding-left: 4px;
     border-radius: 7px;
     padding-left: 12px;
-    padding-right: 12px;
 }
 
 #mpris.paused {
     background-color: @base02;
+}
+
+#cava {
+    color: @base01;
+    padding-right: 2px;
+    padding-left: 12px;
+}
+
+#cava.silent {
+    background-color: @base02;
+}
+
+#media-player {
+    background-color: @base0B;
+    color: @base01;
+    margin: 7px 0px;
+    border-radius: 7px;
 }

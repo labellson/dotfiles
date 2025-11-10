@@ -105,6 +105,7 @@ in
     element-desktop
     telegram-desktop
     vlc
+    cava
 
     ncdu
     transmission_4-gtk
