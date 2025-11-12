@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ...}@inputs:
     let
       # path to this repository. I use this to symlink config files to the
       # existing ones in this folder.
@@ -30,7 +31,13 @@
         "labellson@nostromo" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [./home-manager/.config/home-manager/nostromo/home.nix];
-          extraSpecialArgs = { inherit inputs symlinkRoot; };
+          extraSpecialArgs = {
+            inherit inputs symlinkRoot;
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
         };
         # work laptop
         "labellson@vostok" = home-manager.lib.homeManagerConfiguration {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, symlinkRoot, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, symlinkRoot, inputs, ... }:
 
 # TODO: how could I pass this helper functions to other modules??
 let
@@ -30,6 +30,7 @@ let
     "sway/config"
     "niri/config.kdl"
     "fuzzel/fuzzel.ini"
+    "stasis/stasis.rune"
   ];
 
   # declare dirs to link
@@ -70,22 +71,44 @@ in
     wdisplays
     inputs.nfsm-flake.packages.${system}.nfsm
     inputs.nfsm-flake.packages.${system}.nfsm-cli
+    pkgs-unstable.stasis
   ];
 
-  systemd.user.services.swaybg = {
-    Unit = {
-      Description = "Wallpaper tool for wayland compositor";
-      PartOf = "graphical-session.target";
-      After = "graphical-session.target";
-      Requisite = "graphical-session.target";
-    };
-    Service = {
-      ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i %h/.background-image";
-      Restart = "on-failure";
-    };
-    Install = {
-      # TODO: is there a way to do this better??
-      WantedBy = [ "niri.service" ];
+  systemd.user.services = let
+      graphical-target = "graphical-session.target";
+    in {
+      swaybg = {
+        Unit = {
+          Description = "Wallpaper tool for wayland compositor";
+          PartOf = graphical-target;
+          After = graphical-target;
+          Requisite = graphical-target;
+        };
+        Service = {
+          ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i %h/.background-image";
+          Restart = "on-failure";
+        };
+        Install = {
+          # TODO: is there a way to do this better??
+          WantedBy = [ "niri.service" ];
+        };
+      };
+
+      stasis = {
+        Unit = {
+          Description = "Stasis wayland idle manager";
+          After = graphical-target;
+          Wants = graphical-target;
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${pkgs-unstable.stasis}/bin/stasis";
+          Restart = "always";
+          RestartSec = 5;
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
     };
   };
 }

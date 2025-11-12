@@ -1,0 +1,92 @@
+@author "Dustin Pilgrim"
+@description "Stasis configuration file"
+
+# global variable
+default_timeout 300
+my_lock_command "swaylock --grace 2 --grace-no-mouse --screenshots --clock --indicator --datestr '%A, %d/%m/%y' --fade-in 0.5 --effect-greyscale --effect-scale 0.8 --effect-blur 7x1 --effect-pixelate 8 --effect-vignette 0.5:0.5"
+
+#
+# Stasis configuration
+#
+stasis:
+  pre_suspend_command my_lock_command
+  monitor_media true
+  ignore_remote_media true
+  # Stasis allows you to define a list of media
+  # players that you want to be ignored when inhibiting
+  # media playback
+  #media_blacklist ["spotify"]
+  respect_idle_inhibitors true
+  #lid_close_action "lock-screen" (lock-screen | suspend | custom | ignore)
+  #lid_open_action "wake" (wake | custom | ignore)
+  # debounce: default is 3s; can be customized if needed
+  #debounce-seconds 4
+
+  inhibit_apps [
+    "vlc"
+    "Spotify"
+    "mpv"
+    r".*\.exe"
+    r"steam_app_.*"
+    r"firefox.*"
+  ]
+
+  # laptop-only AC actions
+  on_ac:
+
+    # Step 1: Adjust brightness (instant)
+    # define it first so it does not retrigger later
+    custom-brightness-instant:
+      timeout 0
+      command "brightnessctl set 100%"
+    end
+
+    lock_screen:
+      timeout 300
+      command my_lock_command
+    end
+
+    brightness:
+      timeout 10
+      command "brightnessctl set 30%"
+    end
+
+    dpms:
+      timeout 60
+      command "niri msg action power-off-monitors"
+    end
+
+    suspend:
+      timeout 600
+      command "systemctl suspend"
+    end
+  end
+
+  # Laptop-only battery actions
+  on_battery:
+    custom-brightness-instant:
+      timeout 0
+      command "brightnessctl set 70%"
+    end
+
+    lock_screen:
+      timeout 120
+      command my_lock_command
+    end
+
+    brightness:
+      timeout 5
+      command "brightnessctl set 30%"
+    end
+
+    dpms:
+      timeout 10
+      command "niri msg action power-off-monitors"
+    end
+
+    suspend:
+      timeout 240
+      command "systemctl suspend"
+    end
+  end
+end
