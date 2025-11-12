@@ -109,10 +109,24 @@ If workspaces is the leftmost module, omit left margin
     padding-right: 0px;
 }
 
-/* #battery.charging, #battery.plugged { */
-/*     color: #ffffff; */
-/*     background-color: #26A65B; */
-/* } */
+#battery.charging, #battery.plugged {
+    color: @base0B;
+}
+
+@keyframes charging {
+    to {
+        color: @base01;
+        /* background-color: @base01 */
+    }
+}
+
+#battery.charging {
+    animation-name: charging;
+    animation-duration: 0.75s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
 @keyframes blink {
     to {
