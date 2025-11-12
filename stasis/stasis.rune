@@ -34,13 +34,6 @@ stasis:
   # laptop-only AC actions
   on_ac:
 
-    # Step 1: Adjust brightness (instant)
-    # define it first so it does not retrigger later
-    custom-brightness-instant:
-      timeout 0
-      command "brightnessctl set 100%"
-    end
-
     lock_screen:
       timeout 300
       command my_lock_command
@@ -64,10 +57,6 @@ stasis:
 
   # Laptop-only battery actions
   on_battery:
-    custom-brightness-instant:
-      timeout 0
-      command "brightnessctl set 70%"
-    end
 
     lock_screen:
       timeout 120

@@ -107,7 +107,7 @@ in
           RestartSec = 5;
         };
         Install = {
-          WantedBy = [ "default.target" ];
+           WantedBy = [ "niri.service" ];
         };
     };
   };
