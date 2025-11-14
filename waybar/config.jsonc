@@ -25,8 +25,6 @@
         "cpu",
         "group/system-monitor",
         "niri/language",
-        "custom/stasis",
-        "custom/pad",
         "group/power",
         "custom/pad"
     ],
@@ -107,7 +105,7 @@
     "custom/lock": {
         "format": "Lock 󰍁",
         "tooltip": false,
-        "on-click": "swaylock"
+        "on-click": "swaylock --grace 2 --grace-no-mouse --screenshots --clock --indicator --datestr '%A, %d/%m/%y' --fade-in 0.5 --effect-greyscale --effect-scale 0.8 --effect-blur 7x1 --effect-pixelate 8 --effect-vignette 0.5:0.5"
     },
     "custom/reboot": {
         "format": "Reboot 󰜉",
