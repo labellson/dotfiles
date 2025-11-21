@@ -3,7 +3,7 @@
 {
   programs.fish = {
     shellAbbrs = {
-      hms = "home-manager switch --flake ~/.dotfiles#dani@shiva";
+      hms = "home-manager switch --flake ~/.dotfiles#labellson@lelypop";
     };
   };
 }

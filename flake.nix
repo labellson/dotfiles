@@ -40,14 +40,9 @@
           };
         };
         # work laptop
-        "labellson@vostok" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          modules = [./home-manager/.config/home-manager/vostok/home.nix];
-        };
-        # work server
-        "dani@shiva" = home-manager.lib.homeManagerConfiguration {
+        "labellson@lelypop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [./home-manager/.config/home-manager/shiva/home.nix];
+          modules = [./home-manager/.config/home-manager/lelypop/home.nix];
         };
         # motherbase pc
         "labellson@sulaco" = home-manager.lib.homeManagerConfiguration {
