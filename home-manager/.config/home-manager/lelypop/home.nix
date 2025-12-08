@@ -3,8 +3,12 @@
 {
   imports = [
     ../modules/shell.nix
+    ../modules/xdg.nix
+    ../modules/gammastep.nix
+    ../modules/tinty
     ../commons.nix
     ./fish.nix
+    ../nostromo/desktop/wayland.nix
   ];
 
   # allow unfree packages
@@ -12,30 +16,107 @@
 
   # configure the username and all that things
   home.username = "labellson";
-  home.homeDirectory = "/Users/labellson";
+  home.homeDirectory = "/home/labellson";
+
+  # keyboard keymap
+  home.keyboard = {
+    layout = "us,es";
+    options = ["eurosign:e" "grp:shifts_toggle" "ctrl:nocaps"];
+    variant = "intl,";
+  };
 
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
+  services.darkman.enable = true;
+
+  # TODO: test if it works and submit PR to nixpkgs
+  nixpkgs.overlays = [
+    (self: super: {
+      darkman = super.darkman.overrideAttrs (oldAttrs: rec {
+        version = "2.2.0";
+        src = pkgs.fetchFromGitLab {
+          owner = "WhyNotHugo";
+          repo = "darkman";
+          rev = "v${version}";
+          hash = "sha256-Kpuuxxwn/huA5WwmnVGG0HowNBGyexDRpdUc3bNmB18=";
+        };
+        patches = [ ../packages/darkman/makefile.patch ];
+
+        postPatch = ''
+          substituteInPlace contrib/darkman.service \
+            --replace-fail /usr/bin/darkman $out/bin/darkman
+          substituteInPlace contrib/dbus/nl.whynothugo.darkman.service \
+            --replace-fail /usr/bin/darkman $out/bin/darkman
+          substituteInPlace contrib/dbus/org.freedesktop.impl.portal.desktop.darkman.service \
+            --replace-fail /usr/bin/darkman $out/bin/darkman
+        '';
+
+        vendorHash = "sha256-QO+fz8m2rILKTokimf+v4x0lon5lZy7zC+5qjTMdcs0=";
+      });
+    })
+  ];
+
   home.packages = with pkgs; [
     kitty
+    ripgrep
     mosh
+    btop
+
+    niri
+
+    firefox
+    obsidian
+    vlc
+    overskride
+    noisetorch
+    pavucontrol
 
     neovim
     emacs-pgtk
     nil
+    nodejs # just to install lsp-servers
+    jq
+
+    # needed by doom emacs
+    fd
+    gcc
+    gnumake
+    cmakeMinimal
+    (aspellWithDicts (dicts: with dicts; [en es]))
+    shellcheck
+    nixfmt-rfc-style
+
+    # i like to have it installed
+    (python313.withPackages(ps: with ps; [requests ipython]))
+    pre-commit
+    uv
 
     # fonts
     fantasque-sans-mono
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.gohufont
+    nerd-fonts.symbols-only
   ];
 
   home.sessionVariables = {
     TERMINAL = "kitty";
   };
 
+  xdg = {
+    enable = true;
+    mime.enable = true;
+  };
+
+  targets.genericLinux = {
+    enable = true;
+    # when sudo is available this solves issues to access GPU libraries without
+    # having to use nixGL in non-NixOs systems.
+    gpu.enable = true;
+  };
+
   # Let Home Manager install and manage itself and enable git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05"; # Please read the comment before changing.

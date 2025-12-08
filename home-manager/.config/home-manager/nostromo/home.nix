@@ -11,6 +11,7 @@ in
     ./desktop/wayland.nix
     ../modules/xdg.nix
     ../modules/tinty
+    ../modules/gammastep.nix
   ];
 
   # TODO: test if it works and submit PR to nixpkgs
@@ -164,20 +165,6 @@ in
   ];
 
   services.playerctld.enable = true;
-
-  services.gammastep = {
-    enable = true;
-    latitude = 51.9;
-    longitude = 4.5;
-    provider = "manual";
-    temperature.day = 5700;
-    temperature.night = 3500;
-    settings = {
-      general = {
-        gamma = 0.8;
-      };
-    };
-  };
 
   gtk = {
     enable = true;

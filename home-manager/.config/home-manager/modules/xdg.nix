@@ -23,6 +23,7 @@ let
   # declare the config files to link
   confFiles = map linkFile [
     "tinted-theming/tinty/config.toml"
+    "kitty/kitty.conf"
   ] ++ [
     { "darkman/config.yaml".source = link "darkman/.config/darkman/config.yaml"; }
   ];

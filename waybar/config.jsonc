@@ -207,6 +207,7 @@
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
+            "<big><span color='#2b90d8'></span></big>",
             "<big><span color='#ac8300'></span></big>",
             "<big><span color='#d56500'></span></big>",
         ]

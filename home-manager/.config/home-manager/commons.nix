@@ -18,6 +18,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes";
+    ".config/nixpkgs/config.nix".source = ../../../nixpkgs/.config/nixpkgs/config.nix;
     ".tmux.conf".source = ../../../tmux/.tmux.conf;
   };
 
@@ -38,7 +39,4 @@
   # Let Home Manager install and manage itself and enable git
   programs.home-manager.enable = true;
   programs.git.enable = true;
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11"; # Please read the comment before changing.
 }
