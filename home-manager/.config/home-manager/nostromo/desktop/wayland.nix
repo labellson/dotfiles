@@ -72,6 +72,9 @@ in
     inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm
     inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm-cli
     pkgs.stasis
+    # although is called this way, it provides pulseaudio-control to control
+    # pulseaudio from any statusbar
+    polybar-pulseaudio-control
   ];
 
   systemd.user.services = let

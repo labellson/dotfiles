@@ -40,7 +40,6 @@
 
   home.packages = with pkgs; [
     (polybar.override {i3Support = true;})
-    polybar-pulseaudio-control
     rofi
     rofi-bluetooth
     bc # needed by rofi-bluetooth
