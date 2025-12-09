@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, symlinkRoot, inputs, ... }:
+{ config, lib, pkgs, symlinkRoot, inputs, ... }:
 
 # TODO: how could I pass this helper functions to other modules??
 let
@@ -69,9 +69,9 @@ in
   home.packages = with pkgs; [
     swaybg
     wdisplays
-    inputs.nfsm-flake.packages.${system}.nfsm
-    inputs.nfsm-flake.packages.${system}.nfsm-cli
-    pkgs-unstable.stasis
+    inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm
+    inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm-cli
+    pkgs.stasis
   ];
 
   systemd.user.services = let
@@ -94,21 +94,21 @@ in
         };
       };
 
-      stasis = {
-        Unit = {
-          Description = "Stasis wayland idle manager";
-          After = graphical-target;
-          Wants = graphical-target;
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${pkgs-unstable.stasis}/bin/stasis";
-          Restart = "always";
-          RestartSec = 5;
-        };
-        Install = {
-           WantedBy = [ "niri.service" ];
-        };
-    };
+    #   stasis = {
+    #     Unit = {
+    #       Description = "Stasis wayland idle manager";
+    #       After = graphical-target;
+    #       Wants = graphical-target;
+    #     };
+    #     Service = {
+    #       Type = "simple";
+    #       ExecStart = "${pkgs.stasis}/bin/stasis";
+    #       Restart = "always";
+    #       RestartSec = 5;
+    #     };
+    #     Install = {
+    #        WantedBy = [ "niri.service" ];
+    #     };
+    # };
   };
 }
