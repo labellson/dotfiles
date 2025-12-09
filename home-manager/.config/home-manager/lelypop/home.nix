@@ -99,6 +99,10 @@
     nerd-fonts.symbols-only
   ];
 
+  # I'm not able to make swaylock working with Ubuntu PAM so I will use the
+  # provided one in Ubuntu repositories
+  programs.swaylock.enable = lib.mkForce false;
+
   home.sessionVariables = {
     TERMINAL = "kitty";
   };
