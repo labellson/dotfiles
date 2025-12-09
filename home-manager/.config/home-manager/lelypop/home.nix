@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, symlinkRoot, ... }:
 
 {
   imports = [
@@ -106,6 +106,32 @@
   xdg = {
     enable = true;
     mime.enable = true;
+    # fix screensharing: https://cashmere.rs/blog/20250612002456-how-to-fix-screensharing-for-niri-wm-under-nixos/
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+      ];
+      config = {
+        common = {
+          default = [ "gtk" ];
+        };
+        niri = {
+        default = [
+            "gtk"
+            "gnome"
+        ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        };
+      };
+    };
+    # fix systemd reads portal systems: https://discourse.nixos.org/t/configuring-xdg-desktop-portal-with-home-manager-on-ubuntu-hyprland-via-nixgl/65287/6
+    configFile."systemd/user.conf".text = ''
+        [Manager]
+        ManagerEnvironment="XDG_DATA_DIRS=/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share"
+    '';
   };
 
   targets.genericLinux = {
