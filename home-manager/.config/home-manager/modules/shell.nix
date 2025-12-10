@@ -1,5 +1,37 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, symlinkRoot, ... }:
 
+let
+  # import some useful functions
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  inherit (lib) map mergeAttrsList;
+
+  # make helper functions to link files
+  toSrcFile = name: "${symlinkRoot}/${name}";
+  link = name: mkOutOfStoreSymlink (toSrcFile name);
+
+  # use previous functions to create helper functions to create attrSets
+  linkFile = name: {
+    ${name}.source = link name;
+  };
+  linkDir = name: {
+    ${name} = {
+      source = link name;
+      recursive = true;
+    };
+  };
+
+  confFiles = map linkFile [
+    "fish/fish_plugins"
+    "fish/conf.d/dls-env.fish"
+    "fish/conf.d/dls-path.fish"
+  ];
+
+  confDirs = map linkDir [
+    "fish/functions"
+  ];
+
+  confLinks = mergeAttrsList (confFiles ++ confDirs);
+in
 {
   imports = [
     ./shell-starship.nix
@@ -83,15 +115,5 @@
     };
   };
 
-  home.file = {
-    ".config/fish/conf.d" = {
-      source = ../../../../fish/.config/fish/conf.d;
-      recursive = true;
-    };
-
-    ".config/fish/functions" = {
-      source = ../../../../fish/.config/fish/functions;
-      recursive = true;
-    };
-  };
+  xdg.configFile = confLinks;
 }
