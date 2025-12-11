@@ -31,6 +31,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [./home-manager/.config/home-manager/nostromo/home.nix];
           extraSpecialArgs = {
+            inherit inputs symlinkRoot;
           };
         };
         # work laptop
