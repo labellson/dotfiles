@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    paisa = {
-      url = "github:ananthakumaran/paisa/v0.6.6";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nfsm-flake = {
       url = "github:gvolpe/nfsm";
       inputs.nixpkgs.follows = "nixpkgs";

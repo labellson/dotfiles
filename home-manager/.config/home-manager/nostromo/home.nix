@@ -146,8 +146,7 @@ in
     adw-colors
     feh
 
-    # system comes from pkgs.system
-    # inputs.paisa.packages.${system}.default
+    paisa
     ledger
     hledger
     tradingview
