@@ -71,6 +71,7 @@
     overskride
     noisetorch
     pavucontrol
+    dconf
 
     neovim
     emacs-pgtk
@@ -107,6 +108,13 @@
     TERMINAL = "kitty";
   };
 
+  gtk = {
+    enable = true;
+    theme = {
+        package = pkgs.adw-gtk3;
+        name = "adw-gtk3";
+    };
+  };
   xdg = {
     enable = true;
     mime.enable = true;
