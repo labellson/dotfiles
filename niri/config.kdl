@@ -661,4 +661,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    // Dynamic screencasting
+    Mod+M { set-dynamic-cast-window; }
+    Mod+Ctrl+M { set-dynamic-cast-monitor; }
+    Mod+Ctrl+Shift+M { clear-dynamic-cast-target; }
 }
