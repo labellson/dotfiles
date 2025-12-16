@@ -72,6 +72,7 @@ in
     inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm
     inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm-cli
     pkgs.stasis
+    xwayland-satellite
     # although is called this way, it provides pulseaudio-control to control
     # pulseaudio from any statusbar
     polybar-pulseaudio-control
