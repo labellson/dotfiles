@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, pkgs-stremio-build-fix, ... }:
 
 let
   adw-colors = pkgs.callPackage ../derivations/adw-colors.nix {};
@@ -140,7 +140,11 @@ in
     (python313.withPackages(ps: with ps; [requests ipython]))
     uv
 
-    stremio
+    # stremio build fails and upstream is not yet stable, this PR is updating
+    # what upstream changes until it becomes stable
+    # Ref: https://github.com/NixOS/nixpkgs/pull/468728
+    # stremio
+    pkgs-stremio-build-fix.stremio-linux-shell
 
     # polish
     adw-colors

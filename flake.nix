@@ -7,13 +7,14 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-stremio-build-fix.url = "github:thunze/nixpkgs/stremio-linux-shell";
     nfsm-flake = {
       url = "github:gvolpe/nfsm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, ...}@inputs:
     let
       # path to this repository. I use this to symlink config files to the
       # existing ones in this folder.
@@ -28,6 +29,10 @@
           modules = [./home-manager/.config/home-manager/nostromo/home.nix];
           extraSpecialArgs = {
             inherit inputs symlinkRoot;
+            pkgs-stremio-build-fix = import nixpkgs-stremio-build-fix {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
           };
         };
         # work laptop

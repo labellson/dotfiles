@@ -21,23 +21,6 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_2"
-      },
-      "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
-        "type": "github"
-      },
-      "original": {
-        "id": "flake-utils",
-        "type": "indirect"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -45,33 +28,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1765170903,
-        "narHash": "sha256-O8VTGey1xxiRW+Fpb+Ps9zU7ShmxUA1a7cMTcENCVNg=",
+        "lastModified": 1765979862,
+        "narHash": "sha256-/r9/1KamvbHJx6I40H4HsSXnEcBAkj46ZwibhBx9kg0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "20561be440a11ec57a89715480717baf19fe6343",
+        "rev": "d3135ab747fd9dac250ffb90b4a7e80634eacbe9",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "ref": "release-25.11",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "mkdocs-pkgs": {
-      "locked": {
-        "lastModified": 1704196875,
-        "narHash": "sha256-AhEXx3uu32cnIOjIR3B2NMzqzwXfJYNPgVNfHQGYKzs=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0c6502e9830a7bf25258731316dd3c72fb08f94c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "staging-next",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -99,11 +66,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1764983851,
-        "narHash": "sha256-y7RPKl/jJ/KAP/VKLMghMgXTlvNIJMHKskl8/Uuar7o=",
+        "lastModified": 1765838191,
+        "narHash": "sha256-m5KWt1nOm76ILk/JSCxBM4MfK3rYY7Wq9/TZIIeGnT8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d9bc5c7dceb30d8d6fafa10aeb6aa8a48c218454",
+        "rev": "c6f52ebd45e5925c188d1a20119978aa4ffd5ef6",
         "type": "github"
       },
       "original": {
@@ -113,26 +80,19 @@
         "type": "github"
       }
     },
-    "paisa": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "mkdocs-pkgs": "mkdocs-pkgs",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+    "nixpkgs-stremio-build-fix": {
       "locked": {
-        "lastModified": 1707533481,
-        "narHash": "sha256-momRT68HcBLelHwgHuMUScNDLx7VhHPhMDIDKdqpCAc=",
-        "owner": "ananthakumaran",
-        "repo": "paisa",
-        "rev": "e33868be36875adc1fbc69496cf2323329714869",
+        "lastModified": 1765141203,
+        "narHash": "sha256-7KuPjWGGd0jg0MwyInIQ2X/UkEA19LMnHe++OWP6t6c=",
+        "owner": "thunze",
+        "repo": "nixpkgs",
+        "rev": "8ee52a857dc62c3e43e118c431b7047b9a3330cc",
         "type": "github"
       },
       "original": {
-        "owner": "ananthakumaran",
-        "ref": "v0.6.6",
-        "repo": "paisa",
+        "owner": "thunze",
+        "ref": "stremio-linux-shell",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -141,7 +101,7 @@
         "home-manager": "home-manager",
         "nfsm-flake": "nfsm-flake",
         "nixpkgs": "nixpkgs",
-        "paisa": "paisa"
+        "nixpkgs-stremio-build-fix": "nixpkgs-stremio-build-fix"
       }
     },
     "systems": {
@@ -156,21 +116,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_2": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
         "type": "github"
       }
     }
