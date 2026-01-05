@@ -73,6 +73,12 @@
     pavucontrol
     dconf
 
+    spotify
+    playerctl
+
+    databricks-cli
+    azure-cli
+
     neovim
     emacs-pgtk
     nil

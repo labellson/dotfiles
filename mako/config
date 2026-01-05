@@ -15,3 +15,6 @@ invisible=1
 # per criteria config
 [app-name="Firefox"]
 group-by=app-name,summary
+
+[app-name="Spotify"]
+invisible=1
