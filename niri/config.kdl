@@ -371,6 +371,12 @@ window-rule {
     }
 }
 
+// Make floating thunar windows like copy/moving/removing files
+window-rule {
+    match app-id="thunar" title=r#"^(Rename .*|File Operation Progress)$"#
+    open-floating true
+}
+
 // Block out mako notifications from screencasts.
 layer-rule {
     match namespace="^notifications$"
