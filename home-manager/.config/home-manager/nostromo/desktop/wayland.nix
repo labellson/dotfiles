@@ -76,6 +76,7 @@ in
     # although is called this way, it provides pulseaudio-control to control
     # pulseaudio from any statusbar
     polybar-pulseaudio-control
+    ianny
   ];
 
   systemd.user.services = let
