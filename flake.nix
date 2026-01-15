@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, nixpkgs-unstable, ...}@inputs:
     let
       # path to this repository. I use this to symlink config files to the
       # existing ones in this folder.
@@ -33,6 +34,10 @@
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
           };
         };
         # work laptop
@@ -41,6 +46,10 @@
           modules = [./home-manager/.config/home-manager/lelypop/home.nix];
           extraSpecialArgs = {
             inherit inputs symlinkRoot;
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
           };
         };
         # motherbase pc
