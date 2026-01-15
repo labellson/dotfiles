@@ -9,13 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-stremio-build-fix.url = "github:thunze/nixpkgs/stremio-linux-shell";
+    nixpkgs-paisa-0-7-4.url = "github:labellson/nixpkgs/bump-paisa";
     nfsm-flake = {
       url = "github:gvolpe/nfsm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, nixpkgs-unstable, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, nixpkgs-unstable, nixpkgs-paisa-0-7-4, ...}@inputs:
     let
       # path to this repository. I use this to symlink config files to the
       # existing ones in this folder.
@@ -35,6 +36,10 @@
               config.allowUnfree = true;
             };
             pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            pkgs-paisa-0-7-4 = import nixpkgs-paisa-0-7-4 {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };

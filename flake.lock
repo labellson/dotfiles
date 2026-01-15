@@ -80,6 +80,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-paisa-0-7-4": {
+      "locked": {
+        "lastModified": 1768500308,
+        "narHash": "sha256-v1SfYHH6wxOAVrj7dp/oqgZVny2EBzOF87kC7zuJhj8=",
+        "owner": "labellson",
+        "repo": "nixpkgs",
+        "rev": "4018754ad568a3c080d9c286bf3d84722488d26e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "labellson",
+        "ref": "bump-paisa",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stremio-build-fix": {
       "locked": {
         "lastModified": 1765141203,
@@ -117,6 +133,7 @@
         "home-manager": "home-manager",
         "nfsm-flake": "nfsm-flake",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-paisa-0-7-4": "nixpkgs-paisa-0-7-4",
         "nixpkgs-stremio-build-fix": "nixpkgs-stremio-build-fix",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

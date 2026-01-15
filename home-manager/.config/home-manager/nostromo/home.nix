@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, inputs, pkgs-stremio-build-fix, ... }:
+{ config, pkgs, pkgs-unstable, inputs, pkgs-stremio-build-fix, pkgs-paisa-0-7-4, ... }:
 
 let
   adw-colors = pkgs.callPackage ../derivations/adw-colors.nix {};
@@ -124,7 +124,7 @@ in
     adw-colors
     feh
 
-    paisa
+    pkgs-paisa-0-7-4.paisa
     ledger
     hledger
     tradingview
