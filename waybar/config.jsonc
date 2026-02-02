@@ -371,10 +371,12 @@
         "format": "{player_icon} {status_icon} {title} - {artist}",
         "tooltip-format": "{player}: {dynamic}",
         "max-length": 80,
+        "ignored-players": ["firefox"],
         "player-icons": {
             "default": "🎵",
             "mpv": "🎵",
             "firefox": "",
+            "spotify": "",
         },
         "status-icons": {
             "playing": "",
