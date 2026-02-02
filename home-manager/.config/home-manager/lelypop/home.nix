@@ -126,6 +126,31 @@
     '';
   };
 
+  services.syncthing = {
+    enable = true;
+    tray.enable = true;
+    settings.devices = {
+      "Taiga S6 Lite" = {
+        id = "PCTAJAA-AIH4CCZ-PDUPFE7-RMYU2AE-SSQTFLO-Q3IQZEW-H7OCH47-JVILIQH";
+      };
+      "Vostok Pi" = {
+        id = "EYGINUF-ZXZC3G6-WMSUJPB-O7HTSQ6-BLLZ2MO-CWB5ZPQ-AZAPPBY-H3VWSQH";
+      };
+      "Sputnik Pi" = {
+        id = "W76IR3H-VKVCXB4-GJ4ZZY3-OZ3EXGP-4NUCHW2-OZBIJ3Y-2VDEWOD-OX2ASAO";
+      };
+      "Tundra 13 mini" = {
+        id = "472BSW5-7SUTFWA-ABZ6A2L-PQGVUME-UMMCIJX-WLSGQPA-DKAWSAT-DK7EAQU";
+      };
+    };
+    settings.folders = {
+      "my-notes" = {
+        path = "/home/${config.home.username}/syncthing/my-notes";
+        devices = [ "Taiga S6 Lite" "Vostok Pi" "Sputnik Pi" "Tundra 13 mini" ];
+      };
+    };
+  };
+
   targets.genericLinux = {
     enable = true;
     # when sudo is available this solves issues to access GPU libraries without
