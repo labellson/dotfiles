@@ -40,12 +40,14 @@
     niri
 
     firefox
-    obsidian
     vlc
     overskride
     noisetorch
     pavucontrol
     dconf
+    evince
+
+    xfce.thunar
 
     spotify
     playerctl
@@ -58,6 +60,7 @@
     nil
     nodejs # just to install lsp-servers
     jq
+    usql
 
     # needed by doom emacs
     fd
@@ -67,6 +70,9 @@
     (aspellWithDicts (dicts: with dicts; [en es]))
     shellcheck
     nixfmt-rfc-style
+
+    pandoc
+    xan
 
     # i like to have it installed
     (python313.withPackages(ps: with ps; [requests ipython]))
