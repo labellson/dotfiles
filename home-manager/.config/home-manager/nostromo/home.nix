@@ -56,6 +56,9 @@ in
   services.darkman.enable = true;
   services.darkman.package = pkgs-unstable.darkman;
 
+  # nice tray applet to monitor syncthing
+  services.syncthing.tray.enable = true;
+
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
