@@ -82,6 +82,9 @@ in
     vlc
     cava
 
+    digikam
+    darktable
+
     # bluetooth gui manager
     overskride
 
