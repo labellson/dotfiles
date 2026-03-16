@@ -8,19 +8,21 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-stremio-build-fix.url = "github:thunze/nixpkgs/stremio-linux-shell";
-    nixpkgs-paisa-0-7-4.url = "github:labellson/nixpkgs/bump-paisa";
     nfsm-flake = {
       url = "github:gvolpe/nfsm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-stremio-build-fix, nixpkgs-unstable, nixpkgs-paisa-0-7-4, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ...}@inputs:
     let
       # path to this repository. I use this to symlink config files to the
       # existing ones in this folder.
       symlinkRoot = "/home/labellson/.dotfiles";
+      pkgs-unstable = import nixpkgs-unstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in
     {
       # Standalone home-manager configuration entrypoint
@@ -30,19 +32,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [./home-manager/.config/home-manager/nostromo/home.nix];
           extraSpecialArgs = {
-            inherit inputs symlinkRoot;
-            pkgs-stremio-build-fix = import nixpkgs-stremio-build-fix {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-            pkgs-unstable = import nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-            pkgs-paisa-0-7-4 = import nixpkgs-paisa-0-7-4 {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
+            inherit inputs symlinkRoot pkgs-unstable;
           };
         };
         # work laptop
@@ -50,11 +40,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [./home-manager/.config/home-manager/lelypop/home.nix];
           extraSpecialArgs = {
-            inherit inputs symlinkRoot;
-            pkgs-unstable = import nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
+            inherit inputs symlinkRoot pkgs-unstable;
           };
         };
         # motherbase pc

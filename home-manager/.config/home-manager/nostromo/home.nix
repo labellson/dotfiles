@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, inputs, pkgs-stremio-build-fix, pkgs-paisa-0-7-4, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 
 let
   adw-colors = pkgs.callPackage ../derivations/adw-colors.nix {};
@@ -120,17 +120,13 @@ in
     (python313.withPackages(ps: with ps; [requests ipython]))
     uv
 
-    # stremio build fails and upstream is not yet stable, this PR is updating
-    # what upstream changes until it becomes stable
-    # Ref: https://github.com/NixOS/nixpkgs/pull/468728
-    # stremio
-    pkgs-stremio-build-fix.stremio-linux-shell
+    stremio-linux-shell
 
     # polish
     adw-colors
     feh
 
-    pkgs-paisa-0-7-4.paisa
+    paisa
     ledger
     hledger
     tradingview
