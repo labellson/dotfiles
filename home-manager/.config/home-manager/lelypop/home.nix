@@ -37,6 +37,9 @@
     mosh
     btop
 
+    usql
+    pgcli
+
     niri
 
     firefox
