@@ -12,6 +12,7 @@ in
     ../modules/xdg.nix
     ../modules/tinty
     ../modules/gammastep.nix
+    ../modules/llm.nix
   ];
 
   # allow unfree packages
