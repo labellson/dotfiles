@@ -9,6 +9,7 @@
     ../commons.nix
     ./fish.nix
     ../nostromo/desktop/wayland.nix
+    ../modules/llm.nix
   ];
 
   # allow unfree packages
