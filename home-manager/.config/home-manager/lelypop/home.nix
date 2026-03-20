@@ -157,6 +157,10 @@
         path = "/home/${config.home.username}/syncthing/my-notes";
         devices = [ "Taiga S6 Lite" "Vostok Pi" "Sputnik Pi" "Tundra 13 mini" ];
       };
+      "my-finance" = {
+        path = "/home/${config.home.username}/syncthing/my-finance";
+        devices = [ "Taiga S6 Lite" "Vostok Pi" "Sputnik Pi" "Tundra 13 mini" ];
+      };
     };
   };
 
