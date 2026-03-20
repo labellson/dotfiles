@@ -70,6 +70,7 @@
     (aspellWithDicts (dicts: with dicts; [en es]))
     shellcheck
     nixfmt-rfc-style
+    libtool  # needed to compile vterm
 
     pandoc
     xan
