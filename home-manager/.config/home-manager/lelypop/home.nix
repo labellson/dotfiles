@@ -73,6 +73,7 @@
     libtool  # needed to compile vterm
 
     pandoc
+    texliveFull
     xan
 
     # i like to have it installed
