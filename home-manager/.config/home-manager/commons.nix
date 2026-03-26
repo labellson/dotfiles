@@ -17,7 +17,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes";
+    ".config/nix/nix.conf".source = ../../../nix/nix.conf;
     ".config/nixpkgs/config.nix".source = ../../../nixpkgs/.config/nixpkgs/config.nix;
     ".tmux.conf".source = ../../../tmux/.tmux.conf;
   };
