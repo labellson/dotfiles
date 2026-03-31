@@ -1,5 +1,27 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, dls, ... }:
 
+let
+  # import some useful functions
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+  inherit (lib) map mergeAttrsList;
+
+  link = name: mkOutOfStoreSymlink (dls.toSrcFile name);
+
+  # use previous functions to create helper functions to create attrSets
+  linkDir = name: {
+    ${name} = {
+      source = link name;
+      recursive = true;
+    };
+  };
+
+  # declare the config dirs to link
+  confDirs = map linkDir [
+    "fcitx5"
+  ];
+
+  confLinks = mergeAttrsList confDirs;
+in
 {
   i18n.inputMethod = {
     enable = true;
@@ -16,4 +38,5 @@
       ];
     };
   };
+  xdg.configFile = confLinks;
 }
