@@ -13,6 +13,7 @@ in
     ../modules/tinty
     ../modules/gammastep.nix
     ../modules/llm.nix
+    ../modules/i18n.nix
   ];
 
   # allow unfree packages
