@@ -9,7 +9,10 @@
       addons = with pkgs; [
         fcitx5-gtk
         fcitx5-bamboo  # Vietnamese input
-        kdePackages.fcitx5-chinese-addons
+        kdePackages.fcitx5-chinese-addons  # pinyin input
+
+        # themes
+        fcitx5-mellow-themes
       ];
     };
   };
