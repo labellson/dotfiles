@@ -22,6 +22,7 @@ in
 {
   home.packages = with pkgs-unstable; [
     llama-cpp-vulkan
+    github-copilot-cli
   ];
 
   programs.opencode.enable = true;
