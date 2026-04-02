@@ -61,6 +61,9 @@ in
   # nice tray applet to monitor syncthing
   services.syncthing.tray.enable = true;
 
+  # tailscale systray applet
+  services.tailscale-systray.enable = true;
+
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
 
