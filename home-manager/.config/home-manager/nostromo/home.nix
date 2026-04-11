@@ -10,6 +10,7 @@ in
     ./desktop/x11.nix
     ./desktop/wayland.nix
     ./desktop/niri.nix
+    ./desktop/noctalia.nix
     ../modules/xdg.nix
     ../modules/tinty
     ../modules/gammastep.nix
@@ -85,16 +86,13 @@ in
     # TODO: i need to do something to activate firefox wayland
     firefox
     google-chrome
-    obsidian  # says that electron 24 is an insecure package
+    obsidian
     element-desktop
     vlc
     cava
 
     digikam
     darktable
-
-    # bluetooth gui manager
-    overskride
 
     ncdu
     transmission_4-gtk

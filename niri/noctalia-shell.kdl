@@ -1,0 +1,17 @@
+
+// This look is mor or less the recommended by Noctalia docs
+window-rule {
+  // Rounded corners for a modern look.
+  geometry-corner-radius 10
+
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+// Documentation recommends spawn noctalia at the very end of the config file
+spawn-at-startup "noctalia-shell";

@@ -282,12 +282,6 @@ layout {
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-// HACK: not very beautiful but works to stop nm-applet. It is a useful applet
-// but once I set up my networks I don't use it anymore. I'm not sure how it got
-// activated as the nix options are disabled. I will just start it on runtime if
-// I ever need it.
-spawn-sh-at-startup "systemctl --user stop app-nm\\\\x2dapplet@autostart.service"
-
 // HACK: darkman service unit should start after niri, but for some reason, it
 // is not able to connect to the NIRI_SOCKET. Restarting the service fixes this
 spawn-sh-at-startup "systemctl --user restart darkman.service"
@@ -673,3 +667,5 @@ binds {
     Mod+Ctrl+M { set-dynamic-cast-monitor; }
     Mod+Ctrl+Shift+M { clear-dynamic-cast-target; }
 }
+
+include "noctalia-shell.kdl"
