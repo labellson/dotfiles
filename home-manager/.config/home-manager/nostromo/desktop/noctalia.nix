@@ -5,6 +5,7 @@ let
   linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
   confFiles = lib.map linkFile [
     "niri/noctalia-shell.kdl"
+    "noctalia/settings.json"
   ];
   confLinks = lib.mergeAttrsList confFiles;
 in
