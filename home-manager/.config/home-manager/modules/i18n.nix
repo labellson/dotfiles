@@ -5,7 +5,7 @@ let
   confFiles = lib.map linkFile [
     "fcitx5/config"
     "fcitx5/profile"
-    "fcitx5/conf/classicui"
+    "fcitx5/conf/classicui.conf"
   ];
   confLinks = lib.mergeAttrsList confFiles;
 in
