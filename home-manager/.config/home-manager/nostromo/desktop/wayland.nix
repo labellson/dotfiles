@@ -28,7 +28,6 @@ let
     "mako/config"
     "kanshi/config"
     "sway/config"
-    "niri/config.kdl"
     "fuzzel/fuzzel.ini"
     "stasis/stasis.rune"
   ];
@@ -69,9 +68,7 @@ in
   home.packages = with pkgs; [
     swaybg
     wdisplays
-    inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm
-    inputs.nfsm-flake.packages.${stdenv.hostPlatform.system}.nfsm-cli
-    pkgs.stasis
+    stasis
     xwayland-satellite
     # although is called this way, it provides pulseaudio-control to control
     # pulseaudio from any statusbar

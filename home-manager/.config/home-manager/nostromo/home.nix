@@ -9,6 +9,7 @@ in
     ./fish.nix
     ./desktop/x11.nix
     ./desktop/wayland.nix
+    ./desktop/niri.nix
     ../modules/xdg.nix
     ../modules/tinty
     ../modules/gammastep.nix
