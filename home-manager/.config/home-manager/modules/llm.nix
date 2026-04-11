@@ -1,23 +1,11 @@
-{ config, lib, pkgs, pkgs-unstable, dls, ... }:
+{ config, lib, pkgs, pkgs-unstable, dlsFuncs, ... }:
 
 let
-  # import some useful functions
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  inherit (lib) map mergeAttrsList;
-
-  link = name: mkOutOfStoreSymlink (dls.toSrcFile name);
-
-  # use previous functions to create helper functions to create attrSets
-  linkFile = name: {
-    ${name}.source = link name;
-  };
-
-  # declare the config files to link
-  confFiles = map linkFile [
+  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
+  confFiles = lib.map linkFile [
     "opencode/opencode.json"
   ];
-
-  confLinks = mergeAttrsList confFiles;
+  confLinks = lib.mergeAttrsList confFiles;
 in
 {
   home.packages = with pkgs-unstable; [
