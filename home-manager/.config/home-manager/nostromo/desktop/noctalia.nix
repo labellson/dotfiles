@@ -18,6 +18,11 @@ in
     enable = true;
   };
 
+  # fix missing icons in the shell
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "gtk3";
+  };
+
   xdg.configFile = {
     "noctalia/colorschemes/Solarized/Solarized.json".source = "${noctaliaColorschemesPath}/Solarized/Solarized.json";
   } // confLinks;
