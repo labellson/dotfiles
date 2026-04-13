@@ -9,6 +9,8 @@
     ../commons.nix
     ./fish.nix
     ../nostromo/desktop/wayland.nix
+    ../nostromo/desktop/niri.nix
+    ../nostromo/desktop/noctalia.nix
     ../modules/llm.nix
     ../modules/i18n.nix
   ];
