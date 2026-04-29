@@ -1,4 +1,4 @@
-{ config, lib, pkgs, dlsFuncs, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, dlsFuncs, inputs, ... }:
 
 let
   inherit (inputs) voxtype;
@@ -12,10 +12,16 @@ in
 {
   imports = [ voxtype.homeManagerModules.default ];
 
-  # Whisper example (default engine):
+
+  # HACK: needed because the service can't find the plugins library
+  home.packages = with pkgs; [ alsa-plugins ];
+  home.sessionVariables = {
+    ALSA_PLUGIN_DIR = "${pkgs.alsa-plugins}/lib/alsa-lib";
+  };
+
   programs.voxtype = {
     enable = true;
-    package = voxtype.packages.${pkgs.stdenv.hostPlatform.system}.vulkan;
+    package = pkgs-unstable.voxtype-vulkan;
     model.name = "base.en";
     service.enable = true;
     settings = {
