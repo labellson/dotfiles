@@ -421,8 +421,6 @@ binds {
     // Open apps launcher
     Mod+Space repeat=false hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
 
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock --grace 2 --grace-no-mouse --screenshots --clock --indicator --datestr '%A, %d/%m/%y' --fade-in 0.5 --effect-greyscale --effect-scale 0.8 --effect-blur 7x1 --effect-pixelate 8 --effect-vignette 0.5:0.5 || swaylock -i ~/.background-image"; }
-
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
@@ -441,7 +439,6 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    // TODO: I use light in i3. Should we change??
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%+"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 

@@ -19,5 +19,16 @@ layer-rule {
     block-out-from "screencast"
 }
 
+binds {
+    XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+
+    Super+Ctrl+W { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
+
+    Super+Print { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit toggle"; }
+}
+
 // Documentation recommends spawn noctalia at the very end of the config file
 spawn-at-startup "noctalia-shell";
