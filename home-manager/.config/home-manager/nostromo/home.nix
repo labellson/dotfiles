@@ -17,6 +17,7 @@ in
     ../modules/llm.nix
     ../modules/i18n.nix
     ../modules/voxtype.nix
+    ../modules/nh.nix
   ];
 
   # allow unfree packages
