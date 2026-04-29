@@ -101,6 +101,7 @@ in
     calibre
     libreoffice
     evince
+    gnome-calendar
 
     emacs-pgtk  # with native wayland support
     neovim
