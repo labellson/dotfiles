@@ -1,0 +1,3 @@
+binds {
+    Mod+v { spawn-sh "voxtype record toggle"; }
+}

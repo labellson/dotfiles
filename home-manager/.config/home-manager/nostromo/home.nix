@@ -16,6 +16,7 @@ in
     ../modules/gammastep.nix
     ../modules/llm.nix
     ../modules/i18n.nix
+    ../modules/voxtype.nix
   ];
 
   # allow unfree packages

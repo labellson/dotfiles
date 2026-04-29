@@ -1,5 +1,12 @@
-{ config, pkgs, pkgs-unstable, lib, symlinkRoot, ... }:
+{ config, pkgs, pkgs-unstable, lib, dlsFuncs, ... }:
 
+let
+  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
+  confFiles = lib.map linkFile [
+    "niri/voxtype.kdl"
+  ];
+  confLinks = lib.mergeAttrsList confFiles;
+in
 {
   imports = [
     ../modules/shell.nix
@@ -136,10 +143,12 @@
       };
     };
     # fix systemd reads portal systems: https://discourse.nixos.org/t/configuring-xdg-desktop-portal-with-home-manager-on-ubuntu-hyprland-via-nixgl/65287/6
-    configFile."systemd/user.conf".text = ''
-        [Manager]
-        ManagerEnvironment="XDG_DATA_DIRS=/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share"
-    '';
+    configFile = {
+      "systemd/user.conf".text = ''
+          [Manager]
+          ManagerEnvironment="XDG_DATA_DIRS=/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share:/home/labellson/.nix-profile/share:/nix/var/nix/profiles/default/share"
+      '';
+    } // confLinks;
   };
 
   services.syncthing = {

@@ -669,3 +669,4 @@ binds {
 }
 
 include "noctalia-shell.kdl"
+include "voxtype.kdl"

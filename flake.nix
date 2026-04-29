@@ -20,6 +20,10 @@
       url = "github:noctalia-dev/noctalia-colorschemes";
       flake = false;
     };
+    voxtype = {
+      url = "github:peteonrails/voxtype";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ...}@inputs:
