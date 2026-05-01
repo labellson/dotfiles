@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "{env:OPENCODE_MODEL}",
+  "small_model": "{env:OPENCODE_SMALL_MODEL}",
+  "share": "disabled",
   "provider": {
     "llama.cpp": {
       "npm": "@ai-sdk/openai-compatible",
