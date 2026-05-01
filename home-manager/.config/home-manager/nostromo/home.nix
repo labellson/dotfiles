@@ -87,6 +87,7 @@ in
 
     # TODO: i need to do something to activate firefox wayland
     firefox
+    pywalfox-native
     google-chrome
     obsidian
     element-desktop
