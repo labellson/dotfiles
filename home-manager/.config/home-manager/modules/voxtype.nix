@@ -21,9 +21,10 @@ in
 
   programs.voxtype = {
     enable = true;
-    package = pkgs-unstable.voxtype-vulkan;
-    model.name = "base.en";
-    service.enable = true;
+    package = pkgs-unstable.voxtype-onnx;
+    engine = "parakeet";
+    model.path = "/home/${config.home.username}/.local/share/voxtype/models/parakeet-tdt-0.6b-v3-int8";
+    service.enable = false;
     settings = {
       hotkey.enabled = false;
       whisper.language = "en";
