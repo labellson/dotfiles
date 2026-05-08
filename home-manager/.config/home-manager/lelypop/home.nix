@@ -55,6 +55,7 @@ in
     niri
 
     firefox
+    pywalfox-native
     vlc
     overskride
     noisetorch
@@ -76,6 +77,7 @@ in
     nodejs # just to install lsp-servers
     jq
     usql
+    go-grip # grip markdown preview
 
     # needed by doom emacs
     fd
@@ -108,6 +110,7 @@ in
   programs.swaylock.enable = lib.mkForce false;
 
   home.sessionVariables = {
+    EDITOR = "emacsclient -a '' -r";
     TERMINAL = "kitty";
   };
 
