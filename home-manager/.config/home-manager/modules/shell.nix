@@ -13,24 +13,17 @@ let
   linkFile = name: {
     ${name}.source = link name;
   };
-  linkDir = name: {
-    ${name} = {
-      source = link name;
-      recursive = true;
-    };
-  };
 
   confFiles = map linkFile [
     "fish/fish_plugins"
     "fish/conf.d/dls-env.fish"
     "fish/conf.d/dls-path.fish"
+    "fish/functions/dls-mkcd.fish"
+    "fish/functions/dls-t.fish"
+    "fish/functions/dotenv.fish"
   ];
 
-  confDirs = map linkDir [
-    "fish/functions"
-  ];
-
-  confLinks = mergeAttrsList (confFiles ++ confDirs);
+  confLinks = mergeAttrsList confFiles;
 in
 {
   imports = [
