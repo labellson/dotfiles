@@ -20,6 +20,7 @@ in
     ../nostromo/desktop/noctalia.nix
     ../modules/llm.nix
     ../modules/i18n.nix
+    ../modules/yazi.nix
   ];
 
   # allow unfree packages

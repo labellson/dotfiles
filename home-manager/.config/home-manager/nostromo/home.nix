@@ -18,6 +18,7 @@ in
     ../modules/i18n.nix
     ../modules/voxtype.nix
     ../modules/nh.nix
+    ../modules/yazi.nix
   ];
 
   # allow unfree packages
