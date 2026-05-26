@@ -15,8 +15,13 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  # services.mako.enable = true;
   services.kanshi.enable = true;
+
+  # persist clipboard globally in wayland
+  services.wl-clip-persist.enable = true;
+
+  # clipboard history manager
+  services.cliphist.enable = true;
 
   programs = {
     fuzzel.enable = true;
