@@ -184,6 +184,7 @@ in
       };
     };
     gtk4 = {
+      theme = null;
       extraConfig = {
         gtk-button-images=1;
         gtk-menu-images=1;
@@ -197,7 +198,6 @@ in
   };
 
   xdg.configFile = {
-    "gtk-4.0/gtk.css".force = true;
     "gtk-4.0/gtk-dark.css".source = "${adw-colors}/themes/adw-solarized/gtk4-dark.css";
     "gtk-4.0/gtk-light.css".source = "${adw-colors}/themes/adw-solarized/gtk4-light.css";
     "gtk-3.0/gtk-dark.css".source = "${adw-colors}/themes/adw-solarized/gtk3-dark.css";
