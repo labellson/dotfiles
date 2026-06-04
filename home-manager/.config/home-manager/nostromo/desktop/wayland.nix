@@ -17,8 +17,9 @@ in
 
   services.kanshi.enable = true;
 
+  # TODO: Does not work completely. I might delete it
   # persist clipboard globally in wayland
-  services.wl-clip-persist.enable = true;
+  # services.wl-clip-persist.enable = true;
 
   # clipboard history manager
   services.cliphist.enable = true;
