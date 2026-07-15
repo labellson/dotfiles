@@ -66,6 +66,9 @@ in
   # nice tray applet to monitor syncthing
   services.syncthing.tray.enable = true;
 
+  # nextcloud
+  services.nextcloud-client.enable = true;
+
   # tailscale systray applet
   services.tailscale-systray.enable = true;
 
