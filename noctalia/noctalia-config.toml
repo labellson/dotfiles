@@ -1,28 +1,77 @@
 [bar.default]
-center = [ "media", "control-center", "clock", "privacy", "notifications" ]
-end = [
-    "tray",
-    "network",
-    "bluetooth",
-    "volume",
-    "input_volume",
-    "brightness",
-    "battery",
-    "keyboard_layout",
-    "cpu",
-    "ram",
-    "temp",
-    "session"
-]
+center = [ "control-center", "group:g2", "group:g6" ]
+end = [ "group:g3", "group:g4", "group:g1", "session" ]
 font_family = "GohuFont uni14 Nerd Font Mono"
 margin_ends = 0
-start = [ "wallpaper", "clipboard", "workspaces", "active_window" ]
+start = [ "wallpaper", "clipboard", "group:g5" ]
+
+    [[bar.default.capsule_group]]
+    border = "outline"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "brightness", "battery", "cpu", "ram", "temp", "keyboard_layout" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    border = "outline"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "clock", "privacy", "notifications" ]
+    opacity = 1.0
+    padding = 14.0
+
+    [[bar.default.capsule_group]]
+    border = ""
+    enabled = true
+    fill = "#2B90D8"
+    foreground = "#FBF7EF"
+    id = "g3"
+    members = [ "tray", "network", "bluetooth" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    border = "secondary"
+    enabled = true
+    fill = "surface_variant"
+    id = "g4"
+    members = [ "volume", "input_volume" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    border = "outline"
+    enabled = true
+    fill = "surface_variant"
+    id = "g5"
+    members = [ "workspaces", "active_window" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    border = "#819500"
+    enabled = true
+    fill = "surface_variant"
+    id = "g6"
+    members = [ "cat", "media", "audio_visualizer" ]
+    opacity = 1.0
+    padding = 6.0
 
 [battery]
 warning_threshold = 15
 
 [calendar]
 enabled = true
+
+    [calendar.account.abyssal_nextcloud]
+    name = "Nextcloud"
+    provider = "custom"
+    server_url = "https://sputnik.dani.codes/remote.php/dav"
+    type = "caldav"
+    username = "labellson"
 
 [control_center]
 sidebar = "full"
@@ -38,6 +87,9 @@ widget_order = []
     visible = true
 
     [desktop_widgets.widget]
+
+[hooks]
+theme_mode_changed = "[ $NOCTALIA_THEME_MODE = \"dark\" ] && darkman set dark || darkman set light"
 
 [location]
 auto_locate = true
@@ -97,10 +149,11 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
 media = false
 
 [plugin_settings."noctalia/wallhaven"]
+api_key = "jWfAvVISrkiLYKshUXrfwcv1fXiiXKuT"
 download_dir = "~/Pictures/Wallpapers/Wallhaven"
 
 [plugins]
-enabled = [ "noctalia/wallhaven", "whyoolw/sharednd" ]
+enabled = [ "noctalia/wallhaven", "whyoolw/sharednd", "noctalia/bongocat" ]
 
 [shell]
 password_style = "random"
@@ -126,20 +179,26 @@ source = "community"
 wallpaper_scheme = "soft"
 
 [wallpaper.default]
-path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
 [wallpaper.last]
-path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
 [wallpaper.monitors.DP-1]
-path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
 [widget.active_window]
 max_length = 512
 title_scroll = "on_hover"
+
+[widget.audio_visualizer]
+bands = 8
+color_1 = "secondary"
+color_2 = "#819500"
+width = 32
 
 [widget.battery]
 icon_color = "#819500"
@@ -147,9 +206,15 @@ icon_color = "#819500"
 [widget.brightness]
 icon_color = "primary"
 
+[widget.cat]
+audio_spectrum = true
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+use_mpris_filter = true
+
 [widget.clock]
-anchor = true
-capsule = true
+anchor = false
+capsule = false
 tooltip_format = "{:%a %d %b}"
 
 [widget.control-center]
@@ -159,20 +224,24 @@ enabled = false
 icon_color = "secondary"
 
 [widget.input_volume]
-mute_color = "on_surface_variant"
+mute_color = "secondary"
 
 [widget.keyboard_layout]
+capsule = true
 icon_color = "primary"
 
     [widget.keyboard_layout.custom_labels]
     "English (US, intl., with dead keys)" = "EN"
 
 [widget.media]
+capsule = true
+capsule_border = "#819500"
 hide_when_no_media = true
 max_length = 160
 title_scroll = "on_hover"
 
 [widget.network]
+show_label = false
 show_vpn_label = true
 
 [widget.privacy]
@@ -194,7 +263,7 @@ icon_color = "hover"
 capsule = true
 
 [widget.volume]
-mute_color = "on_surface_variant"
+mute_color = "secondary"
 
 [widget.workspaces]
 labels_only_when_occupied = true
