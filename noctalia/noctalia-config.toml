@@ -1,0 +1,200 @@
+[bar.default]
+center = [ "media", "control-center", "clock", "privacy", "notifications" ]
+end = [
+    "tray",
+    "network",
+    "bluetooth",
+    "volume",
+    "input_volume",
+    "brightness",
+    "battery",
+    "keyboard_layout",
+    "cpu",
+    "ram",
+    "temp",
+    "session"
+]
+font_family = "GohuFont uni14 Nerd Font Mono"
+margin_ends = 0
+start = [ "wallpaper", "clipboard", "workspaces", "active_window" ]
+
+[battery]
+warning_threshold = 15
+
+[calendar]
+enabled = true
+
+[control_center]
+sidebar = "full"
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+[osd.kinds]
+media = false
+
+[plugin_settings."noctalia/wallhaven"]
+download_dir = "~/Pictures/Wallpapers/Wallhaven"
+
+[plugins]
+enabled = [ "noctalia/wallhaven", "whyoolw/sharednd" ]
+
+[shell]
+password_style = "random"
+screen_time_enabled = true
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    clipboard_position = "auto"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+
+    [shell.screen_corners]
+    enabled = true
+
+    [shell.screenshot]
+    directory = "~/scratch/Screenshots"
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Solarized"
+mode = "auto"
+source = "community"
+wallpaper_scheme = "soft"
+
+[wallpaper.default]
+path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+
+[wallpaper.last]
+path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/labellson/Pictures/Wallpapers/solarized-light.jpg"
+
+[widget.active_window]
+max_length = 512
+title_scroll = "on_hover"
+
+[widget.battery]
+icon_color = "#819500"
+
+[widget.brightness]
+icon_color = "primary"
+
+[widget.clock]
+anchor = true
+capsule = true
+tooltip_format = "{:%a %d %b}"
+
+[widget.control-center]
+enabled = false
+
+[widget.cpu]
+icon_color = "secondary"
+
+[widget.input_volume]
+mute_color = "on_surface_variant"
+
+[widget.keyboard_layout]
+icon_color = "primary"
+
+    [widget.keyboard_layout.custom_labels]
+    "English (US, intl., with dead keys)" = "EN"
+
+[widget.media]
+hide_when_no_media = true
+max_length = 160
+title_scroll = "on_hover"
+
+[widget.network]
+show_vpn_label = true
+
+[widget.privacy]
+hide_inactive = true
+
+[widget.ram]
+icon_color = "#7D80D1"
+stat = "ram_pct"
+
+[widget.session]
+color = "secondary"
+
+[widget.temp]
+display = "gauge"
+enabled = true
+icon_color = "hover"
+
+[widget.tray]
+capsule = true
+
+[widget.volume]
+mute_color = "on_surface_variant"
+
+[widget.workspaces]
+labels_only_when_occupied = true

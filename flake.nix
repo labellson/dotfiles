@@ -13,8 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # we pin to cachix branch, because it always points to the latest cached
+      # commit
+      url = "github:noctalia-dev/noctalia/cachix";
+      # we don't follow nixpkgs because this will invalidate the cache
     };
     noctalia-colorschemes = {
       url = "github:noctalia-dev/noctalia-colorschemes";

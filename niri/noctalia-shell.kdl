@@ -12,6 +12,7 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 
+// TODO: does this still applies in V5?
 // Block out notifications from screencasts.
 layer-rule {
     match namespace="^noctalia-notifications.*$"
@@ -20,15 +21,17 @@ layer-rule {
 }
 
 binds {
-    XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up" "all"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down" "all"; }
 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
-    Super+Ctrl+W { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
+    // TODO: does not work on v5
+    Super+Ctrl+W { spawn-sh "noctalia ipc call wallpaper toggle"; }
 
-    Super+Print { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit toggle"; }
+    // TODO: does not work on v5
+    Super+Print { spawn-sh "noctalia ipc call plugin:screen-toolkit toggle"; }
 }
 
 // Documentation recommends spawn noctalia at the very end of the config file
-spawn-at-startup "noctalia-shell";
+spawn-at-startup "noctalia";

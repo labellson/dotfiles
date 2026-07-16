@@ -5,6 +5,8 @@ let
   linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
   confFiles = lib.map linkFile [
     "niri/noctalia-shell.kdl"
+    "noctalia/noctalia-config.toml"
+    # TODO: this two are for noctalia v4. Should be deleted at some point
     "noctalia/settings.json"
     "noctalia/plugins.json"
   ];
@@ -15,9 +17,8 @@ in
     inputs.noctalia.homeModules.default
   ];
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override { calendarSupport = true; };
   };
 
   # fix missing icons in the shell
