@@ -86,7 +86,7 @@ in
     cmakeMinimal
     (aspellWithDicts (dicts: with dicts; [en es]))
     shellcheck
-    nixfmt-rfc-style
+    nixfmt
     libtool  # needed to compile vterm
 
     pandoc

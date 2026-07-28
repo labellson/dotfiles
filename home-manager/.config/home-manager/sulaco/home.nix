@@ -44,7 +44,7 @@
     cmakeMinimal
     (aspellWithDicts (dicts: with dicts; [en es]))
     shellcheck
-    nixfmt-rfc-style
+    nixfmt
 
     # i like to have it installed
     (python313.withPackages(ps: with ps; [requests ipython]))
