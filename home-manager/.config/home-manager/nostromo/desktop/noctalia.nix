@@ -33,7 +33,5 @@ in
     (tesseract.override { enableLanguages = [ "eng" "spa" ]; })
   ];
 
-  xdg.configFile = {
-    "noctalia/colorschemes/Solarized/Solarized.json".source = "${noctaliaColorschemesPath}/Solarized/Solarized.json";
-  } // confLinks;
+  xdg.configFile = confLinks;
 }

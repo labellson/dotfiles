@@ -18,10 +18,6 @@
       url = "github:noctalia-dev/noctalia/cachix";
       # we don't follow nixpkgs because this will invalidate the cache
     };
-    noctalia-colorschemes = {
-      url = "github:noctalia-dev/noctalia-colorschemes";
-      flake = false;
-    };
     voxtype = {
       url = "github:peteonrails/voxtype";
       inputs.nixpkgs.follows = "nixpkgs";

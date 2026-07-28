@@ -146,22 +146,6 @@
         "type": "github"
       }
     },
-    "noctalia-colorschemes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784158684,
-        "narHash": "sha256-R0e6oulsFjmT0QbG0NcEXeKCbkFse/WUSjK3o4nzA0w=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-colorschemes",
-        "rev": "70c11a5bb85a1e2fa678ac86dd60f1a696cfb837",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-colorschemes",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -169,7 +153,6 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
-        "noctalia-colorschemes": "noctalia-colorschemes",
         "voxtype": "voxtype"
       }
     },
