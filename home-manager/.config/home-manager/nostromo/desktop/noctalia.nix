@@ -26,11 +26,14 @@ in
     QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
-  # packages needed by screen-toolkit plugin
+  # TODO: packages needed by screen-toolkit plugin. plugin is for v4
   home.packages = with pkgs; [
     grim slurp wl-clipboard imagemagick zbar curl
     translate-shell wl-screenrec ffmpeg gifski
     (tesseract.override { enableLanguages = [ "eng" "spa" ]; })
+
+    # packages needed by audio-switcher plugin
+    pulseaudio bluez
   ];
 
   xdg.configFile = confLinks;

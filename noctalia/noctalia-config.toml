@@ -38,7 +38,7 @@ start = [ "wallpaper", "clipboard", "group:g5" ]
     enabled = true
     fill = "surface_variant"
     id = "g4"
-    members = [ "volume", "input_volume" ]
+    members = [ "widget", "volume", "input_volume" ]
     opacity = 1.0
     padding = 6.0
 
@@ -146,12 +146,15 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
 [osd.kinds]
 media = false
 
+[plugin_settings."blackbartblues/audio-switcher"]
+show_percentage = false
+
 [plugin_settings."noctalia/wallhaven"]
 api_key = "jWfAvVISrkiLYKshUXrfwcv1fXiiXKuT"
 download_dir = "~/Pictures/Wallpapers/Wallhaven"
 
 [plugins]
-enabled = [ "noctalia/wallhaven", "whyoolw/sharednd", "noctalia/bongocat" ]
+enabled = [ "noctalia/wallhaven", "whyoolw/sharednd", "blackbartblues/audio-switcher", "apex077/eyecare" ]
 
 [shell]
 password_style = "random"
@@ -206,6 +209,7 @@ icon_color = "primary"
 
 [widget.cat]
 audio_spectrum = true
+enabled = false
 tappy_mode = true
 type = "noctalia/bongocat:cat"
 use_mpris_filter = true
@@ -223,6 +227,9 @@ icon_color = "secondary"
 
 [widget.input_volume]
 mute_color = "secondary"
+
+    [widget.input_volume.actions]
+    middle = "panel-toggle blackbartblues/audio-switcher:audio-switcher"
 
 [widget.keyboard_layout]
 capsule = true
@@ -262,6 +269,16 @@ capsule = true
 
 [widget.volume]
 mute_color = "secondary"
+
+    [widget.volume.actions]
+    middle = "panel-toggle blackbartblues/audio-switcher:audio-switcher"
+
+[widget.widget]
+enabled = false
+type = "blackbartblues/audio-switcher:widget"
+
+    [widget.widget.actions]
+    right = "volume-mute"
 
 [widget.workspaces]
 labels_only_when_occupied = true
