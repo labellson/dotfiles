@@ -1,11 +1,12 @@
 { config, lib, pkgs, pkgs-unstable, dlsFuncs, ... }:
 
 let
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "opencode/opencode.json"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "opencode/opencode.json"
+    ]
+  );
 in
 {
   home.packages = with pkgs-unstable; [

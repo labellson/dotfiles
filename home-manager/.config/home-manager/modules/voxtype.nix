@@ -3,11 +3,12 @@
 let
   inherit (inputs) voxtype;
 
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "niri/voxtype.kdl"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "niri/voxtype.kdl"
+    ]
+  );
 in
 {
   imports = [ voxtype.homeManagerModules.default ];

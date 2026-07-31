@@ -1,13 +1,14 @@
-{ config, lib, pkgs, dlsFuncs, inputs, ... }:
+{ config, lib, pkgs, dlsFuncs, ... }:
 
 # TODO: how could I pass this helper functions to other modules??
 let
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "kanshi/config"
-    "fuzzel/fuzzel.ini"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "kanshi/config"
+      "fuzzel/fuzzel.ini"
+    ]
+  );
 in
 {
   home.sessionVariables = {

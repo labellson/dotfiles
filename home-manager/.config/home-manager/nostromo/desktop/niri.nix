@@ -5,11 +5,12 @@
 
 
 let
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "niri/config.kdl"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "niri/config.kdl"
+    ]
+  );
 in
 {
   xdg.configFile = confLinks;

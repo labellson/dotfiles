@@ -35,14 +35,16 @@
         toSrcFile = name: "${symlinkRoot}/${name}";
 
         # I have not found a better name to this make* functions
-        # this functions create attrSets to files outside of the nix store
+        # these functions create attrSets to files outside of the nix store
         makeLink = mkOutOfStoreSymlink: (name: mkOutOfStoreSymlink (dlsFuncs.toSrcFile name));
         makeLinkFile = mkOutOfStoreSymlink: (name: {
           ${name}.source = (dlsFuncs.makeLink mkOutOfStoreSymlink) name;
         });
-        makeLinkDir = mkOutOfStoreSymlink: (name: {
+        mkLink = mkOutOfStoreSymlink: (name: mkOutOfStoreSymlink (dlsFuncs.toSrcFile name));
+        mkSymlink = mkOutOfStoreSymlink: (name: {
           ${name} = {
-            source = (dlsFuncs.makeLink mkOutOfStoreSymlink) name;
+            source = (dlsFuncs.mkLink mkOutOfStoreSymlink) name;
+            # link directories recursively. Has no effects on files
             recursive = true;
           };
         });

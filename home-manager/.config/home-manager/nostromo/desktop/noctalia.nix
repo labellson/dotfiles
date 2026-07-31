@@ -1,16 +1,16 @@
 { config, lib, pkgs, dlsFuncs, inputs, ... }:
 
 let
-  noctaliaColorschemesPath = builtins.toString inputs.noctalia-colorschemes;
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "niri/noctalia-shell.kdl"
-    "noctalia/noctalia-config.toml"
-    # TODO: this two are for noctalia v4. Should be deleted at some point
-    "noctalia/settings.json"
-    "noctalia/plugins.json"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "niri/noctalia-shell.kdl"
+      "noctalia/noctalia-config.toml"
+      # todo: this two are for noctalia v4. should be deleted at some point
+      "noctalia/settings.json"
+      "noctalia/plugins.json"
+    ]
+  );
 in
 {
   imports = [

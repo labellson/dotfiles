@@ -1,13 +1,14 @@
 { config, lib, pkgs, dlsFuncs, ... }:
 
 let
-  linkFile = dlsFuncs.makeLinkFile config.lib.file.mkOutOfStoreSymlink;
-  confFiles = lib.map linkFile [
-    "fcitx5/config"
-    "fcitx5/profile"
-    "fcitx5/conf/classicui.conf"
-  ];
-  confLinks = lib.mergeAttrsList confFiles;
+  mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlink [
+      "fcitx5/config"
+      "fcitx5/profile"
+      "fcitx5/conf/classicui.conf"
+    ]
+  );
 in
 {
   i18n.inputMethod = {
