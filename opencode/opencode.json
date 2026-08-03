@@ -21,6 +21,9 @@
       }
     }
   },
+  "plugin": [
+    "@mohak34/opencode-notifier@latest"
+  ],
   "mcp": {
     "context7": {
       "type": "remote",
