@@ -11,6 +11,9 @@ in
   home.packages = with pkgs-unstable; [
     llama-cpp-vulkan
     github-copilot-cli
+    # cli proxy that reduces LLM token consumption on common dev commands (ex:
+    # bash tool)
+    rtk
   ];
 
   home.sessionVariables = {
