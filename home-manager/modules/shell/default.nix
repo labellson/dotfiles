@@ -1,29 +1,19 @@
-{ config, lib, pkgs, symlinkRoot, ... }:
+{ config, lib, pkgs, dlsFuncs, inputs, ... }:
 
 let
-  # import some useful functions
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  inherit (lib) map mergeAttrsList;
 
-  # make helper functions to link files
-  toSrcFile = name: "${symlinkRoot}/${name}";
-  link = name: mkOutOfStoreSymlink (toSrcFile name);
-
-  # use previous functions to create helper functions to create attrSets
-  linkFile = name: {
-    ${name}.source = link name;
-  };
-
-  confFiles = map linkFile [
-    "fish/fish_plugins"
-    "fish/conf.d/dls-env.fish"
-    "fish/conf.d/dls-path.fish"
-    "fish/functions/dls-mkcd.fish"
-    "fish/functions/dls-t.fish"
-    "fish/functions/dotenv.fish"
-  ];
-
-  confLinks = mergeAttrsList confFiles;
+  mkSymlinkPath = dlsFuncs.mkSymlinkPath mkOutOfStoreSymlink lib inputs.self;
+  confLinks = lib.mergeAttrsList (
+    lib.map mkSymlinkPath [
+    ../../../fish/fish_plugins
+    ../../../fish/conf.d/dls-env.fish
+    ../../../fish/conf.d/dls-path.fish
+    ../../../fish/functions/dls-mkcd.fish
+    ../../../fish/functions/dls-t.fish
+    ../../../fish/functions/dotenv.fish
+    ]
+  );
 in
 {
   imports = [
@@ -39,7 +29,7 @@ in
 
   programs.bash = {
       enable = true;
-      bashrcExtra = builtins.readFile ../../../../bash/.bashrc;
+      bashrcExtra = builtins.readFile ../../../bash/.bashrc;
   };
 
   programs.fish = {

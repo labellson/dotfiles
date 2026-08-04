@@ -6,7 +6,7 @@ let
     lib.map mkSymlink [
       "niri/noctalia-shell.kdl"
       "noctalia/noctalia-config.toml"
-      # todo: this two are for noctalia v4. should be deleted at some point
+      # TODO: this two are for noctalia v4. should be deleted at some point
       "noctalia/settings.json"
       "noctalia/plugins.json"
     ]

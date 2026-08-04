@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, dlsFuncs, inputs, ... }:
+{ config, lib, pkgs, pkgsUnstable, dlsFuncs, inputs, ... }:
 
 let
   inherit (inputs) voxtype;
@@ -22,7 +22,7 @@ in
 
   programs.voxtype = {
     enable = true;
-    package = pkgs-unstable.voxtype-onnx;
+    package = pkgsUnstable.voxtype-onnx;
     engine = "parakeet";
     model.path = "/home/${config.home.username}/.local/share/voxtype/models/parakeet-tdt-0.6b-v3-int8";
     service.enable = false;

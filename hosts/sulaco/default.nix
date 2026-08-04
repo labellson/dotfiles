@@ -2,17 +2,8 @@
 
 {
   imports = [
-    ../commons.nix
     ./fish.nix
   ];
-
-  # configure the username and all that things
-  home.username = "labellson";
-  home.homeDirectory = "/home/labellson";
-
-  home.sessionVariables = {
-    TERM = "kitty";
-  };
 
   # let home manager start the X session
   xsession.enable = true;
@@ -21,7 +12,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    kitty
     ripgrep
     killall
     gnupg
@@ -49,7 +39,7 @@
     # i like to have it installed
     (python313.withPackages(ps: with ps; [requests ipython]))
 
-    stremio
+    stremio-linux-shell
     steam
 
     fantasque-sans-mono

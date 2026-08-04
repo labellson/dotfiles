@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, dlsFuncs, ... }:
+{ config, lib, pkgs, pkgsUnstable, dlsFuncs, ... }:
 
 let
   mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
@@ -9,7 +9,7 @@ let
   );
 in
 {
-  home.packages = with pkgs-unstable; [
+  home.packages = with pkgsUnstable; [
     llama-cpp-vulkan
     github-copilot-cli
     # cli proxy that reduces LLM token consumption on common dev commands (ex:

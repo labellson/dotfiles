@@ -74,34 +74,50 @@
         });
       };
 
-      pkgs-unstable = import nixpkgs-unstable {
+      pkgsUnstable = import nixpkgs-unstable {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
+
+      vars = {
+        user = "labellson";
+      };
+
+      mkHomeManagerConfiguration =
+        {
+          path,
+          extraModules ? [ ],
+        }:
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = {
+            inherit inputs pkgsUnstable dlsFuncs vars;
+          };
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            ./home-manager/common
+            ./hosts/common
+            path
+          ]
+          ++ extraModules;
+        };
     in
     {
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "labellson@nostromo" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [./home-manager/.config/home-manager/nostromo/home.nix];
-          extraSpecialArgs = {
-            inherit inputs symlinkRoot pkgs-unstable dlsFuncs;
-          };
+        "labellson@nostromo" = mkHomeManagerConfiguration {
+          path = ./hosts/nostromo;
         };
         # work laptop
-        "labellson@lelypop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [./home-manager/.config/home-manager/lelypop/home.nix];
-          extraSpecialArgs = {
-            inherit inputs symlinkRoot pkgs-unstable dlsFuncs;
-          };
+        "labellson@lelypop" = mkHomeManagerConfiguration {
+          path = ./hosts/lelypop;
         };
         # motherbase pc
-        "labellson@sulaco" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [./home-manager/.config/home-manager/sulaco/home.nix];
+        "labellson@sulaco" = mkHomeManagerConfiguration {
+            path = ./hosts/sulaco;
+        };
+        "labellson@xiaoyue" = mkHomeManagerConfiguration {
+          path = ./hosts/xiaoyue;
         };
       };
     };

@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, lib, dlsFuncs, ... }:
+{ config, pkgs, pkgsUnstable, lib, dlsFuncs, ... }:
 
 let
   mkSymlink = dlsFuncs.mkSymlink config.lib.file.mkOutOfStoreSymlink;
@@ -10,27 +10,19 @@ let
 in
 {
   imports = [
-    ../modules/shell.nix
-    ../modules/xdg.nix
-    ../modules/darkman.nix
-    ../modules/gammastep.nix
-    ../modules/tinty
-    ../commons.nix
     ./fish.nix
-    ../nostromo/desktop/wayland.nix
-    ../nostromo/desktop/niri.nix
-    ../nostromo/desktop/noctalia.nix
-    ../modules/llm.nix
-    ../modules/i18n.nix
-    ../modules/yazi.nix
+
+    ../../home-manager/modules/darkman.nix
+    ../../home-manager/modules/gammastep.nix
+    ../../home-manager/modules/tinty
+    ../../home-manager/modules/llm.nix
+    ../../home-manager/modules/i18n.nix
+    ../../home-manager/modules/yazi.nix
+    ../../home-manager/modules/syncthing.nix
+    ../../home-manager/modules/tailscale.nix
+
+    ../../home-manager/roles/desktop
   ];
-
-  # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # configure the username and all that things
-  home.username = "labellson";
-  home.homeDirectory = "/home/labellson";
 
   # keyboard keymap
   home.keyboard = {
@@ -43,7 +35,6 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    kitty
     ripgrep
     mosh
     btop
@@ -108,11 +99,6 @@ in
   # provided one in Ubuntu repositories
   programs.swaylock.enable = lib.mkForce false;
 
-  home.sessionVariables = {
-    EDITOR = "emacsclient -a '' -r";
-    TERMINAL = "kitty";
-  };
-
   gtk = {
     enable = true;
     theme = {
@@ -154,45 +140,10 @@ in
     } // confLinks;
   };
 
-  services.syncthing = {
-    enable = true;
-    tray.enable = true;
-    settings.devices = {
-      "Taiga S6 Lite" = {
-        id = "PCTAJAA-AIH4CCZ-PDUPFE7-RMYU2AE-SSQTFLO-Q3IQZEW-H7OCH47-JVILIQH";
-      };
-      "Vostok Pi" = {
-        id = "EYGINUF-ZXZC3G6-WMSUJPB-O7HTSQ6-BLLZ2MO-CWB5ZPQ-AZAPPBY-H3VWSQH";
-      };
-      "Sputnik Pi" = {
-        id = "W76IR3H-VKVCXB4-GJ4ZZY3-OZ3EXGP-4NUCHW2-OZBIJ3Y-2VDEWOD-OX2ASAO";
-      };
-      "Tundra 13 mini" = {
-        id = "472BSW5-7SUTFWA-ABZ6A2L-PQGVUME-UMMCIJX-WLSGQPA-DKAWSAT-DK7EAQU";
-      };
-    };
-    settings.folders = {
-      "my-notes" = {
-        path = "/home/${config.home.username}/syncthing/my-notes";
-        devices = [ "Taiga S6 Lite" "Vostok Pi" "Sputnik Pi" "Tundra 13 mini" ];
-      };
-      "my-finance" = {
-        path = "/home/${config.home.username}/syncthing/my-finance";
-        devices = [ "Taiga S6 Lite" "Vostok Pi" "Sputnik Pi" "Tundra 13 mini" ];
-      };
-    };
-  };
-
   targets.genericLinux = {
     enable = true;
     # when sudo is available this solves issues to access GPU libraries without
     # having to use nixGL in non-NixOs systems.
     gpu.enable = true;
   };
-
-  # Let Home Manager install and manage itself and enable git
-  programs.home-manager.enable = true;
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.05"; # Please read the comment before changing.
 }
