@@ -41,7 +41,31 @@
           ${name}.source = (dlsFuncs.makeLink mkOutOfStoreSymlink) name;
         });
         mkLink = mkOutOfStoreSymlink: (name: mkOutOfStoreSymlink (dlsFuncs.toSrcFile name));
+        # TODO: migrate from this function to the new mkSymlinkPath
         mkSymlink = mkOutOfStoreSymlink: (name: {
+          ${name} = {
+            source = (dlsFuncs.mkLink mkOutOfStoreSymlink) name;
+            # link directories recursively. Has no effects on files
+            recursive = true;
+          };
+        });
+
+        # After some time thinking this allows me to pass relative paths to real
+        # dotfiles in the repo. This way I always know if I'm passing a
+        # real dotfile or not
+        mkSymlinkPath = mkOutOfStoreSymlink: lib: self: (path:
+        let
+          pathStr =
+            if builtins.pathExists path
+            then toString path
+            # "${path}" already gives a nice error by itself. The throw is
+            # actually not necessary, but the intention of the code looks
+            # clear this way
+            else throw "${path} does not exists";
+          storeBasePathStr = "${toString self}/";
+          name = lib.removePrefix storeBasePathStr pathStr;
+        in
+        {
           ${name} = {
             source = (dlsFuncs.mkLink mkOutOfStoreSymlink) name;
             # link directories recursively. Has no effects on files
