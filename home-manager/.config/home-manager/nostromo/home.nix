@@ -19,6 +19,7 @@ in
     ../modules/voxtype.nix
     ../modules/nh.nix
     ../modules/yazi.nix
+    ../modules/darkman.nix
   ];
 
   # allow unfree packages
@@ -59,9 +60,6 @@ in
     enableFishIntegration = true;
     pinentry.package = pkgs.pinentry-gnome3;
   };
-
-  services.darkman.enable = true;
-  services.darkman.package = pkgs-unstable.darkman;
 
   # nice tray applet to monitor syncthing
   services.syncthing.tray.enable = true;

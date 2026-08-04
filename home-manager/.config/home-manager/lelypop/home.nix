@@ -12,6 +12,7 @@ in
   imports = [
     ../modules/shell.nix
     ../modules/xdg.nix
+    ../modules/darkman.nix
     ../modules/gammastep.nix
     ../modules/tinty
     ../commons.nix
@@ -40,9 +41,6 @@ in
 
   # allow fontconfig to discover fonts installed through home.packages
   fonts.fontconfig.enable = true;
-
-  services.darkman.enable = true;
-  services.darkman.package = pkgs-unstable.darkman;
 
   home.packages = with pkgs; [
     kitty
