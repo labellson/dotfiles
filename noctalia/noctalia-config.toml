@@ -146,6 +146,17 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
 [osd.kinds]
 media = false
 
+[plugin_settings."alexander/screen-toolkit"]
+panel-full_open_near_click = true
+panel-full_placement = "attached"
+panel-mode = "compact"
+panel_open_near_click = true
+panel_placement = "attached"
+screenshot-path = "~/scratch/Screenshots"
+search-engine-url = "https://duckduckgo.com/?q="
+selected-ocr-lang = "eng,esp"
+video-path = "~/scratch/Screenrecord"
+
 [plugin_settings."blackbartblues/audio-switcher"]
 show_percentage = false
 
@@ -154,7 +165,13 @@ api_key = "jWfAvVISrkiLYKshUXrfwcv1fXiiXKuT"
 download_dir = "~/Pictures/Wallpapers/Wallhaven"
 
 [plugins]
-enabled = [ "noctalia/wallhaven", "whyoolw/sharednd", "blackbartblues/audio-switcher", "apex077/eyecare" ]
+enabled = [
+    "apex077/eyecare",
+    "noctalia/wallhaven",
+    "whyoolw/sharednd",
+    "blackbartblues/audio-switcher",
+    "alexander/screen-toolkit"
+]
 
 [shell]
 password_style = "random"
@@ -229,7 +246,7 @@ icon_color = "secondary"
 mute_color = "secondary"
 
     [widget.input_volume.actions]
-    middle = "panel-toggle blackbartblues/audio-switcher:audio-switcher"
+    middle = "exec pavucontrol"
 
 [widget.keyboard_layout]
 capsule = true

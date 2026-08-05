@@ -30,7 +30,7 @@ binds {
     Super+Ctrl+W { spawn-sh "noctalia ipc call wallpaper toggle"; }
 
     // TODO: does not work on v5
-    Super+Print { spawn-sh "noctalia ipc call plugin:screen-toolkit toggle"; }
+    Super+Print { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
 }
 
 // Documentation recommends spawn noctalia at the very end of the config file
