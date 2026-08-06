@@ -25,9 +25,6 @@ in
     ../../home-manager/roles/developer
   ];
 
-  # polkit
-  services.polkit-gnome.enable = true;
-
   # gnupg
   programs.gpg = {
     enable = true;

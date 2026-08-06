@@ -175,6 +175,7 @@ enabled = [
 
 [shell]
 password_style = "random"
+polkit_agent = true
 screen_time_enabled = true
 
     [shell.panel]
