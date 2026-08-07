@@ -23,6 +23,7 @@ in
   };
 
   programs.opencode.enable = true;
+  programs.opencode.package = pkgsUnstable.opencode;
 
   xdg.configFile = confLinks;
 }
