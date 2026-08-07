@@ -53,7 +53,7 @@ in
     dconf
     evince
 
-    xfce.thunar
+    thunar
 
     spotify
     playerctl
