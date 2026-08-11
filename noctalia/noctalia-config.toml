@@ -178,6 +178,9 @@ password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
 
+    [shell.keyboard_layout.custom_labels]
+    "English (US, intl., with dead keys)" = "EN"
+
     [shell.panel]
     clipboard_placement = "attached"
     clipboard_position = "auto"
@@ -252,9 +255,6 @@ mute_color = "secondary"
 [widget.keyboard_layout]
 capsule = true
 icon_color = "primary"
-
-    [widget.keyboard_layout.custom_labels]
-    "English (US, intl., with dead keys)" = "EN"
 
 [widget.media]
 capsule = true
