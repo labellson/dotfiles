@@ -166,10 +166,10 @@ download_dir = "~/Pictures/Wallpapers/Wallhaven"
 
 [plugins]
 enabled = [
-    "apex077/eyecare",
     "noctalia/wallhaven",
     "whyoolw/sharednd",
     "blackbartblues/audio-switcher",
+    "apex077/eyecare",
     "alexander/screen-toolkit"
 ]
 
@@ -199,6 +199,9 @@ community_palette = "Solarized"
 mode = "auto"
 source = "community"
 wallpaper_scheme = "soft"
+
+    [theme.templates]
+    community_ids = [ "pywalfox-beta4" ]
 
 [wallpaper.default]
 path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
