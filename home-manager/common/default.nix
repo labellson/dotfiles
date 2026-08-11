@@ -20,7 +20,16 @@ in
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    settings = {
+      user ={
+        name = "Daniel Laguna";
+        email = "labellson@fastmail.com";
+      };
+      init.defaultBranch = "main";
+    };
+  };
 
   xdg.configFile = confLinks;
 
