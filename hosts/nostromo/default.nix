@@ -48,6 +48,7 @@ in
     element-desktop
     vlc
     cava
+    pavucontrol
 
     digikam
     darktable
