@@ -186,7 +186,8 @@ enabled = [
     "blackbartblues/audio-switcher",
     "apex077/eyecare",
     "alexander/screen-toolkit",
-    "kenn/keybind-cheatsheet"
+    "kenn/keybind-cheatsheet",
+    "noctalia/world_clock"
 ]
 
 [shell]
@@ -258,6 +259,9 @@ use_mpris_filter = true
 anchor = false
 capsule = false
 tooltip_format = "{:%a %d %b}"
+
+    [widget.clock.actions]
+    right = "panel-toggle noctalia/world_clock:panel"
 
 [widget.control-center]
 enabled = false
