@@ -1,64 +1,79 @@
-[bar.default]
-center = [ "control-center", "group:g2", "group:g6" ]
-end = [ "group:g3", "group:g4", "group:g1", "session" ]
-font_family = "GohuFont uni14 Nerd Font Mono"
-margin_ends = 0
-start = [ "wallpaper", "clipboard", "group:g5" ]
+[bar]
+order = [ "default" ]
 
-    [[bar.default.capsule_group]]
-    border = "outline"
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "brightness", "battery", "cpu", "ram", "temp", "keyboard_layout" ]
-    opacity = 1.0
-    padding = 6.0
+    [bar.default]
+    center = [ "control-center", "group:g2", "group:g6" ]
+    end = [ "group:g3", "group:g4", "group:g1", "session" ]
+    font_family = "GohuFont uni14 Nerd Font Mono"
+    margin_ends = 0
+    start = [ "wallpaper", "clipboard", "group:g5" ]
 
-    [[bar.default.capsule_group]]
-    border = "outline"
-    enabled = true
-    fill = "surface_variant"
-    id = "g2"
-    members = [ "clock", "privacy", "notifications" ]
-    opacity = 1.0
-    padding = 14.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "outline"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "brightness", "battery", "cpu", "ram", "temp", "keyboard_layout" ]
+        opacity = 1.0
+        padding = 6.0
 
-    [[bar.default.capsule_group]]
-    border = ""
-    enabled = true
-    fill = "#2B90D8"
-    foreground = "#FBF7EF"
-    id = "g3"
-    members = [ "tray", "network", "bluetooth" ]
-    opacity = 1.0
-    padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "outline"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "clock", "privacy", "notifications" ]
+        opacity = 1.0
+        padding = 14.0
 
-    [[bar.default.capsule_group]]
-    border = "secondary"
-    enabled = true
-    fill = "surface_variant"
-    id = "g4"
-    members = [ "widget", "volume", "input_volume" ]
-    opacity = 1.0
-    padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "#2B90D8"
+        foreground = "#FBF7EF"
+        id = "g3"
+        members = [ "tray", "network", "bluetooth" ]
+        opacity = 1.0
+        padding = 6.0
 
-    [[bar.default.capsule_group]]
-    border = "outline"
-    enabled = true
-    fill = "surface_variant"
-    id = "g5"
-    members = [ "workspaces", "active_window" ]
-    opacity = 1.0
-    padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "secondary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "widget", "volume", "input_volume" ]
+        opacity = 1.0
+        padding = 6.0
 
-    [[bar.default.capsule_group]]
-    border = "#819500"
-    enabled = true
-    fill = "surface_variant"
-    id = "g6"
-    members = [ "cat", "media", "audio_visualizer" ]
-    opacity = 1.0
-    padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "outline"
+        enabled = true
+        fill = "surface_variant"
+        id = "g5"
+        members = [ "workspaces", "active_window" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "#819500"
+        enabled = true
+        fill = "surface_variant"
+        id = "g6"
+        members = [ "media", "audio_visualizer" ]
+        opacity = 1.0
+        padding = 6.0
 
 [battery]
 warning_threshold = 15
@@ -170,7 +185,8 @@ enabled = [
     "whyoolw/sharednd",
     "blackbartblues/audio-switcher",
     "apex077/eyecare",
-    "alexander/screen-toolkit"
+    "alexander/screen-toolkit",
+    "kenn/keybind-cheatsheet"
 ]
 
 [shell]
