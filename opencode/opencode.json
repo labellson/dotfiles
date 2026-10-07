@@ -22,7 +22,8 @@
     }
   },
   "plugin": [
-    "@mohak34/opencode-notifier@latest"
+    "@mohak34/opencode-notifier@latest",
+    "@slkiser/opencode-quota@4"
   ],
   "mcp": {
     "context7": {
