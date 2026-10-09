@@ -10,6 +10,8 @@
     git-filter-repo
     jq
 
+    pre-commit
+
     # TODO: add podman when needed
   ];
 }

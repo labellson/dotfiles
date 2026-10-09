@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    (python313.withPackages(ps: with ps; [requests ipython]))
+    (python314.withPackages(ps: with ps; [requests ipython]))
     uv
   ];
 }
