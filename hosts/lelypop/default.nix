@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./fish.nix
+    ./lely.nix
 
     ../../home-manager/modules/darkman.nix
     ../../home-manager/modules/gammastep.nix
@@ -22,6 +23,9 @@ in
     ../../home-manager/modules/tailscale.nix
 
     ../../home-manager/roles/desktop
+    ../../home-manager/roles/firefox
+    ../../home-manager/roles/emacs
+    ../../home-manager/roles/developer
   ];
 
   # keyboard keymap
@@ -44,10 +48,7 @@ in
 
     niri
 
-    firefox
-    pywalfox-native
     vlc
-    overskride
     noisetorch
     pavucontrol
     dconf
@@ -62,31 +63,11 @@ in
     azure-cli
 
     neovim
-    emacs-pgtk
-    nil
-    nodejs # just to install lsp-servers
-    jq
-    usql
     go-grip # grip markdown preview
-
-    # needed by doom emacs
-    fd
-    gcc
-    gnumake
-    cmakeMinimal
-    (aspellWithDicts (dicts: with dicts; [en es]))
-    shellcheck
-    nixfmt
-    libtool  # needed to compile vterm
 
     pandoc
     texliveFull
     xan
-
-    # i like to have it installed
-    (python313.withPackages(ps: with ps; [requests ipython]))
-    pre-commit
-    uv
 
     # fonts
     fantasque-sans-mono

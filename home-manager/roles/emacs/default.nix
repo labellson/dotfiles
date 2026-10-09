@@ -1,16 +1,14 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgsUnstable, ... }:
 
 {
   home.packages = with pkgs; [
-    emacs-pgtk  # with native wayland support
-    git-lfs
-    git-filter-repo
+    pkgsUnstable.emacs-pgtk  # with native wayland support
     nil
     nodejs # just to install lsp-servers
 
     # needed by doom emacs
     fd
-    libtool
+    libtool  # needed to compile vterm
     gcc
     gnumake
     cmakeMinimal
