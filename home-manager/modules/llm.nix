@@ -22,8 +22,8 @@ in
   ];
 
   home.sessionVariables = {
-    OPENCODE_MODEL = "github-copilot/claude-sonnet-5";
-    OPENCODE_SMALL_MODEL = "github-copilot/gpt-5.6-luna";
+    OPENCODE_MODEL = "github-copilot/claude-sonnet-5.5";
+    OPENCODE_SMALL_MODEL = "github-copilot/claude-haiku-5.5";
   };
 
   programs.opencode.enable = true;
