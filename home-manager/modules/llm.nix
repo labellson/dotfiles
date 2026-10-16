@@ -32,13 +32,21 @@ in
   programs.uv = {
     enable = true;
     tool.packages = [
+      # 1. login headroom in copilot
+      #
+      # headroom copilot-auth login
       "headroom-ai[all]"
       # initialise after the installation
       # run: serena init
       "serena-agent"
       # to register to the agent assistant
-      # run: graphify install opencode
-      # always use the graph: graphify opencode install
+      # 1. install per project
+      #
+      # graphify install --project --platform opencode
+      #
+      # 2. install git hooks to run graphify update . automatically
+      #
+      # graphify hook install
       "graphifyy"
     ];
   };
