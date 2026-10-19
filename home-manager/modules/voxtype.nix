@@ -22,7 +22,7 @@ in
 
   programs.voxtype = {
     enable = true;
-    package = inputs.voxtype.packages.${pkgs.stdenv.hostPlatform}.onnx;
+    package = inputs.voxtype.packages.${pkgs.stdenv.hostPlatform.system}.onnx;
     engine = "parakeet";
     model.path = "/home/${config.home.username}/.local/share/voxtype/models/parakeet-tdt-0.6b-v3-int8";
     service.enable = false;
