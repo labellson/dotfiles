@@ -6,5 +6,8 @@
 
   home.packages = with pkgs; [
     fantasque-sans-mono
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.gohufont
+    nerd-fonts.symbols-only
   ];
 }

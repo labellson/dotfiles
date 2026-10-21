@@ -7,6 +7,7 @@
     nodejs # just to install lsp-servers
 
     # needed by doom emacs
+    ripgrep
     fd
     libtool  # needed to compile vterm
     gcc
