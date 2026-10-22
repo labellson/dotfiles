@@ -25,5 +25,8 @@
 
     databricks-cli
     azure-cli
+
+    teams-for-linux
+    snx-rs
   ];
 }
