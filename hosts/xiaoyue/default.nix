@@ -15,6 +15,7 @@
     ../../home-manager/modules/tailscale.nix
     ../../home-manager/modules/nextcloud.nix
     ../../home-manager/modules/fonts.nix
+    ../../home-manager/modules/anki.nix
 
     ../../home-manager/roles/desktop
     ../../home-manager/roles/firefox
