@@ -27,4 +27,16 @@
     EDITOR = "emacsclient -a '' -r";
     TERM = "kitty";
   };
+
+  # needed to query light/dark mode
+  xdg.portal.config = {
+    common = {
+      default = [ "gtk" ];
+    };
+    niri = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.Settings" = ["darkman"];
+    };
+  };
+
 }
