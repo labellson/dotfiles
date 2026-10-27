@@ -1,8 +1,8 @@
 { config, lib, pkgs, pkgsUnstable, ... }:
 
 {
-  home.packages = with pkgs; [
-    pkgsUnstable.emacs-pgtk  # with native wayland support
+  home.packages = with pkgsUnstable; [
+    emacs-pgtk  # with native wayland support
     nil
     nodejs # just to install lsp-servers
 
