@@ -10,6 +10,7 @@
 
     pgcli
 
+    chromium
     obsidian
     vlc
     evince
