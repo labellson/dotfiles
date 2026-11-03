@@ -6,33 +6,27 @@ order = [ "default" ]
     end = [ "group:g3", "group:g4", "group:g1", "session" ]
     font_family = "GohuFont uni14 Nerd Font Mono"
     margin_ends = 0
-    start = [ "wallpaper", "clipboard", "group:g5" ]
+    start = [ "wallpaper", "clipboard", "summary", "group:g5" ]
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border = "outline"
+        border = "outline_variant"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g1"
         members = [ "brightness", "battery", "cpu", "ram", "temp", "keyboard_layout" ]
         opacity = 1.0
         padding = 6.0
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border = "outline"
+        border = "outline_variant"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g2"
         members = [ "clock", "privacy", "notifications" ]
         opacity = 1.0
         padding = 14.0
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
         border = ""
         enabled = true
         fill = "#2B90D8"
@@ -43,35 +37,29 @@ order = [ "default" ]
         padding = 6.0
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
         border = "secondary"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g4"
         members = [ "widget", "volume", "input_volume" ]
         opacity = 1.0
         padding = 6.0
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border = "outline"
+        border = "outline_variant"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g5"
         members = [ "workspaces", "active_window" ]
         opacity = 1.0
         padding = 6.0
 
         [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
         border = "#819500"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g6"
-        members = [ "media", "audio_visualizer" ]
+        members = [ "cat", "media", "audio_visualizer" ]
         opacity = 1.0
         padding = 6.0
 
@@ -84,12 +72,14 @@ enabled = true
     [calendar.account.abyssal_nextcloud]
     name = "Nextcloud"
     provider = "custom"
-    server_url = "https://sputnik.dani.codes/remote.php/dav"
     type = "caldav"
     username = "labellson"
 
 [control_center]
 sidebar = "full"
+
+    [control_center.calendar]
+    show_events_location = true
 
 [desktop_widgets]
 enabled = false
@@ -106,12 +96,35 @@ widget_order = []
 [hooks]
 theme_mode_changed = "[ $NOCTALIA_THEME_MODE = \"dark\" ] && darkman set dark || darkman set light"
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = false
+    timeout = 660.0
+
 [location]
 auto_locate = true
 
 [lockscreen_widgets]
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-widget-0000000000000001"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -119,44 +132,110 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-1" ]
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 196.0
+    box_width = 720.0
     cx = 1280.0
     cy = 1321.0
     output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 196.0
+    box_width = 720.0
     cx = 960.0
     cy = 961.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1280.0
+    cy = 925.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "calendar"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        show_events_location = false
+        show_week_numbers = false
+
+[nightlight]
+enabled = true
+temperature_night = 3800
 
 [osd.kinds]
 media = false
@@ -175,6 +254,9 @@ video-path = "~/scratch/Screenrecord"
 [plugin_settings."blackbartblues/audio-switcher"]
 show_percentage = false
 
+[plugin_settings."gustav0ar/drive-health"]
+system_collector_enabled = true
+
 [plugin_settings."noctalia/wallhaven"]
 api_key = "jWfAvVISrkiLYKshUXrfwcv1fXiiXKuT"
 download_dir = "~/Pictures/Wallpapers/Wallhaven"
@@ -183,11 +265,10 @@ download_dir = "~/Pictures/Wallpapers/Wallhaven"
 enabled = [
     "noctalia/wallhaven",
     "whyoolw/sharednd",
-    "blackbartblues/audio-switcher",
     "apex077/eyecare",
     "alexander/screen-toolkit",
-    "kenn/keybind-cheatsheet",
-    "noctalia/world_clock"
+    "noctalia/world_clock",
+    "gustav0ar/drive-health"
 ]
 
 [shell]
@@ -220,17 +301,20 @@ wallpaper_scheme = "soft"
     [theme.templates]
     community_ids = [ "pywalfox-beta4" ]
 
-[wallpaper.default]
-path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
+[wallpaper]
+transition_on_startup = true
 
-[wallpaper.last]
-path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
+    [wallpaper.default]
+    path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
-[wallpaper.monitors.DP-1]
-path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
+    [wallpaper.last]
+    path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
-[wallpaper.monitors.eDP-1]
-path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
+    [wallpaper.monitors.DP-1]
+    path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/labellson/Pictures/Wallpapers/Wallhaven/wallhaven-6lpdjl.jpg"
 
 [widget.active_window]
 max_length = 512
@@ -299,6 +383,9 @@ stat = "ram_pct"
 
 [widget.session]
 color = "secondary"
+
+[widget.summary]
+type = "gustav0ar/drive-health:summary"
 
 [widget.temp]
 display = "gauge"
