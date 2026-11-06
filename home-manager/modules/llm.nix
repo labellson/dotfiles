@@ -29,6 +29,13 @@ in
   programs.opencode.enable = true;
   programs.opencode.package = pkgsUnstable.opencode;
 
+  programs.t3code = {
+    enable = true;
+    package = pkgsUnstable.t3code.override {
+      enableOpencode = true;
+    };
+  };
+
   programs.uv = {
     enable = true;
     tool.packages = [
