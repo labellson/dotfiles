@@ -15,9 +15,6 @@
     vlc
     evince
 
-    # TODO: might this be needed in the common config??
-    dconf
-
     thunar
 
     go-grip # grip markdown preview

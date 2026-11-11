@@ -6,6 +6,11 @@ in
 {
   services.darkman.enable = true;
 
+  home.packages = with pkgs; [
+    # one of the scripts uses dconf
+    dconf
+  ];
+
   xdg.configFile."darkman/config.yaml".source = makeLink "darkman/config/darkman/config.yaml";
   xdg.dataFile = {
     "darkman" = {
