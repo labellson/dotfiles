@@ -26,4 +26,9 @@ in
       recursive = true;
     };
   };
+
+  # darkman home manager unit BindsTo=graphical-session.target. Apparently this
+  # triggers the unit to run before WAYLAND_DISPLAY or NIRI_SOCKET is set.
+  # Therefore it makes it fail
+  systemd.user.services.darkman.Unit.BindsTo = lib.mkForce [ ];
 }
