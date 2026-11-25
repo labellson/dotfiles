@@ -5,7 +5,7 @@
     ./home-configuration.nix
 
     ../../home-manager/modules/tinty
-    ../../home-manager/modules/llm.nix
+    ../../home-manager/modules/llm
     ../../home-manager/modules/i18n.nix
     ../../home-manager/modules/voxtype.nix
     ../../home-manager/modules/nh.nix
